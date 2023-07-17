@@ -1,0 +1,3 @@
+[submodule "models/LAVIS"]
+	path = models/LAVIS
+	url = https://github.com/salesforce/LAVIS.git
