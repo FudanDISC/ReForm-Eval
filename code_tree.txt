@@ -1,0 +1,52 @@
+.
+|-- README.md
+|-- code_tree.txt
+|-- datasets
+|   `-- __init__.py
+|-- metrics
+|-- models
+|   |-- LAVIS
+|   |   |-- CODEOWNERS
+|   |   |-- CODE_OF_CONDUCT.md
+|   |   |-- LICENSE.txt
+|   |   |-- MANIFEST.in
+|   |   |-- README.md
+|   |   |-- SECURITY.md
+|   |   |-- app
+|   |   |-- assets
+|   |   |-- dataset_card
+|   |   |-- docs
+|   |   |-- evaluate.py
+|   |   |-- examples
+|   |   |-- lavis
+|   |   |-- projects
+|   |   |-- pyproject.toml
+|   |   |-- requirements.txt
+|   |   |-- run_scripts
+|   |   |-- salesforce_lavis.egg-info
+|   |   |-- setup.py
+|   |   |-- tests
+|   |   `-- train.py
+|   |-- LLaVA
+|   |   |-- LICENSE
+|   |   |-- README.md
+|   |   |-- docs
+|   |   |-- images
+|   |   |-- llava
+|   |   |-- playground
+|   |   |-- pyproject.toml
+|   |   `-- scripts
+|   |-- __init__.py
+|   |-- __pycache__
+|   |   `-- __init__.cpython-39.pyc
+|   |-- build_scripts
+|   |   |-- build_blip2.sh
+|   |   `-- build_llava.sh
+|   `-- interfaces
+|       |-- __pycache__
+|       |-- blip2.py
+|       `-- llava.py
+|-- run_eval.py
+`-- utils
+
+25 directories, 24 files

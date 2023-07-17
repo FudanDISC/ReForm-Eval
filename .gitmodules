@@ -1,3 +1,6 @@
 [submodule "models/LAVIS"]
 	path = models/LAVIS
 	url = https://github.com/salesforce/LAVIS.git
+[submodule "models/LLaVA"]
+	path = models/LLaVA
+	url = https://github.com/haotian-liu/LLaVA.git
