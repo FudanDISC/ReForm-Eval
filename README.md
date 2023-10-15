@@ -568,9 +568,19 @@ Our benchmark provides accuracy and instability as metrics for each task, to qua
 
 **Step 2:** The model outputs different results based on the dataset created by different inference methods (generation or likelihood).
 
-**Step 3:** Run our new script, taking the problem formulation and the output json file as input.
+**Step 3:** Run our new script, taking the problem formulation and the output json file as main parameters of input.
+```python
+from dataloader_eval import loader_eval
 
-**Step 4:** The accuracy, the format hit rate and instability can be viewed in `output_dir_path/log.txt`.
+loader_eval(formulation='SingleChoice',
+            multi_round_eval=True,
+            dataset_duplication=5, 
+            eval_stability=True, 
+            json_path='/path/to/your.json'
+)
+```
+
+**Step 4:** The accuracy, the format hit rate and instability can be viewed in `json_path/log.txt`.
 
 ### Output Result
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
