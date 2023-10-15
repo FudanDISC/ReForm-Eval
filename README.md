@@ -11,8 +11,7 @@
 </p>
 
 <div align="center">
-  <h2 style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h2>
-  <img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
+  <p style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p>
 </div>
 
 <!-- <span style='font-size: 24px; font-weight: bold;'><p align='center'>ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p></span> -->
