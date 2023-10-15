@@ -5,13 +5,17 @@
 
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-green" />
-    <img src="https://img.shields.io/github/stars/your-username/your-repository?style=social" />
-    <img src="https://img.shields.io/github/downloads/your-username/your-repository/total?style=social" />
+    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?style=social" />
+    <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" />
     <img src="https://img.shields.io/github/views/FudanDISC/ReForm-Eval?style=social" />
 </p>
 
+<div align="center">
+  <h1 style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h1>
+  <img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
+</div>
 
-<span style='font-size: 24px; font-weight: bold;'><p align='center'>ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p></span>
+<!-- <span style='font-size: 24px; font-weight: bold;'><p align='center'>ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p></span> -->
 
 <p align="center"><strong>Zejun Li<sup>1</sup><sup>†</sup> , Ye Wang<sup>1</sup><sup>†</sup> , Mengfei Du<sup>1</sup><sup>†</sup> , Qingwen Liu<sup>1</sup><sup>†</sup> , Binhao Wu<sup>1</sup><sup>†</sup> , Jiwen Zhang<sup>1</sup><sup>†</sup> , Chengxing Zhou<sup>2</sup> , Zhihao Fan<sup>3</sup> , Jie Fu<sup>4</sup> , Jingjing Chen<sup>1</sup> , Xuanjing Huang<sup>1</sup> , Zhongyu Wei<sup>1</sup><sup>*</sup>.
  </strong></p>
