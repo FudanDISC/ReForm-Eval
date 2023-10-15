@@ -64,7 +64,7 @@ The unified formulation enables universal and comprehensive evaluation. For each
 
 Considering the sensitivity of LVLMs to the input prompts (Zeng et al., 2023), we additionally design an instability-aware evaluation strategy and introduce a metric to characterize such instability. 
 
-**🔧ReForm-Eval serves as a reliable tool for quantitative analysis of LVLMs, aiding in the research and development of LVLMs.🔧**
+**ReForm-Eval serves as a reliable tool for quantitative analysis of LVLMs, aiding in the research and development of LVLMs.🔧🔧🔧**
 
 ## 📣 Update
 - **[2023-10]** We released a version of the original paper containing 16 models and 61 reformulated datasets!
@@ -94,9 +94,9 @@ We list the average ranking and score of the model under Generation Evaluation a
 
 | Model          | Gen-Avg-Rank | Gen-Avg-Score | Like-Avg-Rank | Like-Avg     |
 |----------------|--------------|---------------|---------------|--------------|
-| **BLIP-2**     | <u>2.3</u>          | **62.94**         | 4.3           | 62.92        |
-| **InstructBLIP_F** | **2.0**      | <u>60.77</u>         | 4.0           | 63.48        |
-| **InstructBLIP_V** | 4.4      | 52.20         | 3.0           | <u>64.37</u>        |
+| **BLIP-2**     | *2.3*          | **62.94**         | 4.3           | 62.92        |
+| **InstructBLIP_F** | **2.0**      | *60.77*         | 4.0           | 63.48        |
+| **InstructBLIP_V** | 4.4      | 52.20         | 3.0           | *64.37*        |
 | **LLaVA_V**    | 11.1         | 34.24         | 8.7           | 55.49        |
 | **LLaVA_L2**   | 5.9          | 45.78         | 11.2          | 52.97        |
 | **MiniGPT4**   | 7.3          | 43.12         | 7.8           | 56.15        |
@@ -106,7 +106,7 @@ We list the average ranking and score of the model under Generation Evaluation a
 | **LA-V2**      | 12.5         | 32.60         | 12.2          | 50.00        |
 | **mmGPT**      | 14.4         | 29.38         | 12.8          | 50.92        |
 | **Shikra**     | 11.0         | 36.14         | 7.0           | 58.40        |
-| **Lynx**       | 5.0          | 50.00         | <u>2.8</u>           | 63.93        |
+| **Lynx**       | 5.0          | 50.00         | *2.8*           | 63.93        |
 | **Cheetor_V**  | 6.8          | 44.74         | 8.2           | 56.73        |
 | **Cheetor_L2** | 7.9          | 41.75         | 10.7          | 52.43        |
 | **BLIVA**      | 7.9          | 42.40         | **2.7**           | **64.92**        |
@@ -120,7 +120,7 @@ We list the average ranking and score of the model under Generation Evaluation a
 ## 📥 Prepare Dataset
 To address the wide range of questions posed by users, LVLMs need to possess diverse capabilities. For a comprehensive evaluation, we curate 61 benchmark datasets from existing resources, summarizing the assessed capabilities into 2 major categories and 8 sub-categories.
 
-<h3 align="center"><img src="./base_dimensions.png" /></h3>
+<p align="center"><img src="./base_dimensions.png" /></p>
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
 
