@@ -77,24 +77,24 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 - **[2023-10]** We released a version of the original paper containing 16 models and 61 reformulated datasets!
 
 ## 📖 Contents
-- [Model Performance](#model-performance)
-- [Prepare Dataset](build/prepare_dataset.md#prepare-dataset)
+- [Model Performance](#🦾-model-performance)
+- [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)
   - [Load Dataset from Hugging Face (Recommended)](build/prepare_dataset.md#load-dataset-from-hugging-face-recommended)
   - [Manually Download](build/prepare_dataset.md#manually-download)
-- [Prepare Models](models/prepare_models.md#prepare-models)
+- [Prepare Models](models/prepare_models.md#🤖-prepare-models)
   - [Set Up Existing Models](models/prepare_models.md#set-up-existing-models)
   - [Add Your Own Models](models/prepare_models.md#add-your-own-models)
   - [Preprocessors](models/prepare_models.md#preprocessors)
-- [Usage](#usage)
+- [Getting Start](#🔥-getting-start)
   - [Demo](#demo)
   - [Parameters](#parameters)
   - [Model Usage](#model-usage)
   - [Data Usage](#data-usage)
-- [Evaluation](#evaluation)
+- [Evaluation](#🚀-evaluation)
   - [Direct Evaluation](#direct-evaluation)
   - [Evaluation Using Our Benchmark](#evaluation-using-our-benchmark) 
-- [Citation](#citation)
-- [Related Projects](#related-projects)
+- [Citation](#🖋-citation)
+- [Related Projects](#🔏-related-projects)
 
 ## 🦾 Model Performance
 We list the average ranking and score of the model under Generation Evaluation and Likelihood Evaluation in the table below. New models will be added soon.
@@ -109,9 +109,9 @@ We list the average ranking and score of the model under Generation Evaluation a
 | **MiniGPT4**   | 7.3          | 43.12         | 7.8           | 56.15        |
 | **mPLUG-Owl**  | 10.6         | 37.95         | 10.3          | 53.69        |
 | **PandaGPT**   | 13.9         | 26.84         | 15.8          | 41.80        |
-| **ImageBind-LLM** | 13.0       | 30.24         | 14.5          | 47.58        |
-| **LLaMA-Adapter V2**      | 12.5         | 32.60         | 12.2          | 50.00        |
-| **Multimodal-GPT**      | 14.4         | 29.38         | 12.8          | 50.92        |
+| **IB-LLM** | 13.0       | 30.24         | 14.5          | 47.58        |
+| **LA-V2**      | 12.5         | 32.60         | 12.2          | 50.00        |
+| **mmGPT**      | 14.4         | 29.38         | 12.8          | 50.92        |
 | **Shikra**     | 11.0         | 36.14         | 7.0           | 58.40        |
 | **Lynx**       | 5.0          | 50.00         | *2.8*           | 63.93        |
 | **Cheetor_V**  | 6.8          | 44.74         | 8.2           | 56.73        |
@@ -554,7 +554,15 @@ res[0] #res[n], n can be any number within the generated results
 ```
 
 ### Evaluation Using Our Benchmark
-Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. The accuracy, the format hit rate and instability can be viewed in `output_dir_path/log.txt`.
+Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance.
+
+Step 1: Use existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
+
+Step 2: Create the conda env corresponding to the model and install the necessary packages.
+
+Step 3: Switch to the corresponding conda env, run run_eval.py, and add necessary parameters.
+
+Step 4: Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir_path/log.txt`.
 
 ## 🖋 Citation
 If ReForm-Eval has been beneficial to your research and work, please cite our work using the following format:
