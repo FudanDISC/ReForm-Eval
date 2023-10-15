@@ -1,7 +1,10 @@
 <div align="center">
   <h1 style="display: inline-block; font-size: 48px;">ReForm-Eval</h1>
-  <img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
 </div>
+
+<p align="center">
+<img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
+</p>
 
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-green" />
