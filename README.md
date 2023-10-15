@@ -11,7 +11,7 @@
 </p>
 
 <div align="center">
-  <h1 style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h1>
+  <h2 style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h2>
   <img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
 </div>
 
@@ -36,7 +36,7 @@ Recent years have witnessed remarkable progress in the development of large visi
 
 We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part. 
 
-<h2 align="center"><img src="./short.png" /></h2>
+<p align="center"><img src="./short.png" /></p>
 Illustration of the unified re-formulation of existing benchmarks into multiple-choice problems. The text within square brackets indicates the evaluation methods, with red and green denoting incorrect and correct judgment, respectively. “EM” is short for exact match.
 <!-- <h3 align="center"><img src="./intro-flat.pdf" /></h3> -->
 
