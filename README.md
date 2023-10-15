@@ -266,12 +266,12 @@ class imagebindLLM_Interface(nn.Module):
 ```
 
 In `/path/to/imagebindllm_ckpts`, you need to include the following ckpts:
-```YAML
-imagebindllm_ckpts
-- 7B.pth
-- imagebind_w3D.pth
-- knn.index
-- PointTransformer_8192point.yaml
+```
+|-- imagebindllm_ckpts
+    |-- 7B.pth
+    |-- imagebind_w3D.pth
+    |-- knn.index
+    `-- PointTransformer_8192point.yaml
 ```
 #### PandaGPT
 ```bash
