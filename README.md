@@ -109,9 +109,9 @@ We list the average ranking and score of the model under Generation Evaluation a
 | **MiniGPT4**   | 7.3          | 43.12         | 7.8           | 56.15        |
 | **mPLUG-Owl**  | 10.6         | 37.95         | 10.3          | 53.69        |
 | **PandaGPT**   | 13.9         | 26.84         | 15.8          | 41.80        |
-| **ImageBindLLM** | 13.0       | 30.24         | 14.5          | 47.58        |
-| **LA-V2**      | 12.5         | 32.60         | 12.2          | 50.00        |
-| **mmGPT**      | 14.4         | 29.38         | 12.8          | 50.92        |
+| **ImageBind-LLM** | 13.0       | 30.24         | 14.5          | 47.58        |
+| **LLaMA-Adapter V2**      | 12.5         | 32.60         | 12.2          | 50.00        |
+| **Multimodal-GPT**      | 14.4         | 29.38         | 12.8          | 50.92        |
 | **Shikra**     | 11.0         | 36.14         | 7.0           | 58.40        |
 | **Lynx**       | 5.0          | 50.00         | *2.8*           | 63.93        |
 | **Cheetor_V**  | 6.8          | 44.74         | 8.2           | 56.73        |
@@ -236,7 +236,7 @@ In `./models/interfaces/minigpt4/configs/models/minigpt4.yaml`, you need to set:
 # Vicuna
 llama_model: "/path/to/vicuna-7B-v0/"
 ```
-#### mPLUG-owl
+#### mPLUG-Owl
 ```bash
 --model mplugowl  --model_name mplugowl --model_type /path/to/mplug-owl-llama-7b/
 ```
