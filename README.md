@@ -10,9 +10,9 @@
     <img src="https://img.shields.io/github/views/FudanDISC/ReForm-Eval?style=social" />
 </p>
 
-<p align="center">
-  <span style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</span>
-</p>
+<div align="center">
+  <h1 style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h1>
+</div>
 
 <!-- <span style='font-size: 24px; font-weight: bold;'><p align='center'>ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p></span> -->
 
@@ -1091,7 +1091,7 @@ res[0] #res[n], n can be any number within the generated results
 ```
 
 ### Evaluation Using Our Benchmark
-Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. The accuracy, the format hit rate and instability can be viewed in `--output_dir path/log.txt`.
+Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. The accuracy, the format hit rate and instability can be viewed in `output_dir_path/log.txt`.
 
 ## 🖋 Citation
 If ReForm-Eval has been beneficial to your research and work, please cite our work using the following format:
