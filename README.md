@@ -40,7 +40,7 @@ Recent years have witnessed remarkable progress in the development of large visi
 
 We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part. 
 
-<h2 align="center"><img src="./intro-short.png" /></h2>
+<h2 align="center"><img src="./short.png" /></h2>
 <!-- <h3 align="center"><img src="./intro-flat.pdf" /></h3> -->
 
 <span style="font-size:larger;">**Existing LVLMs Evaluation:**</span>
