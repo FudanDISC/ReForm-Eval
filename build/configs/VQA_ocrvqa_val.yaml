@@ -1,0 +1,6 @@
+dataset: 'OCRVQA'
+version: '3.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/OCRVQA/test_images'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/OCRVQA/multi-choices/ocrvqa_3.0_val_10p.json'

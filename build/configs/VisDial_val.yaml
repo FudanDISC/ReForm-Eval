@@ -1,0 +1,7 @@
+dataset: 'VisDial'
+version: '1.0'
+split: 'val2018'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/VisDial/images/'
+  data_path: '/remote-home/share/multimodal-datasets/VisDial/visdial_1.0_val.json'
+  dense_path: '/remote-home/share/multimodal-datasets/VisDial/visdial_1.0_val_dense_annotations.json'

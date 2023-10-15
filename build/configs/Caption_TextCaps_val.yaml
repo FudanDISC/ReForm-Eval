@@ -1,0 +1,6 @@
+dataset: 'TextCaps'
+task: 'caption'
+data_config:
+  load_from_bootstrap: True
+  textcaps_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Caption/TextCaps/captions-sampled.json"
+  huggingface_data: "huggingface_data/TextCaps/captions-sampled.json"

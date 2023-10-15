@@ -1,0 +1,7 @@
+dataset: 'VQA'
+version: '1.0'
+split: 'COCO_val2014'
+option_type: 1
+data_config:
+  image_path: '/remote-home/share/VQA/Images/val2014'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/VQA/multi-choices/vqa_1.0_val.json'

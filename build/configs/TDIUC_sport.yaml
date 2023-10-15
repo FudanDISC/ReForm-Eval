@@ -1,0 +1,13 @@
+dataset: 'TDIUC'
+version: '1.0'
+option_type: 1
+task: 'sport_recognition' # 12 tasks to choose
+instruct_kind: 'single_choice' # choose from ['single_choice' , 'vqa'] , to use a kind of instruction
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/TDIUC/Images/val2014/'
+  question_path: '/remote-home/share/multimodal-datasets/TDIUC/Questions/tenth_filtered_val2014_questions.json'
+  anns_path: '/remote-home/share/multimodal-datasets/TDIUC/Annotations/tenth_filtered_val2014_annotations.json'
+  choice_path: '/remote-home/share/multimodal-datasets/TDIUC/choice_list/'
+  hf_question_path: 'huggingface_data/TDIUC/TDIUC_val_ques.json'
+  hf_anns_path: 'huggingface_data/TDIUC/TDIUC_val_anns.json'
+  hf_choice_path: 'huggingface_data/TDIUC/choice_list/'

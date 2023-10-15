@@ -1,0 +1,8 @@
+dataset: 'iiit5k'
+task: 'ocr'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/ocr-data/ocr_task/IIIT5K'
+  huggingface_data: 'huggingface_data/IIIT5K/iiit5k_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/iiit5k_core_open_ended.json'

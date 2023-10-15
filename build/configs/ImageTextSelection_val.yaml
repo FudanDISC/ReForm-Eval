@@ -1,0 +1,9 @@
+dataset: 'MSCOCO'
+task: 'its' # image text selection
+version: '1.0'
+split: 'val2017'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/MSCOCO/2017/images/val2017/'
+  load_from_bootstrap: True
+  its_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Image-Text-Selection/image-text-selection-object-sampled.json'
+  huggingface_data: "huggingface_data/MSCOCO/image-text-selection-object-sampled.json"

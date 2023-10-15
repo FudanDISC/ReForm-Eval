@@ -1,0 +1,8 @@
+dataset: 'sroie'
+task: 'kie'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/KIE/SROIE_test'
+  huggingface_data: 'huggingface_data/SROIE/sroie_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/sroie_core_open_ended.json'

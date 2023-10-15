@@ -1,0 +1,14 @@
+dataset: 'VizWiz'
+version: '1.0'
+option_type: 1
+instruct_kind: 'single_choice' # single_choice or vqa
+task_kind: 'SingleChoice' # SingleChoice or YesOrNo
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/IQA/images/val/'
+  # yesNo_anns_path: '/remote-home/share/multimodal-datasets/IQA/annotations/new_noConfound_yesOrNo_val.json'
+  # singleChoice_anns_path: '/remote-home/share/multimodal-datasets/IQA/annotations/new_noConfound_singleChoice_val.json'
+  yesNo_anns_path: '/remote-home/share/multimodal-datasets/IQA/annotations/tenths_yesOrNo_val.json'
+  singleChoice_anns_path: '/remote-home/share/multimodal-datasets/IQA/annotations/tenths_singleChoice_val.json'
+  hf_yesNo_anns_path: 'huggingface_data/VizWiz/vizwiz_yesno_val_10p.json'
+  hf_singleChoice_anns_path: 'huggingface_data/VizWiz/vizwiz_singleChoice_val_10p.json'
+  

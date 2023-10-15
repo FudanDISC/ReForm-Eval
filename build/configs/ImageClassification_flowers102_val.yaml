@@ -1,0 +1,9 @@
+dataset: 'Flowers102'
+version: '1.0'
+option_type: 1
+instruct_kind: 'single_choice' # single_choice or vqa
+data_config:
+  image_dir: '/remote-home/share/multimodal-datasets/Flowers102/dataset/valid'
+  anns_path: '/remote-home/share/multimodal-datasets/Flowers102/flowerKind_annotations.json'
+  hf_anns_path: 'huggingface_data/Flowers102/flower102_val_1p.json'
+  

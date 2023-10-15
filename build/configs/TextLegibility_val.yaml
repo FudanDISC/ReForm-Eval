@@ -1,0 +1,8 @@
+dataset: 'coco_text'
+task: 'tl'
+version: '2.0'
+split: 'val2014'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/MSCOCO2014/train2014/'
+  true_or_false_path: '/remote-home/share/multimodal-datasets/COCO_Text/mscoco_tl_true_or_false_.json'
+  core_true_or_false_path: '/remote-home/share/multimodal-datasets/core_datasets/tl_core_true_or_false.json'

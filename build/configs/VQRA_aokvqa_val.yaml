@@ -1,0 +1,7 @@
+dataset: 'A-OKVQA'
+version: '1.0'
+split: 'val'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/visual_spatial_reasoning/visual-spatial-reasoning/data/trainval2017'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/A-OKVQA/multi-choices/aokvqa_qra_1.0_val_10p.json'
+  huggingface_data: 'huggingface_data/A-OKVQRA/aokvqra_val_10p.json'

@@ -1,0 +1,7 @@
+dataset: 'GQA'
+version: '2.0'
+split: 'testdev_balanced'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/GQA/images'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/GQA/multi-choices/gqa_2.0_val_10p.json'
+  huggingface_data: 'huggingface_data/GQA/gqa_testdev_10p.json'

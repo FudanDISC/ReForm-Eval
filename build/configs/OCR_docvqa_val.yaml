@@ -1,0 +1,7 @@
+dataset: 'DocVQA'
+version: '1.0'
+split: 'val'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/DocVQA/val/documents'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/DocVQA/open-qa/docvqa_1.0_val_10p.json'
+  huggingface_data: 'huggingface_data/DocVQA/docvqa_val_10p.json'

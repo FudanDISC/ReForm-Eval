@@ -1,0 +1,8 @@
+dataset: 'wordart'
+task: 'ocr'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/ocr-data/ocr_task/WordArt'
+  huggingface_data: 'huggingface_data/WordArt/wordart_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/wordart_core_open_ended.json'

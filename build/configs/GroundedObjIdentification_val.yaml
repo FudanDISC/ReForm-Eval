@@ -1,0 +1,8 @@
+dataset: 'MSCOCO'
+task: 'goi'
+version: '2.0'
+split: 'val2017'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/MSCOCO/2017/images/val2017/'
+  huggingface_data: 'huggingface_data/MSCOCO/goi_core_multiple_choice.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/goi_core_multiple_choice.json'

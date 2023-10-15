@@ -1,0 +1,6 @@
+dataset: 'Flickr30K'
+task: 'caption'
+data_config:
+  load_from_bootstrap: True
+  flickr30k_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Caption/Flickr_30K/captions-sampled.json"
+  huggingface_data: "huggingface_data/Flickr30K/captions-sampled.json"

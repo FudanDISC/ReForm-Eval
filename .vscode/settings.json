@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/models/LLaVA",
+        "${workspaceFolder}/models/LAVIS",
+        "./models/LaVIN"
+    ]
+}

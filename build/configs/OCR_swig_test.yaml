@@ -1,0 +1,6 @@
+dataset: 'SWiG'
+version: '1.0'
+split: 'test'
+data_config:
+  image_path: '/root/images_512'
+  data_path: '/remote-home/qwliu/PCoFormer/SWiG/SWiG_jsons/test_split_blip2.json'

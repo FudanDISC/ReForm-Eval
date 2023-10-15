@@ -1,0 +1,7 @@
+dataset: 'ViQuAE'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/viquae/viquae_images/images'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/ViQuAE/multi-choices/viquae_2.0_val_10p.json'
+  huggingface_data: 'huggingface_data/K-ViQuAE/kviquae_test_10p.json'

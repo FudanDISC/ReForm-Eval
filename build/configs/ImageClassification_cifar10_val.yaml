@@ -1,0 +1,10 @@
+dataset: 'CIFAR10'
+version: '1.0'
+option_type: 1
+instruct_kind: 'single_choice' # single_choice or vqa
+data_config:
+  image_dir: '/remote-home/share/multimodal-datasets/CIFAR10/test_images/'
+  # anns_path: '/remote-home/share/multimodal-datasets/CIFAR10/annotations_val.json'
+  anns_path: '/remote-home/share/multimodal-datasets/CIFAR10/tenths_annotations_val.json'
+  hf_anns_path: 'huggingface_data/CIFAR10/cifar10_test_10p.json'
+  

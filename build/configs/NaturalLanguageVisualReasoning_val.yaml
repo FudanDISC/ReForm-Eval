@@ -1,0 +1,9 @@
+dataset: 'NLVR'
+task: 'nlvrm' # natural language visual reasoning matching
+# task: 'nlvrs' # natural language visual reasoning selection
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/nlvr/nlvr/nlvr/test/images'
+  load_from_bootstrap: True
+  data_path: '/remote-home/bhwu/MultiInstruct-Dataset/Gen_Eval/NLVR-Matching/nlvr-matching.json'
+  # data_path: '/remote-home/bhwu/MultiInstruct-Dataset/Gen_Eval/NLVR-Selection/nlvr-selection.json'

@@ -1,0 +1,8 @@
+dataset: 'coco_text'
+task: 'gocr'
+version: '2.0'
+split: 'val2014'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/MSCOCO2014/train2014/'
+  huggingface_data: 'huggingface_data/COCO_Text/cocotext_gocr_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/cocotext_gocr_core_open_ended.json'

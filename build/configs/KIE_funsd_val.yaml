@@ -1,0 +1,8 @@
+dataset: 'funsd'
+task: 'kie'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/KIE/FUNSD/testing_data'
+  huggingface_data: 'huggingface_data/FUNSD/funsd_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/funsd_core_open_ended.json'

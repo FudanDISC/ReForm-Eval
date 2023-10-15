@@ -1,0 +1,13 @@
+dataset: 'MSCOCO'
+version: '1.0'
+option_type: 1
+task: 'oc'
+instruct_kind: 'single_choice'
+data_config:
+  image_dir: '/remote-home/share/multimodal-datasets/MSCOCO/2014/images/val2014/'
+  anns_path: '/remote-home/share/multimodal-datasets/MSCOCO/2014/annotations/CountQA_COCOQA_data.json'
+  # anns_path: '/remote-home/share/multimodal-datasets/MSCOCO/2014/annotations/CountQA_VQA_data.json'
+  choice_path: '/remote-home/share/multimodal-datasets/MSCOCO/2014/annotations/answer_list.pkl'
+  hf_anns_path: 'huggingface_data/MSCOCO/object-counting-all.json'
+  hf_choice_path: 'huggingface_data/MSCOCO/objectCounting_answer_list/answer_list.pkl'
+  

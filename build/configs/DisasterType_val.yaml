@@ -1,0 +1,7 @@
+dataset: 'MEDIC'
+task: 'dts' # disaster type selection
+data_config:
+  load_from_bootstrap: True
+  image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
+  medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json"
+  huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json"

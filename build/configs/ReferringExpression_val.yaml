@@ -1,0 +1,8 @@
+dataset: 'RefCOCO'
+task: 'res' # referring expression selection
+split: 'val'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/MSCOCO2014/train2014'
+  load_from_bootstrap: True
+  res_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Referring-Expression-Selection/referring-expression-selection-sampled.json'
+  huggingface_data: "huggingface_data/RefCOCO/referring-expression-selection-sampled.json"

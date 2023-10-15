@@ -1,0 +1,7 @@
+dataset: 'Whoops'
+version: '1.0'
+split: 'all'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/Whoops/whoops_images'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/Whoops/multi-choices/whoops_1.0_val_10p.json'
+  huggingface_data: 'huggingface_data/Whoops/whoops_all_10p.json'

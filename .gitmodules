@@ -4,3 +4,42 @@
 [submodule "models/LLaVA"]
 	path = models/LLaVA
 	url = https://github.com/haotian-liu/LLaVA.git
+[submodule "models/MiniGPT-4"]
+	path = models/MiniGPT-4
+	url = https://github.com/Vision-CAIR/MiniGPT-4.git
+[submodule "models/Multimodal-GPT"]
+	path = models/Multimodal-GPT
+	url = https://github.com/open-mmlab/Multimodal-GPT.git
+[submodule "models/mPLUG-Owl"]
+	path = models/mPLUG-Owl
+	url = https://github.com/X-PLUG/mPLUG-Owl.git
+[submodule "models/interfaces/shikra"]
+	path = models/interfaces/shikra
+	url = git@github.com:shikras/shikra.git
+# [submodule "models/Otter"]
+# 	path = models/Otter
+# 	url = https://github.com/Luodian/Otter.git
+[submodule "models/interfaces/lynx"]
+	path = models/interfaces/lynx
+	url = git@github.com:bytedance/lynx-llm.git
+[submodule "models/Cheetah"]
+	path = models/Cheetah
+	url = https://github.com/DCDmllm/Cheetah.git
+[submodule "models/LLaMA-Adapter"]
+	path = models/LLaMA-Adapter
+	url = https://github.com/OpenGVLab/LLaMA-Adapter.git
+[submodule "models/BLIVA"]
+	path = models/BLIVA
+	url = git@github.com:mlpc-ucsd/BLIVA.git
+# [submodule "models/visualglm-6b"]
+# 	path = models/visualglm-6b
+# 	url = https://huggingface.co/THUDM/visualglm-6b
+[submodule "models/PandaGPT"]
+	path = models/PandaGPT
+	url = https://github.com/yxuansu/PandaGPT.git
+# [submodule "models/LaVIN"]
+# 	path = models/LaVIN
+# 	url = https://github.com/luogen1996/LaVIN.git
+# [submodule "models/kosmos-2-patch14-224"]
+# 	path = models/kosmos-2-patch14-224
+# 	url = https://huggingface.co/ydshieh/kosmos-2-patch14-224

@@ -1,0 +1,8 @@
+dataset: 'vsr'
+task: 'spatial'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/visual_spatial_reasoning/visual-spatial-reasoning/data/'
+  huggingface_data: 'huggingface_data/VSR/vsr_core_multiple_choice.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/vsr_core_multiple_choice1.json'

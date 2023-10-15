@@ -1,0 +1,9 @@
+dataset: 'MSCOCO'
+task: 'itm' # image text matching
+version: '1.0'
+split: 'val2017'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/MSCOCO/2017/images/val2017/'
+  load_from_bootstrap: True
+  itm_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Image-Text-Matching/image-text-matching-object-sampled.json'
+  huggingface_data: "huggingface_data/MSCOCO/image-text-matching-object-sampled.json"

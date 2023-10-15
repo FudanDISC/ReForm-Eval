@@ -1,0 +1,8 @@
+dataset: 'textocr'
+task: 'ocr'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/TextOCR/'
+  huggingface_data: 'huggingface_data/TextOCR/textocr_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/textocr_core_open_ended.json'

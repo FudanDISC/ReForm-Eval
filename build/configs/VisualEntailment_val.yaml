@@ -1,0 +1,8 @@
+dataset: 'SNLI-VE'
+task: 'vem' # visual entailment matching
+split: 'val'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/SNLI-VE/SNLI-VE/data/Flickr30K/images'
+  load_from_bootstrap: True
+  vem_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Visual-Entailment-Matching/visual-entailment-matching-sampled.json'
+  huggingface_data: "huggingface_data/SNLI_VE/visual-entailment-matching-sampled.json"

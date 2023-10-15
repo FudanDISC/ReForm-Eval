@@ -1,0 +1,8 @@
+dataset: 'WikiHow'
+task: 'wits' # wikihow image text selection
+split: 'val'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/raw_datasets/wikihow/data'
+  load_from_bootstrap: True
+  wits_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Wikihow-Image-Text-Selection/wikihow-image-text-selection-in-method-sampled.json'
+  huggingface_data: "huggingface_data/WikiHow/wikihow-image-text-selection-in-method-sampled.json"

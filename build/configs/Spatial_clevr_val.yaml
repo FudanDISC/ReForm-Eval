@@ -1,0 +1,8 @@
+dataset: 'clevr'
+task: 'spatial'
+version: '2.0'
+split: 'val'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/CLEVR/CLEVR_v1.0/'
+  huggingface_data: 'huggingface_data/CLEVR/clevr_core_multiple_choice.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/clevr_core_multiple_choice.json'

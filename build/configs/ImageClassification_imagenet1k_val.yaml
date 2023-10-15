@@ -1,0 +1,10 @@
+dataset: 'ImageNet-1K'
+version: '1.0'
+option_type: 1
+instruct_kind: 'single_choice' # single_choice or vqa
+data_config:
+  image_dir: '/remote-home/share/multimodal-datasets/ImageNet-1K/val'
+  # anns_path: '/remote-home/share/multimodal-datasets/ImageNet-1K/hardNegative_annotations_val.json'
+  anns_path: '/remote-home/share/multimodal-datasets/ImageNet-1K/tenths_HN_annotations_val.json'
+  hf_anns_path: 'huggingface_data/ImageNet-1K/imagenet1k_val_10p.json'
+  

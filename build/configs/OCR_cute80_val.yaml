@@ -1,0 +1,8 @@
+dataset: 'cute80'
+task: 'ocr'
+version: '2.0'
+split: 'test'
+data_config:
+  image_path: '/remote-home/share/multimodal-datasets/ocr-data/ocr_task/CUTE80'
+  huggingface_data: 'huggingface_data/CUTE80/cute80_core_open_ended.json'
+  data_path: '/remote-home/share/multimodal-datasets/core_datasets/cute80_core_open_ended.json'
