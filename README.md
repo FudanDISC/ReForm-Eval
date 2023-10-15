@@ -11,9 +11,7 @@
 </p>
 
 
-<div style="text-align:center; font-size: 24px; font-weight:bold;">
-  ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS
-</div>
+# ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS
 
 <!-- <p align="center">
   <b>Authors:</b><br>
