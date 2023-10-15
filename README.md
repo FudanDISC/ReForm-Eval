@@ -10,9 +10,9 @@
     <img src="https://img.shields.io/github/views/FudanDISC/ReForm-Eval?style=social" />
 </p>
 
-<div align="center">
+<p align="center">
   <span style="display: inline-block; font-size: 24px;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</span>
-</div>
+</p>
 
 <!-- <span style='font-size: 24px; font-weight: bold;'><p align='center'>ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p></span> -->
 
@@ -571,8 +571,8 @@ For other supported sep_style, please refer to `./utils/preprocessors.py`.
 
 ```
 User: <image>
-User: XXX
-Bot:XXX
+User: ......
+Bot: ......
 ```
 
 #### Step 5: Add Model Loader
@@ -642,10 +642,10 @@ proc = ConvSingleChoiceProcessor('\n', roles=['User', 'Bot'], \
 `response_prefix` is that the final answer will first add the text `The answer is`.
 Therefore, the final content will be:
 ```
-User: XXX
-Bot: XXX
-User: XXX
-Bot: The answer is XXX
+User: ......
+Bot: ......
+User: ......
+Bot: The answer is ......
 ```
 
 If `sep_style='two'`, `sep=' '` and `sep2='\n'` represents when it is a User, the conversation will end with `' '` and when it is a Bot, the conversation will end with `\n`.
@@ -655,8 +655,8 @@ If `sep_style='two'`, `sep=' '` and `sep2='\n'` represents when it is a User, th
 
 ```
 Human: <image>
-Human: XXX
-AI:XXX
+Human: ......
+AI: ......
 ```
 
 `instruct` content occasionally appears, but it will be automatically added to the final text in the preprocess function. Besides, you can also simply add your own sep styles if you need.
@@ -848,7 +848,7 @@ ckpt: '/path/to/cheetah_vicuna_7b.pth'
 ckpt: '/path/to/cheetah_llama2_7b.pth'
 ```
 
-In `./models/interfaces/Cheetah/cheetah/configs/models/cheetah_XXX.yaml`, you need to set:
+In `./models/interfaces/Cheetah/cheetah/configs/models/cheetah_vicuna(llama2).yaml`, you need to set:
 ```YAML
 # Vicuna
 llama_model: "/path/to/vicuna-7B-v0/"
@@ -1086,7 +1086,7 @@ You may need to process them into a string with the desired format. You may be i
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
 ```python
 import json
-res = json.load(open('/path/to/xxx.json')) #load the output json file
+res = json.load(open('/path/to/___.json')) #load the output json file
 res[0] #res[n], n can be any number within the generated results
 ```
 
