@@ -556,13 +556,15 @@ res[0] #res[n], n can be any number within the generated results
 ### Evaluation Using Our Benchmark
 Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance.
 
-Step 1: Use existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
+**Step 1:** Use existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
 
-Step 2: Create the conda env corresponding to the model and install the necessary packages.
+**Step 2:** Create the conda env corresponding to the model and install the necessary packages.
 
-Step 3: Switch to the corresponding conda env, run run_eval.py, and add necessary parameters.
+**Step 3:** Switch to the corresponding conda env, run run_eval.py in the root path of this repository, and add necessary parameters.
 
-Step 4: Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir_path/log.txt`.
+**Step 4:** Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir_path/log.txt`.
+
+
 
 ## 🖋 Citation
 If ReForm-Eval has been beneficial to your research and work, please cite our work using the following format:
