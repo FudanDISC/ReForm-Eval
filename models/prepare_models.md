@@ -340,7 +340,7 @@ A chat between a curious human and an artificial intelligence assistant. The ass
 User: <image> Can you see the image? Options: (A) yes; (B) no.\n
 Bot: The answer is (A) yes\n
 User: Is there a cat in the image? Options: (A) yes; (B) no; (C) maybe.\n
-Bot: The answer is
+Bot:The answer is
 ```
 
 For other supported sep_style, please refer to `./utils/preprocessors.py`.
@@ -422,7 +422,7 @@ Therefore, the final content will be:
 User: ......
 Bot: ......
 User: ......
-Bot: The answer is ......
+Bot:The answer is ......
 ```
 
 If `sep_style='two'`, `sep=' '` and `sep2='\n'` represents when it is a User, the conversation will end with `' '` and when it is a Bot, the conversation will end with `\n`.

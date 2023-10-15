@@ -548,9 +548,9 @@ You may need to process them into a string with the desired format. You may be i
 ### Evaluation Using Our Benchmark
 Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. We provide two methods: 
 
-(A) Create the interface in our framework and run it directly. 
+**(A)** Create the interface in our framework and run it directly. 
 
-(B) Use the Data Loader we provide and output the inference results, then provide a new script to evaluate with our benchmark, taking the problem formulation and the output json file as input.
+**(B)** Use the Data Loader we provide and output the inference results, then provide a new script to evaluate with our benchmark, taking the problem formulation and the output json file as input.
 
 #### Method A
 
