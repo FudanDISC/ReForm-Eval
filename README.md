@@ -13,14 +13,6 @@
 
 <p style="text-align:center; font-size: 24px; font-weight:bold;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p>
 
-<!-- <p align="center">
-  <b>Authors:</b><br>
-  <a href="link-to-author-1">Zejun Li</a> |
-  <a href="link-to-author-2">Ye Wang</a> |
-  <a href="link-to-author-3">Mengfei Du</a> |
-  <!-- Add more authors as needed -->
-</p> -->
-
 <p align="center"><strong>Zejun Li<sup>1</sup><sup>†</sup> , Ye Wang<sup>1</sup><sup>†</sup> , Mengfei Du<sup>1</sup><sup>†</sup> , Qingwen Liu<sup>1</sup><sup>†</sup> , Binhao Wu<sup>1</sup><sup>†</sup> , Jiwen Zhang<sup>1</sup><sup>†</sup> , Chengxing Zhou<sup>2</sup> , Zhihao Fan<sup>3</sup> , Jie Fu<sup>4</sup> , Jingjing Chen<sup>1</sup> , Xuanjing Huang<sup>1</sup> , Zhongyu Wei<sup>1</sup><sup>*</sup>.
  </strong></p>
 <p align="center"><sup>1</sup>Fudan University      <sup>2</sup>Northeastern University      <sup>3</sup>Alibaba Group        <sup>4</sup>Hong Kong University of Science and Technology</p> 
@@ -41,6 +33,7 @@ Recent years have witnessed remarkable progress in the development of large visi
 We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part. 
 
 <h2 align="center"><img src="./short.png" /></h2>
+Illustration of the unified re-formulation of existing benchmarks into multiple-choice problems. The text within square brackets indicates the evaluation methods, with red and green denoting incorrect and correct judgment, respectively. “EM” is short for exact match.
 <!-- <h3 align="center"><img src="./intro-flat.pdf" /></h3> -->
 
 <span style="font-size:larger;">**Existing LVLMs Evaluation:**</span>
@@ -549,7 +542,7 @@ proc = ConvSingleChoiceProcessor('\n', roles=['User', 'Bot'], first_query_fn=lam
 ```
 
 The input sample is a json-style dict:
-```json
+```
 inputs = {'sample_id': '287626_3',
  'round_id': 3,
  'image': 'IMAGE_PATH.jpg',
@@ -562,7 +555,7 @@ inputs = {'sample_id': '287626_3',
 ```
 
 Therefore, the final content will be:
-```json
+```
 A chat between a curious human and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the human's questions.
 User: <image> Can you see the image? Options: (A) yes; (B) no.\n
 Bot: The answer is (A) yes\n
@@ -573,7 +566,7 @@ Bot: The answer is
 For other supported sep_style, please refer to `./utils/preprocessors.py`.
 `init_conv` can also be used to add `<image>` marks, if it is `init_conv=[['User', "<image>"]]`, this means that a new conversation will be started.
 
-```json
+```
 User: <image>
 User: XXX
 Bot:XXX
@@ -645,7 +638,7 @@ proc = ConvSingleChoiceProcessor('\n', roles=['User', 'Bot'], \
 `roles` represents whether this round of dialogue is User or Bot, and a semicolon `:` will be added after the specific role. 
 `response_prefix` is that the final answer will first add the text `The answer is`.
 Therefore, the final content will be:
-```json
+```
 User: XXX
 Bot: XXX
 User: XXX
@@ -657,7 +650,7 @@ If `sep_style='two'`, `sep=' '` and `sep2='\n'` represents when it is a User, th
 `first_query_fn` is the content only appended after the first `Human:`, which is usually used to add `<img>` or `</img>`, etc.
 `init_conv` is similar to `first_query_fn`, but for example, if it is `init_conv=[['Human', "<image>"]]`, this means that a new conversation will be started.
 
-```json
+```
 Human: <image>
 Human: XXX
 AI:XXX
@@ -894,7 +887,7 @@ class MultimodalGPT_Interface(nn.Module):
 ```
 
 ### Data Usage
-待添加
+
 #### Coarse-Grained Perception
 ##### Flowers102
 ```bash
