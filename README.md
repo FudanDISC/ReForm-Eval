@@ -545,16 +545,14 @@ Notice that each sample of the loaded dataset will be a dict containing all info
 ```
 You may need to process them into a string with the desired format. You may be intersted in the [Preprocessors](models/prepare_models.md#preprocessors) we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the [Data Usage](#data-usage).
 
-### Direct Evaluation
-The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
-```python
-import json
-res = json.load(open('/path/to/___.json')) #load the output json file
-res[0] #res[n], n can be any number within the generated results
-```
-
 ### Evaluation Using Our Benchmark
-Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance.
+Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. We provide two methods: 
+
+(A) Create the interface in our framework and run it directly. 
+
+(B) Use the Data Loader we provide and output the inference results, then provide a new script to evaluate with our benchmark, taking the problem formulation and the output json file as input.
+
+#### Method A
 
 **Step 1:** Use existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
 
@@ -564,6 +562,23 @@ Our benchmark provides accuracy and instability as metrics for each task, to qua
 
 **Step 4:** Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir_path/log.txt`.
 
+#### Method B
+
+**Step 1:** Build a dataset using our Data Loader and process them into a string with the desired format of the corresponding model.
+
+**Step 2:** The model outputs different results based on the dataset created by different inference methods (generation or likelihood).
+
+**Step 3:** Run our new script, taking the problem formulation and the output json file as input.
+
+**Step 4:** The accuracy, the format hit rate and instability can be viewed in `output_dir_path/log.txt`.
+
+### Output Result
+The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
+```python
+import json
+res = json.load(open('/path/to/___.json')) #load the output json file
+res[0] #res[n], n can be any number within the generated results
+```
 
 
 ## 🖋 Citation
