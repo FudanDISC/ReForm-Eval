@@ -1,5 +1,6 @@
 <div align="center">
-  <h1 style="display: inline-block; font-size: 48px;">ReForm-Eval<img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;"></h1>
+  <h1 style="display: inline-block; font-size: 48px;">ReForm-Eval</h1>
+  <img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
 </div>
 
 <p align="center">
@@ -56,17 +57,20 @@ We explore ways of re-formulating existing benchmarks into unified formats that 
 
 - **Unification**: Multi-modal benchmark datasets are re-formulated as **multiple-choice problems** or specialized **text generation problems**. Additionally, **generation-based black-box** and **likelihood-based white-box approaches** are implemented for evaluation.
 
-The unified formulation enables universal and comprehensive evaluation. For each formulation, we design a consistent and reliable evaluation method. As mentioned in (Fu et al., 2023), current LVLMs may struggle to follow multiple-choice instructions, we propose both black-box and white-box approaches to assist: 
+The unified formulation enables universal and comprehensive evaluation. For each formulation, we design a consistent and reliable evaluation method. As mentioned in ([Fu et al., 2023](https://arxiv.org/abs/2306.13394)), current LVLMs may struggle to follow multiple-choice instructions, we propose both black-box and white-box approaches to assist: 
 
 (1) Guiding LVLMs to output in desired formats through in-context learning; 
 
 (2) Directly calculating the generation probability for options and selecting the one with the highest value. 
 
-Considering the sensitivity of LVLMs to the input prompts (Zeng et al., 2023), we additionally design an instability-aware evaluation strategy and introduce a metric to characterize such instability. 
+Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](https://arxiv.org/abs/2307.02469)), we additionally design an instability-aware evaluation strategy and introduce a metric to characterize such instability. 
 
 **ReForm-Eval serves as a reliable tool for quantitative analysis of LVLMs, aiding in the research and development of LVLMs.🔧🔧🔧**
 
 ## 📣 Update
+**If you have any questions, please send us an email or leave a github issue!**
+**`Email:yewang22@m.fudan.edu.cn`**
+
 - **[2023-10]** We released a version of the original paper containing 16 models and 61 reformulated datasets!
 
 ## 📖 Contents
