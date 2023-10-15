@@ -1,6 +1,5 @@
 <div align="center">
-  <h1 style="display: inline-block; font-size: 48px;">ReForm-Eval</h1>
-  <img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
+  <h1 style="display: inline-block; font-size: 48px;">ReForm-Eval<img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;"></h1>
 </div>
 
 <p align="center">
@@ -33,10 +32,11 @@ Recent years have witnessed remarkable progress in the development of large visi
 
 >Recent years have witnessed remarkable progress in the development of large vision-language models (LVLMs). Benefiting from the strong language backbones and efficient cross-modal alignment strategies, LVLMs exhibit surprising capabilities to perceive visual signals and perform visually grounded reasoning. However, the capabilities of LVLMs have not been comprehensively and quantitatively evaluated. Most existing multi-modal benchmarks require task-oriented input-output formats, posing great challenges to automatically assess the freeform text output of LVLMs. To effectively leverage the annotations available in existing benchmarks and reduce the manual effort required for constructing new benchmarks, we propose to re-formulate existing benchmarks into unified LVLM compatible formats. Through systematic data collection and reformulation, we present the ReForm-Eval benchmark, offering substantial data for evaluating various capabilities of LVLMs. Based on ReForm-Eval, we conduct extensive experiments, thoroughly analyze the strengths and weaknesses of existing LVLMs, and identify the underlying factors. Our benchmark and evaluation framework will be open-sourced as a cornerstone for advancing the development of LVLMs.
 
-We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part. 
+We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. 
+<!-- Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part.  -->
 
 <p align="center"><img src="./short.png" /></p>
-Illustration of the unified re-formulation of existing benchmarks into multiple-choice problems. The text within square brackets indicates the evaluation methods, with red and green denoting incorrect and correct judgment, respectively. “EM” is short for exact match.
+<!-- Illustration of the unified re-formulation of existing benchmarks into multiple-choice problems. The text within square brackets indicates the evaluation methods, with red and green denoting incorrect and correct judgment, respectively. “EM” is short for exact match. -->
 <!-- <h3 align="center"><img src="./intro-flat.pdf" /></h3> -->
 
 <span style="font-size:larger;">**Existing LVLMs Evaluation:**</span>
