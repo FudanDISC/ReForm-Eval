@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-<img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Your Image Alt Text" style="display: inline-block; vertical-align: middle; height: 48px;">
+<img src="https://avatars.githubusercontent.com/u/100903507?s=200&v=4" alt="Fudan Disc Logo" style="display: inline-block; vertical-align: middle; height: 48px;">
 </p>
 
 <p align="center">
@@ -58,7 +58,7 @@ We explore ways of re-formulating existing benchmarks into unified formats that 
 
 - **Comprehensive Evaluation**: We re-formulate **61 benchmark datasets** based on existing data resources, the evaluation dimensions range from basic visual perception to high-level visual reasoning and dialog.
 
-- **Unification**: Multi-modal benchmark datasets are re-formulated as **multiple-choice problems** or specialized **text generation problems**. Additionally, **generation-based black-box** and **likelihood-based white-box approaches** are implemented for evaluation.
+- **Unified Re-formulation**: Multi-modal benchmark datasets are re-formulated as **multiple-choice problems** or specialized **text generation problems**. Additionally, **generation-based black-box** and **likelihood-based white-box approaches** are implemented for evaluation.
 
 The unified formulation enables universal and comprehensive evaluation. For each formulation, we design a consistent and reliable evaluation method. As mentioned in ([Fu et al., 2023](https://arxiv.org/abs/2306.13394)), current LVLMs may struggle to follow multiple-choice instructions, we propose both black-box and white-box approaches to assist: 
 
@@ -72,7 +72,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 
 ## 📣 Update
 **If you have any questions, please send us an email or leave a github issue!**
-**`Email:yewang22@m.fudan.edu.cn`**
+**`Email: yewang22@m.fudan.edu.cn`**
 
 - **[2023-10]** We released a version of the original paper containing 16 models and 61 reformulated datasets!
 
@@ -124,8 +124,8 @@ We list the average ranking and score of the model under Generation Evaluation a
 (3) Compared to models based on CLIP visual encoders, PandaGPT and IB-LLM, which are based on the ImageBind encoder, exhibit relatively poorer performance in image-text tasks. Meanwhile, most top-performing models utilize Vicuna and FlanT5 as the backbone. 
 (4) Apart from the architecture, a common characteristic among BLIP-2, InstructBLIP, Lynx, and BLIVA is the use of relatively high-quality data during pre-training.  -->
 
-## 🔰 Usage
-Before performing the evaluation, please refer to [Prepare Dataset](build/prepare_dataset.md#prepare-dataset) and [Prepare Models](models/prepare_models.md#prepare-models). Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions.
+## 🛫 Getting Start
+**Before performing the evaluation, please refer to [Prepare Dataset](build/prepare_dataset.md#prepare-dataset) and [Prepare Models](models/prepare_models.md#prepare-models).** Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions.
 
 ### Demo
 We provide one example of running the benchmark test, using Lynx model for VisDial Evaluation.
@@ -534,7 +534,7 @@ dataset = load_reform_dataset(
 )
 ```
 Notice that each sample of the loaded dataset will be a dict containing all information like: 
-```python
+```
 {
     'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=640x484>,
     'question': 'Is there a cat in the image?',
