@@ -11,7 +11,7 @@
 </p>
 
 
-# ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS
+<p style="text-align:center; font-size: 24px; font-weight:bold;">ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p>
 
 <!-- <p align="center">
   <b>Authors:</b><br>
@@ -61,7 +61,9 @@ We explore ways of re-formulating existing benchmarks into unified formats that 
 - **Unification**: Multi-modal benchmark datasets are re-formulated as **multiple-choice problems** or specialized **text generation problems**. Additionally, **generation-based black-box** and **likelihood-based white-box approaches** are implemented for evaluation.
 
 The unified formulation enables universal and comprehensive evaluation. For each formulation, we design a consistent and reliable evaluation method. As mentioned in (Fu et al., 2023), current LVLMs may struggle to follow multiple-choice instructions, we propose both black-box and white-box approaches to assist: 
+
 (1) Guiding LVLMs to output in desired formats through in-context learning; 
+
 (2) Directly calculating the generation probability for options and selecting the one with the highest value. 
 
 Considering the sensitivity of LVLMs to the input prompts (Zeng et al., 2023), we additionally design an instability-aware evaluation strategy and introduce a metric to characterize such instability. 
