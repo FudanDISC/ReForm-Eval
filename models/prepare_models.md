@@ -322,7 +322,7 @@ proc = ConvSingleChoiceProcessor('\n', roles=['User', 'Bot'], first_query_fn=lam
 ```
 
 The input sample is a json-style dict:
-```json
+```
 inputs = {'sample_id': '287626_3',
  'round_id': 3,
  'image': 'IMAGE_PATH.jpg',
@@ -335,7 +335,7 @@ inputs = {'sample_id': '287626_3',
 ```
 
 Therefore, the final content will be:
-```json
+```
 A chat between a curious human and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the human's questions.
 User: <image> Can you see the image? Options: (A) yes; (B) no.\n
 Bot: The answer is (A) yes\n
@@ -346,10 +346,10 @@ Bot: The answer is
 For other supported sep_style, please refer to `./utils/preprocessors.py`.
 `init_conv` can also be used to add `<image>` marks, if it is `init_conv=[['User', "<image>"]]`, this means that a new conversation will be started.
 
-```json
+```
 User: <image>
-User: XXX
-Bot:XXX
+User: ......
+Bot: ......
 ```
 
 #### Step 5: Add Model Loader
@@ -418,11 +418,11 @@ proc = ConvSingleChoiceProcessor('\n', roles=['User', 'Bot'], \
 `roles` represents whether this round of dialogue is User or Bot, and a semicolon `:` will be added after the specific role. 
 `response_prefix` is that the final answer will first add the text `The answer is`.
 Therefore, the final content will be:
-```json
-User: XXX
-Bot: XXX
-User: XXX
-Bot: The answer is XXX
+```
+User: ......
+Bot: ......
+User: ......
+Bot: The answer is ......
 ```
 
 If `sep_style='two'`, `sep=' '` and `sep2='\n'` represents when it is a User, the conversation will end with `' '` and when it is a Bot, the conversation will end with `\n`.
@@ -430,10 +430,10 @@ If `sep_style='two'`, `sep=' '` and `sep2='\n'` represents when it is a User, th
 `first_query_fn` is the content only appended after the first `Human:`, which is usually used to add `<img>` or `</img>`, etc.
 `init_conv` is similar to `first_query_fn`, but for example, if it is `init_conv=[['Human', "<image>"]]`, this means that a new conversation will be started.
 
-```json
+```
 Human: <image>
-Human: XXX
-AI:XXX
+Human: ......
+AI: ......
 ```
 
 `instruct` content occasionally appears, but it will be automatically added to the final text in the preprocess function. Besides, you can also simply add your own sep styles if you need.

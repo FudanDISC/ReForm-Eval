@@ -1,7 +1,7 @@
 ## 📥 Prepare Dataset
 To address the wide range of questions posed by users, LVLMs need to possess diverse capabilities. For a comprehensive evaluation, we curate 61 benchmark datasets from existing resources, summarizing the assessed capabilities into 2 major categories and 8 sub-categories.
 
-<h3 align="center"><img src="./intro-flat.pdf" /></h3>
+<p align="center"><img src="./base_dimensions.png" /></p>
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
 
