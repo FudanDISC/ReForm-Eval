@@ -125,7 +125,7 @@ We list the average ranking and score of the model under Generation Evaluation a
 (4) Apart from the architecture, a common characteristic among BLIP-2, InstructBLIP, Lynx, and BLIVA is the use of relatively high-quality data during pre-training.  -->
 
 ## 🔰 Usage
-Before performing the evaluation, please refer to Prepare Your Data and Prepare Your Model. Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions.
+Before performing the evaluation, please refer to [Prepare Dataset](build/prepare_dataset.md#prepare-dataset) and [Prepare Models](models/prepare_models.md#prepare-models). Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions.
 
 ### Demo
 We provide one example of running the benchmark test, using Lynx model for VisDial Evaluation.
