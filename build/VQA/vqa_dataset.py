@@ -33,7 +33,7 @@ class VQA_SingleChoice(Dataset):
         self.args = args
         
         if self.args.hf == True:
-            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':config['data_config']['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
         else: 
             data = json.load(open(self.config['data_config']['data_path'], 'r'))
         assert data['version'] == self.config['version'], 'the data version ({}) and the config version ({}) does not match, please check'.format(data['version'], self.config['version'])
@@ -115,7 +115,7 @@ class VQA_SingleChoice(Dataset):
     def __getitem__(self, index):
         sample_index = index // self.duplication
         new_sample = {k:v for k,v in self.samples[sample_index].items()}
-        if args.hf == True:
+        if self.args.hf == True:
             image = base64_to_image(new_sample['image'])
             new_sample['image'] = image 
         else:

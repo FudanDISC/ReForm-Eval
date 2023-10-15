@@ -1087,7 +1087,7 @@ Notice that each sample of the loaded dataset will be a dict containing all info
     'instruct': 'Based on the image, answer the question with the provided options.',
 }
 ```
-You may need to process them into a string with the desired format. You may be intersted in the Preprocessors we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the DATA usage.
+You may need to process them into a string with the desired format. You may be intersted in the [Preprocessors](models/prepare_models.md#preprocessors) we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the [Data Usage](#data-usage).
 
 ### Direct Evaluation
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:

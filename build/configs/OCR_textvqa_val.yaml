@@ -3,5 +3,5 @@ version: '1.0'
 split: 'val'
 data_config:
   image_path: '/remote-home/share/multimodal-datasets/raw_datasets/TextVQA/train_val/train_images'
-  data_path: '/remote-home/qwliu/LVLM-benchmark/Text-VQA/open-qa/text-vqa_1.0_val_10p.json'
+  data_path: '/remote-home/qwliu/LVLM-benchmark/TextVQA/open-qa/text-vqa_1.0_val_10p.json'
   huggingface_data: 'huggingface_data/TextVQA/textvqa_val_10p.json'

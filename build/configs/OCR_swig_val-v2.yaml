@@ -1,6 +1,0 @@
-dataset: 'SWiG'
-version: '1.0'
-split: 'dev'
-data_config:
-  image_path: '/root/images_512'
-  data_path: '/remote-home/qwliu/PCoFormer/SWiG/SWiG_jsons/dev_split_shikra.json'
