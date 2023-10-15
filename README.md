@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/Version-v1.0-green" />
     <img src="https://img.shields.io/github/stars/your-username/your-repository?style=social" />
     <img src="https://img.shields.io/github/downloads/your-username/your-repository/total?style=social" />
-    <img src="https://img.shields.io/github/views/your-username/your-repository-name?style=social" />
+    <img src="https://img.shields.io/github/views/FudanDISC/ReForm-Eval?style=social" />
 </p>
 
 
@@ -34,9 +34,11 @@
   <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">ReForm-Eval Dataset</a>
 </p>
 
-<div style="border-left: 2px solid #999; padding-left: 10px; margin-left: 10px; color: #666; font-size: 90%;">
+<!-- <div style="border-left: 2px solid #999; padding-left: 10px; margin-left: 10px; color: #666; font-size: 90%;">
 Recent years have witnessed remarkable progress in the development of large vision-language models (LVLMs). Benefiting from the strong language backbones and efficient cross-modal alignment strategies, LVLMs exhibit surprising capabilities to perceive visual signals and perform visually grounded reasoning. However, the capabilities of LVLMs have not been comprehensively and quantitatively evaluated. Most existing multi-modal benchmarks require task-oriented input-output formats, posing great challenges to automatically assess the freeform text output of LVLMs. To effectively leverage the annotations available in existing benchmarks and reduce the manual effort required for constructing new benchmarks, we propose to re-formulate existing benchmarks into unified LVLM compatible formats. Through systematic data collection and reformulation, we present the ReForm-Eval benchmark, offering substantial data for evaluating various capabilities of LVLMs. Based on ReForm-Eval, we conduct extensive experiments, thoroughly analyze the strengths and weaknesses of existing LVLMs, and identify the underlying factors. Our benchmark and evaluation framework will be open-sourced as a cornerstone for advancing the development of LVLMs.
-</div>
+</div> -->
+
+>Recent years have witnessed remarkable progress in the development of large vision-language models (LVLMs). Benefiting from the strong language backbones and efficient cross-modal alignment strategies, LVLMs exhibit surprising capabilities to perceive visual signals and perform visually grounded reasoning. However, the capabilities of LVLMs have not been comprehensively and quantitatively evaluated. Most existing multi-modal benchmarks require task-oriented input-output formats, posing great challenges to automatically assess the freeform text output of LVLMs. To effectively leverage the annotations available in existing benchmarks and reduce the manual effort required for constructing new benchmarks, we propose to re-formulate existing benchmarks into unified LVLM compatible formats. Through systematic data collection and reformulation, we present the ReForm-Eval benchmark, offering substantial data for evaluating various capabilities of LVLMs. Based on ReForm-Eval, we conduct extensive experiments, thoroughly analyze the strengths and weaknesses of existing LVLMs, and identify the underlying factors. Our benchmark and evaluation framework will be open-sourced as a cornerstone for advancing the development of LVLMs.
 
 We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part. 
 
@@ -893,10 +895,196 @@ class MultimodalGPT_Interface(nn.Module):
 
 ### Data Usage
 待添加
+#### Coarse-Grained Perception
+##### Flowers102
+```bash
+--dataset_name Flowers102 --formulation SingleChoice --dataset_config build/configs/ImageClassification_flowers102_val.yaml
+```
+##### CIFAR10
+```bash
+--dataset_name CIFAR10 --formulation SingleChoice --dataset_config build/configs/ImageClassification_cifar10_val.yaml
+```
+##### ImageNet-1K
+```bash
+--dataset_name ImageNet-1K --formulation SingleChoice --dataset_config build/configs/ImageClassification_imagenet1k_val.yaml
+```
+##### Pets37
+```bash
+--dataset_name Pets37 --formulation SingleChoice --dataset_config build/configs/ImageClassification_pets37_val.yaml
+```
+##### VizWiz-yesno
+```bash
+--dataset_name VizWiz --formulation SingleChoice --dataset_config build/configs/ImageQuality_vizwiz_yesNo_val.yaml
+```
+##### VizWiz-singleChoice
+```bash
+--dataset_name VizWiz --formulation SingleChoice --dataset_config build/configs/ImageQuality_vizwiz_singleChoice_val.yaml
+```
+##### TDIUC-Sport
+```bash
+--dataset_name VizWiz --formulation SingleChoice --dataset_config build/configs/ImageQuality_vizwiz_singleChoice_val.yaml
+```
+##### TDIUC-Scene
+```bash
+--dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_scene.yaml
+```
+##### MEDIC
+
+#### Fine-Grained Perception
+##### MSCOCO-MCI
+##### MSCOCO-GOI
+##### MSCOCO-MOS
+
+##### TDIUC-Color
+```bash
+--dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_color.yaml
+```
+##### TDIUC-Utility
+```bash
+--dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_utility.yaml
+```
+##### TDIUC-Position
+```bash
+--dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_position.yaml
+```
+##### TDIUC-Detection
+```bash
+--dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_detection.yaml
+```
+##### TDIUC-Counting
+```bash
+--dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_counting.yaml
+```
+##### RefCOCO
+##### MSCOCO-OC
+```bash
+--dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/ObjectCounting_mscoco_val.yaml
+```
+
+#### Visually Grounded Reasoning
+
+##### VQA v2
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_vqa_v2_val.yaml
+```
+
+##### GQA
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_gqa_val_v2.0.yaml
+```
+
+##### Whoops
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_whoops_val.yaml
+```
+##### OK-VQA
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_okvqa_val.yaml
+```
+
+##### ScienceQA
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_scienceqa_val_v2.0.yaml
+```
+
+##### VizWiz
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_vizwiz_val_v2.0.yaml
+```
+
+
+##### ViQuAE
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_viquae_val.yaml
+```
+
+##### K-ViQuAE
+``` bash
+--dataset_name KVQA --formulation SingleChoice --dataset_config build/configs/KVQA_viquae_val.yaml
+```
+
+##### A-OKVQA
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_aokvqa_val.yaml
+```
+
+##### A-OKVQRA
+``` bash
+--dataset_name VQRA --formulation SingleChoice --dataset_config build/configs/VQRA_aokvqa_val.yaml
+```
+
+##### A-OKVQAR
+``` bash
+--dataset_name VQAR --formulation SingleChoice --dataset_config build/configs/VQAR_aokvqa_val.yaml
+```
+
+##### ImageNetVC
+``` bash
+--dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_imagenetvc_val.yaml
+```
+
+#### Cross-Modal Inference
+
+##### Winoground
+``` bash
+--dataset_name CaptionSelection --formulation SingleChoice --dataset_config build/configs/CaptionSelection_winoground_val.yaml
+```
+
+##### MOCHEG
+``` bash
+--dataset_name MCV  --formulation SingleChoice --dataset_config build/configs/MCV_mocheg_val.yaml
+```
+
+#### Visually Scene Recognition
+
+##### TextVQA
+``` bash
+--dataset_name OCR --formulation OCROpenEnded --dataset_config build/configs/OCR_textvqa_val.yaml
+```
+
+##### DocVQA
+``` bash
+--dataset_name OCR --formulation OCROpenEnded --dataset_config build/configs/OCR_docvqa_val.yaml
+```
+
+##### OCR-VQA
+``` bash
+--dataset_name OCR --formulation OCROpenEnded --dataset_config build/configs/OCR_ocrvqa_val.yaml
+```
 
 ## 🚀 Evaluation
 
 ### Data Loader
+
+ReForm-Eval provides the direct data loader if you would like to perform evaluation without our framework. Here is an example:
+```python
+from build import load_reform_dataset
+
+# example for loading VQA v2
+dataset = load_reform_dataset(
+    # dataset config, please check Data Usage for available arguments
+    dataset_name='VQA',
+    formulation='SingleChoice',
+    dataset_config='PATH_TO_REFORM-EVAL/build/configs/VQA_vqa_v2_val.yaml',
+    inference_method='generation', # inference method, generation / likeligood
+    in_context_sample=True, # whether to include in-context-sample
+    random_instruct=True, # whether to use different instructions for the same sample
+    data_duplication=5, # number of multiple tests for the same sample
+    shuffle_options=True, # whether to shuffle the options for the same sample
+    load_from_hf:Optional=True # whether to load from huggingface
+)
+```
+Notice that each sample of the loaded dataset will be a dict containing all information like: 
+```python
+{
+    'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=640x484>,
+    'question': 'Is there a cat in the image?',
+    'answer': 2,
+    'answer_options': ['yes', 'no', 'maybe'],
+    'instruct': 'Based on the image, answer the question with the provided options.',
+}
+```
+You may need to process them into a string with the desired format. You may be intersted in the Preprocessors we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the DATA usage.
 
 ### Direct Evaluation
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
