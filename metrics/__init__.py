@@ -1,5 +1,6 @@
 from .singlechoice import SingleChoiceMetric
 from .ocropenended import OCROpenEndedMetric, KIEOpenEndedMetric
+from .generation import GenerationMetric
 
 def get_metric(formulation, param=None):
     if formulation == 'SingleChoice':
@@ -7,6 +8,11 @@ def get_metric(formulation, param=None):
             return SingleChoiceMetric()
         else:
             return SingleChoiceMetric(**param)
+    elif formulation == 'Generation':
+        if param is None:
+            return GenerationMetric()
+        else:
+            return GenerationMetric(**param)
     elif formulation == 'OCROpenEnded':
         if param is None:
             return OCROpenEndedMetric()
@@ -17,10 +23,10 @@ def get_metric(formulation, param=None):
             return KIEOpenEndedMetric()
         else:
             return KIEOpenEndedMetric(**param)     
-    elif formulation == 'TrueOrFalse':
-        if param is None:
-            return SingleChoiceMetric()
-        else:
-            return SingleChoiceMetric(**param)
+    # elif formulation == 'TrueOrFalse':
+    #     if param is None:
+    #         return SingleChoiceMetric()
+    #     else:
+    #         return SingleChoiceMetric(**param)
     else:
         raise ValueError('current {} formulation is not supported!'.format(formulation))

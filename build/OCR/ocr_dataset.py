@@ -21,7 +21,7 @@ class OCR_OpenEnded(Dataset):
         
         
         if args.hf == True:
-            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
         else: 
             data = json.load(open(self.config['data_config']['data_path'], 'r'))
         

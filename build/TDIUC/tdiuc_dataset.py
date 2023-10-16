@@ -20,7 +20,7 @@ def make_choices(question_type , answer , choice_path , hf):
         return yes_or_no
     
     if hf == True:
-        choice_list = load_dataset("Aweminus/ReForm-Eval",data_files={'test':os.path.join(choice_path , f'{question_type}.json')}, split='test')['choice']
+        choice_list = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':os.path.join(choice_path , f'{question_type}.json')}, split='test')['choice']
     else:
         with open(os.path.join(choice_path , f'{question_type}.pkl') , 'rb') as f:
             choice_list = pickle.load(f)

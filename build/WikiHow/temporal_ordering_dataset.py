@@ -22,7 +22,7 @@ class WikiHowImageTextSelection(Dataset):
         self.image_dir = self.config['data_config']['image_path']
         self.args = args
         if args.hf:
-            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.config['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['wits_path'], 'r'))
         assert data['dataset_name'] == 'WikiHow'

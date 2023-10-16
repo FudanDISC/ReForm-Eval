@@ -19,6 +19,10 @@ class OCROpenEndedMetric(object):
             self.ab_map.update({k:i for i,k in enumerate(ab_item)})
     
     def __call__(self, prediction, answer, options=None):
+        if type(answer) == list:
+            answer = " ".join(answer)
+        if type(prediction) == list:
+            prediction = " ".join(prediction)
         gt_answers = self.remove_special_chars(answer).lower()
         answer = self.remove_special_chars(prediction).lower()
         

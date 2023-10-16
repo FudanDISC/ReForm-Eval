@@ -58,7 +58,7 @@ class GroundOCR_OpenEnded(Dataset):
         self.image_path = self.config['data_config']['image_path']
         self.args = args
         if args.hf == True:
-            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':config['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':config['huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['data_path'], 'r'))
             

@@ -13,7 +13,7 @@ from datasets import load_dataset
 # Load from the Hugging Face page
 dataset = load_dataset("Aweminus/ReForm-Eval",data_files={'test':'huggingface_data/MEDIC/disaster-type-selection-sampled.json'}, split='test') 
 # Load from the local path
-dataset = load_dataset("Aweminus/ReForm-Eval",data_files={'test':'/path/to/disaster-type-selection.json'}, split='test')
+dataset = load_dataset("json",data_files={'test':'/path/to/disaster-type-selection.json'}, split='test')
 ```
 In our repository, `huggingface_data` is already set in `./build/configs/DisasterType_val.yaml` as shown below:
 ```YAML
@@ -69,7 +69,6 @@ Alternatively, all datasets are also provided with URLs and you can manually dow
 | MOCHEG           | [https://docs.google.com/forms/d/e/1FAIpQLScAGehM6X9ARZWW3Fgt7fWMhc_Cec6iiAAN4Rn1BHAk6KOfbw/viewform?usp=sf_link](https://docs.google.com/forms/d/e/1FAIpQLScAGehM6X9ARZWW3Fgt7fWMhc_Cec6iiAAN4Rn1BHAk6KOfbw/viewform?usp=sf_link) |
 | MP3D             | [https://niessner.github.io/Matterport/](https://niessner.github.io/Matterport/)                                   |
 | MSCOCO           | [http://images.cocodataset.org/zips/val2017.zip](http://images.cocodataset.org/zips/val2017.zip)                           |
-| NLVR             | xxx                                                                         |
 | NoCaps           | [https://nocaps.s3.amazonaws.com/nocaps_val_4500_captions.json](https://nocaps.s3.amazonaws.com/nocaps_val_4500_captions.json)           |
 | Pets37           | [https://www.robots.ox.ac.uk/~vgg/data/pets/](https://www.robots.ox.ac.uk/~vgg/data/pets/)                              |
 | POIE             | [https://drive.google.com/file/d/1eEMNiVeLlD-b08XW_GfAGfPmmII-GDYs/view](https://drive.google.com/file/d/1eEMNiVeLlD-b08XW_GfAGfPmmII-GDYs/view)  |
@@ -91,7 +90,7 @@ Alternatively, all datasets are also provided with URLs and you can manually dow
 | WordArt          | [https://drive.google.com/file/d/1SanxRwTxd2q](https://drive.google.com/file/d/1SanxRwTxd2q)|
 
 
-After downloading the all dataset, you need to modify all paths of config files in `./datasets/configs/`.
+After downloading the all dataset, you need to modify all paths of config files in `PATH_TO_REFORM-EVAL/datasets/configs/`.
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection

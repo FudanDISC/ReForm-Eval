@@ -62,9 +62,9 @@ We explore ways of re-formulating existing benchmarks into unified formats that 
 
 The unified formulation enables universal and comprehensive evaluation. For each formulation, we design a consistent and reliable evaluation method. As mentioned in ([Fu et al., 2023](https://arxiv.org/abs/2306.13394)), current LVLMs may struggle to follow multiple-choice instructions, we propose both black-box and white-box approaches to assist: 
 
-(1) Guiding LVLMs to output in desired formats through in-context learning; 
+**(1)** Guiding LVLMs to output in desired formats through in-context learning; 
 
-(2) Directly calculating the generation probability for options and selecting the one with the highest value. 
+**(2)** Directly calculating the generation probability for options and selecting the one with the highest value. 
 
 Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](https://arxiv.org/abs/2307.02469)), we additionally design an instability-aware evaluation strategy and introduce a metric to characterize such instability. 
 
@@ -91,8 +91,9 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
   - [Model Usage](#model-usage)
   - [Data Usage](#data-usage)
 - [Evaluation](#🚀-evaluation)
-  - [Direct Evaluation](#direct-evaluation)
+  - [Data Loader](#data-loader)
   - [Evaluation Using Our Benchmark](#evaluation-using-our-benchmark) 
+  - [Output Result](#output-result)
 - [Citation](#🖋-citation)
 - [Related Projects](#🔏-related-projects)
 
@@ -226,12 +227,12 @@ For model-related parameters, we list required parameters of all 16 models. When
 --model minigpt4  --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml
 ```
 
-In `./models/MiniGPT-4/eval_configs/minigpt4_eval.yaml`, you have to set:
+In `PATH_TO_REFORM-EVAL/models/MiniGPT-4/eval_configs/minigpt4_eval.yaml`, you have to set:
 ```YAML
 ckpt: '/path/to/prerained_minigpt4_7b.pth'
 ```
 
-In `./models/interfaces/minigpt4/configs/models/minigpt4.yaml`, you need to set:
+In `PATH_TO_REFORM-EVAL/models/interfaces/minigpt4/configs/models/minigpt4.yaml`, you need to set:
 ```YAML
 # Vicuna
 llama_model: "/path/to/vicuna-7B-v0/"
@@ -289,7 +290,7 @@ You need to modify the config file:
 checkpoint: "/path/to/finetune_lynx.pt"
 ```
 
-In `./models/interfaces/lynx/configs/LYNX.yaml`, you need to set:
+In `PATH_TO_REFORM-EVAL/models/interfaces/lynx/configs/LYNX.yaml`, you need to set:
 ```YAML
 LLM_base: '/path/to/vicuna-7B-v1.1/'
 ```
@@ -311,7 +312,7 @@ ckpt: '/path/to/cheetah_vicuna_7b.pth'
 ckpt: '/path/to/cheetah_llama2_7b.pth'
 ```
 
-In `./models/interfaces/Cheetah/cheetah/configs/models/cheetah_vicuna(llama2).yaml`, you need to set:
+In `PATH_TO_REFORM-EVAL/models/interfaces/Cheetah/cheetah/configs/models/cheetah_vicuna(llama2).yaml`, you need to set:
 ```YAML
 # Vicuna
 llama_model: "/path/to/vicuna-7B-v0/"
@@ -329,7 +330,7 @@ llama_model: "/path/to/Llama-2-7b-chat-hf/"
 --model bliva  --model_name bliva_vicuna
 ```
 
-You need to modify the config file in `./models/BLIVA/bliva/configs/models/bliva_vicuna7b.yaml`:
+You need to modify the config file in `PATH_TO_REFORM-EVAL/models/BLIVA/bliva/configs/models/bliva_vicuna7b.yaml`:
 ```YAML
 finetuned: '/path/to/bliva_vicuna7b.pth'
 ```
@@ -488,6 +489,18 @@ class MultimodalGPT_Interface(nn.Module):
 --dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_imagenetvc_val.yaml
 ```
 
+#### Multi-Turn Dialogue
+
+##### VQA-MT
+``` bash
+--dataset_name VisDial --formulation SingleChoice --dataset_config build/configs/VQA_vqa_MultiRound_val.yaml --online_multi_round --num_workers 0
+```
+
+##### VisDial
+``` bash
+--dataset_name VisDial --formulation SingleChoice --dataset_config build/configs/VisDial_val_v1.2.yaml --online_multi_round --num_workers 0
+```
+
 #### Cross-Modal Inference
 
 ##### MSCOCO-ITM
@@ -583,6 +596,7 @@ dataset = load_reform_dataset(
 Notice that each sample of the loaded dataset will be a dict containing all information like: 
 ```
 {
+    'sample_id': 'VQA_000',
     'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=640x484>,
     'question': 'Is there a cat in the image?',
     'answer': 2,
@@ -605,29 +619,56 @@ Our benchmark provides accuracy and instability as metrics for each task, to qua
 
 **Step 2:** Create the conda env corresponding to the model and install the necessary packages.
 
-**Step 3:** Switch to the corresponding conda env, run run_eval.py in the root path of this repository, and add necessary parameters.
+**Step 3:** Switch to the corresponding conda env, run `run_eval.py` in the root path of this repository, and add necessary parameters.
 
-**Step 4:** Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir_path/log.txt`.
+```bash
+CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 run_eval.py \
+    --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
+    --dataset_name VisDial --output_dir output/lynx/VisDial/test_generation/ \
+    --per_gpu_eval_batch_size 4 --formulation SingleChoice \
+    --infer_method generation --do_eval --half_evaluation  --dataset_duplication 1 \
+    --in_context_sample --option_mark upper \
+    --dataset_config datasets/configs/VisDial_val_v1.2.yaml \
+```
+
+**Step 4:** Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir/log.txt`.
 
 #### Method B
 
 **Step 1:** Build a dataset using our Data Loader and process them into a string with the desired format of the corresponding model.
 
-**Step 2:** The model outputs different results based on the dataset created by different inference methods (generation or likelihood).
+**Step 2:** The model outputs different results based on the dataset built by different data-related parameters.
 
-**Step 3:** Run our new script, taking the problem formulation and the output json file as main parameters of input.
+**Step 3:** Run our new script `run_loader_eval.py`, taking the problem formulation and the output json file as main parameters of input.
 ```python
-from dataloader_eval import loader_eval
+from run_loader_eval import loader_eval
 
 loader_eval(formulation='SingleChoice',
-            multi_round_eval=True,
-            dataset_duplication=5, 
-            eval_stability=True, 
-            json_path='/path/to/your.json'
+            multi_round_eval=False,
+            eval_stability=True,
+            prediction_file='/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'
 )
 ```
+Or
+```bash
+python run_loader_eval.py --formulation SingleChoice --multi_round_eval False \
+    --eval_stability True --prediction_file /path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+```
+**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set to `eval_stability=True` when `formulation='SingleChoice'`, which means that only SingleChoice can measure the instability.**
 
-**Step 4:** The accuracy, the format hit rate and instability can be viewed in `json_path/log.txt`.
+Notice that each sample in the output json are supposed to be specific format:
+```python
+{
+  # dataset information
+  'sample_id': 'VQA_0'
+  'answer': 1
+  'answer_options': ['yes', 'no', 'maybe']
+  'prediction': '(A) yes' # the prediction
+}
+```
+**Important: during generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong.**
+
+**Step 4:** The accuracy, the format hit rate and instability can be viewed in `output_dir/log.txt`.
 
 ### Output Result
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:

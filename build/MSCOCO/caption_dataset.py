@@ -15,7 +15,7 @@ class Caption(Dataset):
             self.config = config
         self.args = args
         if args.hf:
-            data = load_dataset("Aweminus/ReForm-Eval", data_files={'test':self.config['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data", data_files={'test':self.config['huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['coco_path'], 'r'))
         assert data['dataset_name'] == 'mscoco'

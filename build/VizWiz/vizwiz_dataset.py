@@ -59,7 +59,7 @@ class VizWiz_Dataset(Dataset):
                 self.anns_path = self.config['data_config']['hf_singleChoice_anns_path']
             elif self.config['task_kind'] == 'YesOrNo':
                 self.anns_path = self.config['data_config']['hf_yesNo_anns_path']
-            anns = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.anns_path}, split='test')
+            anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
         else:
             if self.config['task_kind'] == 'SingleChoice':
                 self.anns_path = self.config['data_config']['singleChoice_anns_path']

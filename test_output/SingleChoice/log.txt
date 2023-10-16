@@ -1,0 +1,5 @@
+2023-10-16 09:45:37,282 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-16 09:45:37,284 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-16 09:45:37,287 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-16 09:45:37,288 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-16 09:45:37,289 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233

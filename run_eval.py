@@ -157,29 +157,33 @@ def metric_eval(args, full_res):
     if args.multi_round_eval:
         round2metric = defaultdict(list)
     
-    ### for format hit rate
-    hit_num  = 0
-    for item in tqdm.tqdm(full_res, desc='judging with the selected metric'):
-        m, pred = metric(item['prediction'], item['answer'])
-        sum_of_metric += m
-        if args.multi_round_eval:
-            round2metric[item['round_id']].append(m)
-        question2metric[item['sample_id']].append(m)
-        # map the predicted index back to the option
-        if pred is not None:
-            hit_num += 1
-            try:
-                question2pred[item['sample_id']].append(item['answer_options'][pred])
-            except:
-                print('found out of range prediction: {}'.format(pred))
+    if args.formulation == 'Generation':
+        cider_metric, cider_metrics = metric(full_res)
+        logger.info('the evalueted {} result: {}'.format(args.formulation, cider_metric))
+    else:
+        ### for format hit rate
+        hit_num  = 0
+        for item in tqdm.tqdm(full_res, desc='judging with the selected metric'):
+            m, pred = metric(item['prediction'], item['answer'])
+            sum_of_metric += m
+            if args.multi_round_eval:
+                round2metric[item['round_id']].append(m)
+            question2metric[item['sample_id']].append(m)
+            # map the predicted index back to the option
+            if pred is not None:
+                hit_num += 1
+                try:
+                    question2pred[item['sample_id']].append(item['answer_options'][pred])
+                except:
+                    print('found out of range prediction: {}'.format(pred))
+                    question2pred[item['sample_id']].append(item['prediction'])
+            else:
                 question2pred[item['sample_id']].append(item['prediction'])
-        else:
-            question2pred[item['sample_id']].append(item['prediction'])
-    
-    metric_matrix = np.array(list(question2metric.values()))
-    mean_metric = np.mean(metric_matrix)
-    logger.info('the evalueted {} result: {}'.format(args.formulation, mean_metric))
-    logger.info('the format hit rate is {}'.format(hit_num/len(full_res)))
+        
+        metric_matrix = np.array(list(question2metric.values()))
+        mean_metric = np.mean(metric_matrix)
+        logger.info('the evalueted {} result: {}'.format(args.formulation, mean_metric))
+        logger.info('the format hit rate is {}'.format(hit_num/len(full_res)))
     if args.dataset_duplication > 1 or args.eval_stability:
         # perform stability measurement
         mean_entropy = entropy_calculation(question2pred)
@@ -262,7 +266,7 @@ def main():
     if not os.path.isdir(args.output_dir) and args.local_rank < 1:
         os.makedirs(args.output_dir)
     global logger
-    logger = setup_logger('LLMV-Bench Evaluation', args.output_dir, args.local_rank)
+    logger = setup_logger('ReForm-Eval Evaluation', args.output_dir, args.local_rank)
     logger.info('Evaluating with {} GPUs'.format(args.n_gpus))
 
     # if the output prediction already exists

@@ -21,7 +21,7 @@ class ImageTextSelection(Dataset):
         self.image_path = self.config['data_config']['image_path']
         self.args = args
         if args.hf:
-            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.config['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['its_path'], 'r'))
         if not self.config['data_config']['load_from_bootstrap']:

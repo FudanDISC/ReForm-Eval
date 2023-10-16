@@ -57,7 +57,7 @@ class ImageNet1K_Dataset(Dataset):
         self.image_dir = self.config['data_config']['image_dir']
         if self.args.hf == True:
             self.anns_path = self.config['data_config']['hf_anns_path']
-            anns = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.anns_path}, split='test')
+            anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
         else:
             self.anns_path = self.config['data_config']['anns_path']
             anns = json.load(open(self.anns_path , 'r'))

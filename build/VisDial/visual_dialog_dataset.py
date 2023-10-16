@@ -26,9 +26,8 @@ class VisualDialog_SingleChoice(BaseDataset):
         self.config = yaml.load(open(config, 'r'), Loader=yaml.Loader)
         logging.info('The data config is: {}'.format(json.dumps(self.config)))
         self.image_path = self.config['data_config']['image_path']
-        self.args = args
         if args.hf == True:
-            data = load_dataset("Aweminus/ReForm-Eval",data_files={'test': self.config['data_config']['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test': self.config['data_config']['huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['data_path'], 'r'))
 
@@ -49,6 +48,7 @@ class VisualDialog_SingleChoice(BaseDataset):
                 'Based on the image and previous conversation, answer the questions with the provided options.',
                 'Respond to the following questions according to the image and the dialogue history.'
             ]
+            args.options_in_history = True
         elif args.infer_method == 'likelihood':
             self.instruction_list = [
                 'Answer the following questions based on the image and the conversation history.',
@@ -57,6 +57,7 @@ class VisualDialog_SingleChoice(BaseDataset):
                 'Based on the image and previous conversation, answer the questions.',
                 'Respond to the following questions according to the image and the dialogue history.'
             ]
+            args.options_in_history = False
 
         if args.capitalize:
             self.in_context_history = [
@@ -86,6 +87,7 @@ class VisualDialog_SingleChoice(BaseDataset):
         self.already_updated = defaultdict(bool)
         self.sample_id2index = dict()
         self.index_info = []
+        self.args = args
         
         if args.dataset_subsample is not None:
             num_samples = args.dataset_subsample

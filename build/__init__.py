@@ -8,7 +8,7 @@ from .COCO_text import get_cocotext
 # from .VQA.vqar_dataset import get_vqa_random
 from .WikiHow import get_wikihow
 from .SNLI_VE import get_snli_ve
-from .NLVR import get_nlvr
+# from .NLVR import get_nlvr
 from .TextCaps import get_textcaps
 from .NoCaps import get_nocaps
 from .Flickr30K import get_flickr30k
@@ -42,6 +42,7 @@ from .VSR import get_vsr
 # from .Winoground.matching_dataset import get_matching
 from .MP3D import get_mp3d
 from .OCR.ocr_dataset import get_ocr
+from .VizWiz.iqa_dataset import get_vizwiz
 from typing import Optional
 
 def build_dataset(args, dataset_name:str, formulation:str, dataset_config:Optional[dict]=None, preprocessor=None):
@@ -59,12 +60,12 @@ def build_dataset(args, dataset_name:str, formulation:str, dataset_config:Option
         >>> from datasets import build_dataset
         >>> dataset = build_dataset("VisDial", "SingleChoice")
     """
-    if args.hf == True:
-        from .VizWiz.vizwiz_dataset_hf import get_vizwiz as get_vizwiz_hf
-        #后面加dataset_hf.py的函数
-    else:
-        from .VizWiz.iqa_dataset import get_vizwiz
-        #后面加dataset.py的函数
+    # if args.hf == True:
+    #     from .VizWiz.vizwiz_dataset_hf import get_vizwiz as get_vizwiz_hf
+    #     #后面加dataset_hf.py的函数
+    # else:
+    #     from .VizWiz.iqa_dataset import get_vizwiz
+    #     #后面加dataset.py的函数
 
 
     if dataset_name == 'VQA':
@@ -83,8 +84,8 @@ def build_dataset(args, dataset_name:str, formulation:str, dataset_config:Option
         return get_wikihow(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'SNLI-VE':
         return get_snli_ve(args, dataset_config, formulation, preprocessor)
-    elif dataset_name == 'NLVR':
-        return get_nlvr(args, dataset_config, formulation, preprocessor)
+    # elif dataset_name == 'NLVR':
+    #     return get_nlvr(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'TextCaps':
         return get_textcaps(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'NoCaps':
@@ -212,8 +213,8 @@ def load_reform_dataset(dataset_name:str,
         return get_wikihow(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'SNLI-VE':
         return get_snli_ve(args, dataset_config, formulation, preprocessor)
-    elif dataset_name == 'NLVR':
-        return get_nlvr(args, dataset_config, formulation, preprocessor)
+    # elif dataset_name == 'NLVR':
+    #     return get_nlvr(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'TextCaps':
         return get_textcaps(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'NoCaps':
