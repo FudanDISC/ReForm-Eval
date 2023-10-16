@@ -6,9 +6,9 @@ from utils.run_utils import *
 
 from argparse import Namespace
 
-def loader_eval(formulation, multi_round_eval, dataset_duplication, eval_stability, json_path):
+def loader_eval(formulation, multi_round_eval, dataset_duplication, eval_stability, output_dir, json_file):
     args = Namespace()
-    
+
     if 'WORLD_SIZE' in os.environ:
         args.local_rank = int(os.environ['LOCAL_RANK'])
     else:
@@ -18,14 +18,16 @@ def loader_eval(formulation, multi_round_eval, dataset_duplication, eval_stabili
     args.multi_round_eval = multi_round_eval
     args.dataset_duplication = dataset_duplication
     args.eval_stability = eval_stability
-
+    args.output_dir = output_dir
+    args.json_file = json_file
+    args.full_path = os.path.join(args.output_dir, args.json_file)
 
     global logger
-    logger = setup_logger('LLMV-Bench Evaluation', json_path, args.local_rank)
+    logger = setup_logger('LLMV-Bench Evaluation', args.output_dir, args.local_rank)
     # logger.info('Evaluating with {} GPUs'.format(args.n_gpus))
-    if os.path.exists(json_path):
-        logger.info('found the existing prediction in {}'.format(json_path))
-        full_res = json.load(open(json_path, 'r'))
+    if os.path.exists(args.full_path):
+        logger.info('found the existing prediction in {}'.format(args.full_path))
+        full_res = json.load(open(args.full_path, 'r'))
         # ori_args = torch.load(get_output_name(args, mid_output=False)[:-4]+'args.bin')
         # logger.info('And the original arguments are: %s', ori_args)
         metric_eval(args, full_res=full_res)
@@ -79,5 +81,4 @@ def metric_eval(args, full_res):
         multi_round_res = multi_round_eval(round2metric)
         logger.info('corr(round, performance):{}, slope of linear_model(round, performance):{}'.format(multi_round_res[0], multi_round_res[1]))
 
-# if __name__=='__main__':
-#     loader_eval(formulation, multi_round_eval, dataset_duplication, eval_stability, json_path)
+

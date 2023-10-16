@@ -388,6 +388,9 @@ class MultimodalGPT_Interface(nn.Module):
 --dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_scene.yaml
 ```
 ##### MEDIC
+```bash
+--dataset_name MEDIC --formulation SingleChoice --dataset_config build/configs/DisasterType_val.yaml
+```
 
 #### Fine-Grained Perception
 ##### MSCOCO-MCI
@@ -415,6 +418,9 @@ class MultimodalGPT_Interface(nn.Module):
 --dataset_name TDIUC --formulation SingleChoice --dataset_config build/configs/TDIUC_counting.yaml
 ```
 ##### RefCOCO
+```bash
+--dataset_name RefCOCO --formulation SingleChoice --dataset_config build/configs/ReferringExpression_val.yaml
+```
 ##### MSCOCO-OC
 ```bash
 --dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/ObjectCounting_mscoco_val.yaml
@@ -484,9 +490,28 @@ class MultimodalGPT_Interface(nn.Module):
 
 #### Cross-Modal Inference
 
+##### MSCOCO-ITM
+```bash
+--dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/ImageTextMatching_val.yaml
+```
+##### MSCOCO-ITS
+```bash
+--dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/ImageTextSelection_val.yaml
+```
+
+##### WikiHow
+```bash
+--dataset_name WikiHow --formulation SingleChoice --dataset_config build/configs/TemporalOrdering_val.yaml
+```
+
 ##### Winoground
 ``` bash
 --dataset_name CaptionSelection --formulation SingleChoice --dataset_config build/configs/CaptionSelection_winoground_val.yaml
+```
+
+##### SNLI-VE
+```bash
+--dataset_name SNLI-VE --formulation SingleChoice --dataset_config build/configs/VisualEntailment_val.yaml
 ```
 
 ##### MOCHEG
@@ -509,6 +534,28 @@ class MultimodalGPT_Interface(nn.Module):
 ##### OCR-VQA
 ``` bash
 --dataset_name OCR --formulation OCROpenEnded --dataset_config build/configs/OCR_ocrvqa_val.yaml
+```
+
+#### Visual Description
+
+##### MSCOCO
+```bash
+--dataset_name MSCOCO --formulation Generation --dataset_config build/configs/Caption_MSCOCO_val.yaml
+```
+
+##### TextCaps
+```bash
+--dataset_name TextCaps --formulation Generation --dataset_config build/configs/Caption_TextCaps_val.yaml
+```
+
+##### NoCaps
+```bash
+--dataset_name NoCaps --formulation Generation --dataset_config build/configs/Caption_NoCaps_val.yaml
+```
+
+##### Flickr30K
+```bash
+--dataset_name Flickr30K --formulation Generation --dataset_config build/configs/Caption_Flickr30K_val.yaml
 ```
 
 ## 🚀 Evaluation
