@@ -31,9 +31,9 @@
 [submodule "models/BLIVA"]
 	path = models/BLIVA
 	url = git@github.com:mlpc-ucsd/BLIVA.git
-# [submodule "models/visualglm-6b"]
-# 	path = models/visualglm-6b
-# 	url = https://huggingface.co/THUDM/visualglm-6b
+[submodule "models/visualglm-6b"]
+	path = models/visualglm-6b
+	url = https://huggingface.co/THUDM/visualglm-6b
 [submodule "models/PandaGPT"]
 	path = models/PandaGPT
 	url = https://github.com/yxuansu/PandaGPT.git

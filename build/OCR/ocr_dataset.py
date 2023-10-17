@@ -83,23 +83,14 @@ class OCR_OpenEnded(Dataset):
         else:
             image = get_image(new_sample['image'])
             new_sample['image'] = image  
-        if self.duplication > 1:
-            # iterate through all possible prompt
-            inner_sample_index = index % self.duplication
-            new_sample['instruct'] = self.instruction_list[inner_sample_index % len(self.instruction_list)]
-        elif self.args.random_instruct:
-            # randomly choose one prompt
-            new_sample['instruct'] = random.choice(self.instruction_list)
-        else:
-            new_sample['instruct'] = self.instruction_list[0]
             
-        # if self.args.random_instruct:
-        #     assert (self.duplication < len(self.instruction_list)) or (self.duplication % len(self.instruction_list)==0)
-        #     instruct_index = index % self.duplication
-        #     new_sample['instruct'] = self.instruction_list[instruct_index % len(self.instruction_list)]
-        # else:
-        #     sample_index = index // self.duplication
-        #     new_sample['instruct'] = self.instruction_list[sample_index % len(self.instruction_list)]
+        if self.args.random_instruct:
+            assert (self.duplication < len(self.instruction_list)) or (self.duplication % len(self.instruction_list)==0)
+            instruct_index = index % self.duplication
+            new_sample['instruct'] = self.instruction_list[instruct_index % len(self.instruction_list)]
+        else:
+            sample_index = index // self.duplication
+            new_sample['instruct'] = self.instruction_list[sample_index % len(self.instruction_list)]
             
         if self.proc is not None:
             # print(new_sample)

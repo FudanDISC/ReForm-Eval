@@ -6,4 +6,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/MP3D/images/'
   huggingface_data: 'huggingface_data/MP3D/mp3d_core_multiple_choice.json'
   data_path: '/remote-home/share/multimodal-datasets/core_datasets/mp3d_core_multiple_choice.json'
-  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/MP3D/mp3d_core_multiple_choice.json'
+  offline_huggingface_data: 'ReForm-Eval-Data/huggingface_data/MP3D/mp3d_core_multiple_choice.json'

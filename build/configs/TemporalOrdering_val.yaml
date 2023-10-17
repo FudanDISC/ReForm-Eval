@@ -6,4 +6,4 @@ data_config:
   load_from_bootstrap: True
   wits_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Wikihow-Image-Text-Selection/wikihow-image-text-selection-in-method-sampled.json'
   huggingface_data: "huggingface_data/WikiHow/wikihow-image-text-selection-in-method-sampled.json"
-  offline_huggingfac_data: "./ReForm-Eval-Data/huggingface_data/WikiHow/wikihow-image-text-selection-in-method-sampled.json"
+  offline_huggingfac_data: "ReForm-Eval-Data/huggingface_data/WikiHow/wikihow-image-text-selection-in-method-sampled.json"

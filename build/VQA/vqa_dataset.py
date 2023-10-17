@@ -152,8 +152,8 @@ class VQA_SingleChoice(Dataset):
             sample_index = index // self.duplication
             new_sample['instruct'] = self.instruction_list[sample_index % len(self.instruction_list)]
         
-        if self.args.yesno_instruct:
-            new_sample['instruct'] = new_sample['instruct'] + ' Please answer yes or no.'
+        # if self.args.yesno_instruct:
+        #     new_sample['instruct'] = new_sample['instruct'] + ' Please answer yes or no.'
         
         if self.args.in_context_sample and self.args.formulation == 'SingleChoice':
             new_sample['history'] = [msg for msg in self.in_context_history]

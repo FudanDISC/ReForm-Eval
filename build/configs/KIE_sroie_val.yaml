@@ -6,4 +6,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/KIE/SROIE_test'
   huggingface_data: 'huggingface_data/SROIE/sroie_core_open_ended.json'
   data_path: '/remote-home/share/multimodal-datasets/core_datasets/sroie_core_open_ended.json'
-  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/SROIE/sroie_core_open_ended.json'
+  offline_huggingface_data: 'ReForm-Eval-Data/huggingface_data/SROIE/sroie_core_open_ended.json'

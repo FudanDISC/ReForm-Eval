@@ -136,10 +136,7 @@ class VQRA_SingleChoice(Dataset):
         
             
         new_sample['question'] = new_sample['question'] + f' Rationale: {rationale}' 
-        
-        if self.args.yesno_instruct:
-            new_sample['instruct'] = new_sample['instruct'] + ' Please answer yes or no.'
-        
+                
         if self.args.in_context_sample and self.args.formulation == 'SingleChoice':
             new_sample['history'] = [msg for msg in self.in_context_history]
         

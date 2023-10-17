@@ -182,6 +182,7 @@ def load_reform_dataset(dataset_name:str,
     args.in_context_sample = in_context_sample
 
     # randomness-related parameters
+    args.formulation = formulation
     args.dataset_duplication = data_duplication
     args.random_instruct = random_instruct
     args.shuffle_options = shuffle_options

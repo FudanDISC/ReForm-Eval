@@ -153,11 +153,7 @@ class MCV_SingleChoice(Dataset):
             sample_index = index // self.duplication
             new_sample['instruct'] = self.instruction_list[sample_index % len(self.instruction_list)]
         
-        # if self.args.yesno_instruct:
-        #     new_sample['question'] = new_sample['question'].replace('What is the truthfulness of this claim?', 'Do the text evidence and image evidence support the claim?')
-        #     new_sample['instruct'] = new_sample['instruct'] + ' Please answer yes, no or not sure.'
-        #     new_sample['answer_options'] = [refined_answers[option] for option in new_sample['answer_options']]
-        if self.args.infer_method == 'likelihood' and self.args.answer_space_instruct:
+        if self.args.infer_method == 'likelihood':
             new_sample['instruct'] = new_sample['instruct'] + ' Please answer supported, refuted or not enough information.'
         
         if self.args.in_context_sample and self.args.formulation == 'SingleChoice':

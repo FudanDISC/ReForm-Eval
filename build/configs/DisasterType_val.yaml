@@ -5,4 +5,4 @@ data_config:
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json"
   huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json"
-  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json"
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json"

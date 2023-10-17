@@ -6,4 +6,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/CLEVR/CLEVR_v1.0/'
   huggingface_data: 'huggingface_data/CLEVR/clevr_core_multiple_choice.json'
   data_path: '/remote-home/share/multimodal-datasets/core_datasets/clevr_core_multiple_choice.json'
-  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/CLEVR/clevr_core_multiple_choice.json'
+  offline_huggingface_data: 'ReForm-Eval-Data/huggingface_data/CLEVR/clevr_core_multiple_choice.json'

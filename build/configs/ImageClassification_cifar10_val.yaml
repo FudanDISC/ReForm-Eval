@@ -7,5 +7,5 @@ data_config:
   # anns_path: '/remote-home/share/multimodal-datasets/CIFAR10/annotations_val.json'
   anns_path: '/remote-home/share/multimodal-datasets/CIFAR10/tenths_annotations_val.json'
   hf_anns_path: 'huggingface_data/CIFAR10/cifar10_test_10p.json'
-  offline_huggingface_anns: './ReForm-Eval-Data/huggingface_data/CIFAR10/cifar10_test_10p.json'
+  offline_huggingface_anns: 'ReForm-Eval-Data/huggingface_data/CIFAR10/cifar10_test_10p.json'
   

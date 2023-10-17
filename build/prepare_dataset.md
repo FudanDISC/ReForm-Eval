@@ -24,7 +24,7 @@ data_config:
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json"
   huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the path of hugging face data
-  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the local path of hugging face data
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the relative local path of hugging face data
 ```
   
 And in `./build/MEDIC/disaster_type_dataset.py`, the hugging data path is read directly from the config file, so no changes are needed.
@@ -39,7 +39,7 @@ git lfs install
 git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 ```
 
-When you run the above command from the root directory of this repository, `offline_huggingface_data` do not need to be modified, otherwise it need to be modified:
+When you git clone the dataset from the root directory of this repository, `offline_huggingface_data` do not need to be modified, otherwise it need to be modified:
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection
@@ -48,7 +48,7 @@ data_config:
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json" 
   huggingface_data: "/path/to/disaster-type-selection.json" # the path of hugging face data
-  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the local path of hugging face data)
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the relative local path of hugging face data)
 ```
 
 ### Manually Download
@@ -101,4 +101,5 @@ data_config:
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data" #The place you need to modify
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json" #The place you need to modify
   huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json"
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" 
 ```

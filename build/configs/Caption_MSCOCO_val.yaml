@@ -4,4 +4,4 @@ data_config:
   load_from_bootstrap: True
   coco_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Caption/MSCOCO/captions-sampled.json"
   huggingface_data: "huggingface_data/MSCOCO/captions-sampled.json"
-  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/MSCOCO/captions-sampled.json"
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MSCOCO/captions-sampled.json"

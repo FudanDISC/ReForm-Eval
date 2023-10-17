@@ -22,8 +22,6 @@ models/interfaces/lavin/
 
 models/interfaces/otter/
 
-models/interfaces/visualglm-6b/
-
 models/interfaces/visualglm_interface.py
 
 models/interfaces/kosmos2_interface.py
