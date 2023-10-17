@@ -3,3 +3,48 @@
 2023-10-16 14:36:50,550 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
 2023-10-16 14:36:50,551 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
 2023-10-16 14:36:50,552 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:18:26,135 ReForm-Eval Evaluation INFO: found the existing prediction in test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:18:26,154 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:18:26,158 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:18:26,159 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:18:26,160 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:19:17,948 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:19:17,950 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:19:17,954 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:19:17,955 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:19:17,956 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:19:22,575 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:19:22,577 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:19:22,581 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:19:22,582 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:19:22,583 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:20:30,001 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:20:30,003 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:20:30,007 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:20:30,008 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:20:30,009 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:20:57,936 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:20:57,938 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:20:57,942 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:20:57,943 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:20:57,944 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:21:07,322 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:21:07,325 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:21:07,329 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:21:07,330 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:21:07,331 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:21:44,658 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:21:44,673 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:21:44,677 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:21:44,678 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:21:44,680 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:23:11,822 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:23:11,824 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:23:11,828 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:23:11,829 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:23:11,830 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-17 01:23:26,365 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-17 01:23:26,367 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-17 01:23:26,370 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-17 01:23:26,372 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-17 01:23:26,373 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233

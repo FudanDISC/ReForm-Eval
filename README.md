@@ -86,6 +86,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
   - [Add Your Own Models](models/prepare_models.md#add-your-own-models)
   - [Preprocessors](models/prepare_models.md#preprocessors)
 - [Getting Start](#🔥-getting-start)
+  - [Install](#install)
   - [Demo](#demo)
   - [Parameters](#parameters)
   - [Model Usage](#model-usage)
@@ -127,6 +128,30 @@ We list the average ranking and score of the model under Generation Evaluation a
 
 ## 🔥 Getting Start
 **Before performing the evaluation, please refer to [Prepare Dataset](build/prepare_dataset.md#prepare-dataset) and [Prepare Models](models/prepare_models.md#prepare-models).** Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions.
+
+### Install
+1. Git clone our repository, via the following command
+```bash
+git clone https://github.com/FudanDISC/ReForm-Eval.git
+cd ReForm-Eval
+```
+
+**If you want to test all existing 16 models, you need to run the following command**
+```bash
+git clone https://github.com/FudanDISC/ReForm-Eval.git --recursive
+cd ReForm-Eval
+```
+
+2. Build from source
+```bash
+git clone git clone https://github.com/FudanDISC/ReForm-Eval.git
+cd ReForm-Eval
+pip install .
+```
+
+**Note: If you run this command in a virtual environment, it will be installed in that virtual environment. If you run it in the base environment, it will be installed in the all environments.**
+
+The advantage of build source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` commands, and can be executed in any path.
 
 ### Demo
 We provide one example of running the benchmark test, using Lynx model for VisDial Evaluation.
@@ -197,6 +222,7 @@ def main():
     parser.add_argument('--core_eval', action='store_true', help='only eval on the core datasets')
     # hugging face
     parser.add_argument('--hf', action='store_true', help='whether to load the dataset directly from Hugging Face')
+    parser.add_argument('--offline_hf', action='store_true', help='whether to load the Hugging Face data from the local path')
     args = parser.parse_args()
 ```
 
@@ -671,8 +697,8 @@ dataset = load_reform_dataset(
     random_instruct=True, # whether to use different instructions for the same sample
     data_duplication=5, # number of multiple tests for the same sample
     shuffle_options=True, # whether to shuffle the options for the same sample
-    load_from_hf:Optional=True # whether to load from huggingface
-    offline_from_hf:Optional=False # whether to load the huggingface data from the local path
+    load_from_hf:=True, # (Optional) whether to load from huggingface
+    offline_from_hf:=False # (Optional) whether to load the huggingface data from the local path
 )
 ```
 Notice that each sample of the loaded dataset will be a dict containing all information like: 
@@ -759,7 +785,7 @@ Notice that each sample in the output json are supposed to be specific format:
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
 ```python
 import json
-res = json.load(open('/path/to/___.json')) #load the output json file
+res = json.load(open('/path/to/YOUR_PREDICTION_FILE.json')) #load the output json file
 res[0] #res[n], n can be any number within the generated results
 ```
 
