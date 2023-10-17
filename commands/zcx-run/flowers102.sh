@@ -4,8 +4,8 @@ CUDA_VISIBLE_DEVICES=7 torchrun --nproc_per_node 1 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
     --dataset_name "Flowers102" --output_dir test \
     --per_gpu_eval_batch_size 2 --formulation SingleChoice --dataset_duplication 5 --in_context_sample \
-    --infer_method likelihood --do_eval --option_mark upper --random_instruct --shuffle_options\
-    --dataset_config "build/configs/ImageClassification_flowers102_val.yaml" --hf\
+    --infer_method likelihood --do_eval --option_mark upper --shuffle_options\
+    --dataset_config "build/configs/ImageClassification_flowers102_val.yaml" --offline_hf\
 
 # CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
 #     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \

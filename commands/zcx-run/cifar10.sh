@@ -7,9 +7,9 @@ dc="build/configs/ImageClassification_cifar10_val.yaml"
 CUDA_VISIBLE_DEVICES=7 torchrun --nproc_per_node 1 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
     --dataset_name $dm --output_dir test \
-    --per_gpu_eval_batch_size 2 --formulation SingleChoice --dataset_duplication 5 --in_context_sample \
-    --infer_method likelihood --do_eval --option_mark upper --random_instruct --shuffle_options --hf \
-    --dataset_config $dc  \ 
+    --per_gpu_eval_batch_size 1 --formulation SingleChoice --dataset_duplication 5 --in_context_sample \
+    --infer_method likelihood --do_eval --option_mark upper --shuffle_options --offline_hf \
+    --dataset_config $dc \ 
 
 # CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node 4 run_eval.py \
 #     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \

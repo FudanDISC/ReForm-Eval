@@ -15,9 +15,11 @@ class Caption(Dataset):
             self.config = config
         self.args = args
         if args.hf:
-            data = load_dataset("Aweminus/ReForm-Eval-Data", data_files={'test':self.config['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data", data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
+            data = data[0]
         elif args.offline_hf:
-            data = load_dataset("json",data_files={'test':self.config['offline_huggingface_data']}, split='test')
+            data = load_dataset("json",data_files={'test':self.config['data_config']['offline_huggingface_data']}, split='test')
+            data = data[0]
         else:
             data = json.load(open(self.config['data_config']['flickr30k_path'], 'r'))
         assert data['dataset_name'] == 'flickr30k'

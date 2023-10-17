@@ -58,9 +58,11 @@ class CIFAR10_Dataset(Dataset):
         if self.args.hf:
             self.anns_path = self.config['data_config']['hf_anns_path']
             anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
+            anns = anns[0]
         elif self.args.offline_hf:
             self.anns_path = self.config['data_config']['offline_huggingface_anns']
             anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
+            anns = anns[0]
         else:
             self.anns_path = self.config['data_config']['anns_path']
             anns = json.load(open(self.anns_path , 'r'))

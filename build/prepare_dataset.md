@@ -1,7 +1,7 @@
 ## 📥 Prepare Dataset
 To address the wide range of questions posed by users, LVLMs need to possess diverse capabilities. For a comprehensive evaluation, we curate 61 benchmark datasets from existing resources, summarizing the assessed capabilities into 2 major categories and 8 sub-categories.
 
-<p align="center"><img src="../base_dimensions.png" /></p>
+<p align="center"><img src="../base_dimensions.png" width="200" height="200"/></p>
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
 
@@ -30,7 +30,7 @@ data_config:
 And in `./build/MEDIC/disaster_type_dataset.py`, the hugging data path is read directly from the config file, so no changes are needed.
 ```python
     if args.hf:
-        data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['huggingface_data']}, split='test')
+        data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
 ```
 
 If you cannot access hugging face, you can use the following command to download the dataset, and then load the dataset locally still with a single line of code.

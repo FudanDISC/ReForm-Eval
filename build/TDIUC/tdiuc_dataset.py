@@ -83,7 +83,7 @@ class TDIUC_Dataset(Dataset):
         if duplication > 1:
             # the data sample is repeated with different prompts
             assert duplication % len(self.instruction_list) == 0, "the duplication times should be multiplication of the number(5) of different prompts"
-        
+         
         self.args = args
         self.proc = proc
         self.duplication = duplication
@@ -94,11 +94,11 @@ class TDIUC_Dataset(Dataset):
             question_path = self.config['data_config']['hf_question_path']
             anns_path = self.config['data_config']['hf_anns_path']
             questions = sorted(
-                load_dataset("Aweminus/ReForm-Eval",data_files={'test':question_path}, split='test'),
+                load_dataset("Aweminus/ReForm-Eval",data_files={'test':question_path}, split='test')[0],
                 key=lambda x : x['question_id']
             )
             annotations = sorted(
-                load_dataset("Aweminus/ReForm-Eval",data_files={'test':anns_path}, split='test'),
+                load_dataset("Aweminus/ReForm-Eval",data_files={'test':anns_path}, split='test')[0],
                 key=lambda x : x['question_id']
             )
         elif self.args.offline_hf:
@@ -106,11 +106,11 @@ class TDIUC_Dataset(Dataset):
             question_path = self.config['data_config']['offline_huggingface_question']
             anns_path = self.config['data_config']['offline_huggingface_anns']
             questions = sorted(
-                load_dataset("json",data_files={'test':question_path}, split='test'),
+                load_dataset("json",data_files={'test':question_path}, split='test')[0],
                 key=lambda x : x['question_id']
             )
             annotations = sorted(
-                load_dataset("json",data_files={'test':anns_path}, split='test'),
+                load_dataset("json",data_files={'test':anns_path}, split='test')[0],
                 key=lambda x : x['question_id']
             )  
         else:
