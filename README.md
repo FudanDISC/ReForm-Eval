@@ -87,14 +87,15 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
   - [Preprocessors](models/prepare_models.md#preprocessors) -->
 - [Getting Start](#🔥-getting-start)
   - [Install](#install)
+  - [Pipeline](#pipeline)
+  - [Load Data](#load-data)
+  - [Create Your Own Model Interface](#create-your-own-model-interface)
+- [Evaluation](#🚀-evaluation)
   - [Demo](#demo)
   - [Parameters](#parameters)
   - [Model Usage](#model-usage)
-  - [Complete Model Usage](models/complete_model_usage.md#complete-model-usage)
+  <!-- - [Complete Model Usage](models/complete_model_usage.md#complete-model-usage) -->
   - [Data Usage](#data-usage)
-- [Evaluation](#🚀-evaluation)
-  - [Data Loader](#data-loader)
-  - [Evaluation Using Our Benchmark](#evaluation-using-our-benchmark) 
   - [Output Result](#output-result)
 - [Citation](#🖋-citation)
 - [Related Projects](#🔏-related-projects)
@@ -152,7 +153,7 @@ cd ReForm-Eval
 pip install .
 ```
 
-**Note: If you run this command in a virtual environment, it will be installed in that virtual environment. If you run it in the base environment, it will be installed in all environments.**
+**Note: If you run this command in a virtual env, it will be installed in that virtual env. If you run it in the base env, it will be installed in all envs.**
 
 The advantage of building from source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` commands, and can be executed in any path, including the dataloader function `load_reform_dataset`.
 
@@ -165,7 +166,7 @@ Our benchmark provides accuracy and instability as metrics for each task, to qua
 
 #### Method A
 
-**Step 1:** Use an existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
+**Step 1:** Use an existing model interface or create a new model interface based on ReForm-Eval framework refer to [Create Your Own Model Interface](#create-your-own-model-interface).
 
 **Step 2:** Create the conda env corresponding to the model and install the necessary packages.
 
@@ -237,19 +238,21 @@ Notice that each sample in the output json are supposed to be specific format:
 }
 ```
 
-**Important: During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong.**
+**Important: During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong. The requirement for likelihood prediction is `int`, and for generation prediction is `str`.**
 
 **Step 4:** The accuracy, (the format hit rate or instability) can be viewed in `output_dir/log.txt`.
 
 ### Load Data
 There are two ways to load data, using our framework directly or using Data Loader.
 
-**Note:The most recommendation for loading data is using Hugging Face Data. We introduce how to load Hugging Face data in each method. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)**
+**Note: The most recommendation for loading data is using Hugging Face Data. We introduce how to load Hugging Face data in each method. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)**
+
+**We also provide the download url of Hugging Face data: , you can directly download it!**
 
 #### Using ReForm-Eval Framework
 If you load data from ReForm-Eval Framework, when running `run_eval.py` and `run_loader_eval.py`, you should set the data-related parameters, including `--dataset_name`, `--formulation`, `--dataset_config`, `--dataset_duplication`, `--in_context_sample` and `--capitalize`.
 
-**Please set `--hf` or `--online_hf` if you would like to load data from Hugging Face. `--hf` is loading from Hugging Face Hub, and `--online_hf` is loading Hugging Face data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
+**Please set `--hf` or `--offline_hf` if you would like to load data from Hugging Face. `--hf` is loading from Hugging Face Hub, and `--offline_hf` is loading Hugging Face data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
 
 #### Using Data Loader
 ReForm-Eval provides the direct data loader if you would like to perform evaluation without our framework. Here is an example:
@@ -345,7 +348,52 @@ class Lynx_Interface(nn.Module):
 
 #### Step 3: Implement the Inference Function
 **Generation-based Black-Box Evaluation**
-After that, find the generation-related code in the original Lynx project.
+We provide the Black-box Generation-based Inference Method.
+```
+Black-box Generation-based Inference Method
+
+Args:
+    image (list[PIL.Image]):
+        The batch of input images. Each element is loaded as PIL.Image.
+    prompt (list[str]):
+        The batch of input textual prompts. Prompts should be formulated as a dialoge by the
+        model preprocessor (see utils/preprocessors.py)
+    temperature (float, **optional**):
+        A generation-related parameter: the temperature parameter in the generation process
+        of language models.
+    max_new_tokens (int, **optional**):
+        A generation-related parameter: the maximal number of tokens a model can generate.
+        
+Returns:
+    outputs (list[str]):
+        The generated output response in text.
+
+```
+
+An example is provided below:
+
+```python
+>>> # An example of VQA for LLaVA
+>>> from models.interfaces.llava_interface import LLaVA_Interface
+>>> from PIL import Image
+
+>>> image = Image.open(PATH_TO_IMAGE).convert('RGB')
+>>> model = LLaVA_Interface(PATH_TO_LLAVA, device='cuda:0')
+
+>>> prompt = "A chat between a curious human and an artificial intelligence assistant. The\
+              assistant gives helpful detailed, and polite answers to the human's questions.\
+              ###Human: <image>\n Can you see the Image? Options: (A) yes; (B) no.\
+              ###Assistant: The answer is (A) yes.\
+              ###Human: What color is the truck? Options: (A) blue; (B) orange.\
+              ###Assistant: The answer is"
+
+>>> # Generation-based Inference
+>>> outputs = model.raw_batch_generate([image], [prompt])
+>>> outputs
+"(B) orange."
+```
+
+Then, find the generation-related code in the original Lynx project.
 ```python
 @torch.no_grad()
 def evaluation(model, data_loader, device, config):
@@ -442,7 +490,48 @@ In this function, you have to use the internal vision processor to get the visio
         return input_ids.to(self.device), input_atts.to(self.device)
 ```
 
-**Likelihood-based Black-Box Evaluation**
+**Likelihood-based White-Box Evaluation**
+We provide the White-box Likelihood-based Inference Method.
+```
+White-box Likelihood-based Inference Method
+
+Args:
+    image (list[PIL.Image]):
+        The batch of input images. Each element is loaded as PIL.Image.
+    prompt (list[str]):
+        The batch of input textual prompts. Prompts should be formulated as a dialoge by the
+        model preprocessor (see utils/preprocessors.py)
+    candidates (list[list[str]]):
+        The list of candidate lists, each element (candidates[i]) is the candidate list
+        of the corresponding question.
+        
+Returns:
+    outputs (list[int]):
+        The generated output prediction index. Each element (outputs[i]) is the selected index
+        of the corresponding candidates. The prediction is therefore (candidates[i][outputs[i]])
+```
+
+Here is an example:
+```python
+>>> # An example of VQA for LLaVA
+>>> from models.interfaces.llava_interface import LLaVA_Interface
+>>> from PIL import Image
+
+>>> image = Image.open(PATH_TO_IMAGE).convert('RGB')
+>>> model = LLaVA_Interface(PATH_TO_LLAVA, device='cuda:0')
+
+>>> prompt = "A chat between a curious human and an artificial intelligence assistant. The\
+              assistant gives helpful detailed, and polite answers to the human's questions.\
+              ###Human: What color is the truck?\
+              ###Assistant:"
+>>> candidates = ['orange', 'blue']
+
+>>> # Likelihood-based Inference
+>>> outputs = model.raw_batch_predict([image], [prompt], [candidates])
+>>> outputs
+1
+```
+
 To support the likelihood evaluation, we add the following function in our model file `PATH_TO_REFORM-EVAL/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
 ```python
     def forward_likelihood(self, vision_input, input_ids, input_atts, labels, likelihood_reduction='sum'):
@@ -730,7 +819,7 @@ def main():
 ### Model Usage
 When running the evaluation, these model-related parameters must be applied for specific models.
 
-**Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based Black-Box Evaluation` in [Add Your Own Models](models/prepare_models.md#add-your-own-models).**
+**Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based White-Box Evaluation` in [Create Your Own Model Interface](#create-your-own-model-interface).**
 
 We only list a few models as examples. For the remaining existing models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
 

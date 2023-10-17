@@ -39,7 +39,10 @@ git lfs install
 git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 ```
 
-When you git clone the dataset from the root directory of this repository, `offline_huggingface_data` does not need to be modified, otherwise it needs to be modified:
+Or obtain by following download url:
+[]()
+
+When you git clone the dataset or place the downloaded data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. Otherwise it needs to be modified:
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection
@@ -104,3 +107,5 @@ data_config:
   huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json"
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" 
 ```
+
+We also provide the raw json file, like the one pointing to "medic_path". Download url:[]()

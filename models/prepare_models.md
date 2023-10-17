@@ -178,7 +178,7 @@ In this function, you have to use the internal vision processor to get the visio
         return input_ids.to(self.device), input_atts.to(self.device)
 ```
 
-**Likelihood-based Black-Box Evaluation**
+**Likelihood-based White-Box Evaluation**
 To support the likelihood evaluation, we add the following function in our model file `PATH_TO_REFORM-EVAL/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
 ```python
     def forward_likelihood(self, vision_input, input_ids, input_atts, labels, likelihood_reduction='sum'):

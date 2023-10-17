@@ -146,7 +146,11 @@ def metric_eval(args, full_res):
     import numpy as np
     # loading the evluating metric
     logger.info('evaluating the predictions with the {} metric'.format(args.formulation))
-    metric = get_metric(args.formulation)
+    if args.formulation == 'SingleChoice':
+        metric_param = {'infer_method': args.infer_method}
+    else:
+        metric_param = None
+    metric = get_metric(args.formulation, metric_param)
     
     sum_of_metric = 0
     # for accuracy metric

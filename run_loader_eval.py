@@ -7,7 +7,7 @@ from utils.run_utils import *
 from argparse import Namespace
 from argparse import ArgumentParser
 
-def loader_eval(formulation, multi_round_eval, eval_stability, prediction_file=None):
+def loader_eval(formulation, multi_round_eval, eval_stability, infer_method='generation', prediction_file=None):
     args = Namespace()
 
     if 'WORLD_SIZE' in os.environ:
@@ -21,6 +21,7 @@ def loader_eval(formulation, multi_round_eval, eval_stability, prediction_file=N
     # check the output_dir
     args.prediction_file = prediction_file
     args.output_dir = os.path.dirname(args.prediction_file)
+    args.infer_method = infer_method
     # args.full_path = json_file # os.path.join(args.output_dir, args.json_file)
 
     global logger
@@ -39,7 +40,11 @@ def metric_eval(args, full_res):
     import numpy as np
     # loading the evluating metric
     logger.info('evaluating the predictions with the {} metric'.format(args.formulation))
-    metric = get_metric(args.formulation)
+    if args.formulation == 'SingleChoice':
+        metric_param = {'infer_method': args.infer_method}
+    else:
+        metric_param = None
+    metric = get_metric(args.formulation, metric_param)
     
     sum_of_metric = 0
     # for accuracy metric
@@ -90,7 +95,8 @@ def metric_eval(args, full_res):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('--formulation', type=str, default=None, help='the problem formulation to perform, must be in ("Generation", "SingleChoice")')
+    parser.add_argument('--formulation', type=str, default=None, help='the problem formulation to perform')
+    parser.add_argument('--infer_method', type=str, default='generation', help='the imference method to use, likelihood or generation')
     parser.add_argument('--eval_stability', action='store_true', help='whether to evaluate the stability')
     parser.add_argument('--multi_round_eval', action='store_true', help='whether to evaluate multi-round performance')
     # output setup
@@ -102,7 +108,7 @@ def main():
     # if args.output_dir is None:
     #     args.output_dir = os.path.dirname(args.prediction_file)
     
-    loader_eval(args.formulation, args.multi_round_eval, args.eval_stability, args.prediction_file)
+    loader_eval(args.formulation, args.multi_round_eval, args.eval_stability, args.infer_method, args.prediction_file)
 
 if __name__=='__main__':
     main()

@@ -19,3 +19,6 @@ def base64_to_image(img):
     image = Image.open(img)
     image = image.convert('RGB')
     return image
+
+def question_with_options(item):
+    return 1
