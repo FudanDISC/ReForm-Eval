@@ -34,15 +34,36 @@ And in `./build/MEDIC/disaster_type_dataset.py`, the specific path of Hugging Fa
 ```
 
 If you cannot access Hugging Face, you can use the following command to download the dataset, and then load the dataset locally.
+
+**Git Clone**
 ```bash
 git lfs install
 git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 ```
 
-Or obtain by following download url:
-[]()
+**Download URL**
+[https://drive.google.com/drive/folders/1RMi-Mbl6VqJ4oFZL5eb8K6iHGmJCdEGl?usp=drive_link](https://drive.google.com/drive/folders/1RMi-Mbl6VqJ4oFZL5eb8K6iHGmJCdEGl?usp=drive_link)
 
-When you git clone the dataset or place the downloaded data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. Otherwise it needs to be modified:
+**Wget**
+[]
+
+When you git clone the dataset or place the downloaded data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
+
+```
+|-- ReForm-Eval
+    |-- ReForm-Eval-Data
+        |-- huggingface_data
+            |-- A-OKVQA
+            |-- A-OKVQAR
+            ...
+    |-- build
+    |-- commands
+    |-- metrics
+    |-- models
+    ...
+```
+
+Otherwise it needs to be modified:
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection
@@ -108,4 +129,12 @@ data_config:
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" 
 ```
 
-We also provide the raw json file, like the one pointing to "medic_path". Download url:[]()
+We also provide the raw json file, like the one pointing to "medic_path". 
+
+**Download URL**
+[https://drive.google.com/file/d/1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc/view](https://drive.google.com/file/d/1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc/view)
+
+**Wget**
+```
+wget https://drive.google.com/uc?export=download&id=1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc
+```

@@ -8,7 +8,7 @@ import os
 import numpy as np
 import cv2
 from PIL import Image
-from utils.data_utils import base64_to_image, get_image
+from utils.data_utils import get_image, base64_to_image, question_with_options
 from datasets import load_dataset
 refined_answers = {
     'supported': 'yes',
@@ -137,6 +137,7 @@ class Spatial_SingleChoice(Dataset):
             # print(new_sample)
             new_sample['text'] = self.proc(new_sample)
             # print(new_sample['text'])
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         return new_sample
     
     def __len__(self):

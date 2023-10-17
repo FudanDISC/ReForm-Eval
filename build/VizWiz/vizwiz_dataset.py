@@ -1,7 +1,7 @@
 import json
 import os
 from torch.utils.data import Dataset , DataLoader
-from utils.data_utils import base64_to_image
+from utils.data_utils import base64_to_image , get_image , question_with_options
 from datasets import load_dataset
 from PIL import Image
 import pickle
@@ -123,6 +123,8 @@ class VizWiz_Dataset(Dataset):
 
         if self.proc is not None:
             sample['text'] = self.proc(sample)
+    
+        sample['question_with_option'] = question_with_options(sample, option_mark=self.args.option_mark)
         
         return sample     
 

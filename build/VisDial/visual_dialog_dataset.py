@@ -8,7 +8,7 @@ import os
 import logging
 from collections import defaultdict, Counter
 from build.base_dataset import BaseDataset
-from utils.data_utils import get_image, base64_to_image
+from utils.data_utils import get_image, base64_to_image, question_with_options
 from datasets import load_dataset
 
 def random_options(options, answer, n=4):
@@ -179,6 +179,7 @@ class VisualDialog_SingleChoice(BaseDataset):
             new_sample['text'] = self.proc(new_sample)
             # print(new_sample['text'])
         # del new_sample['history']
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         return new_sample
     
     def rawitem(self, index):

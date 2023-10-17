@@ -1,7 +1,7 @@
 import json
 import os
 from torch.utils.data import Dataset , DataLoader
-from utils.data_utils import base64_to_image
+from utils.data_utils import base64_to_image , get_image , question_with_options
 from datasets import load_dataset
 from PIL import Image
 import pickle
@@ -109,39 +109,18 @@ class Flowers102_Dataset(Dataset):
         else:
             sample['instruct'] = self.instruction_list[sample_index % len(self.instruction_list)]
 
-        # if self.duplication > 1:
-        #     # iterate through all possible prompt
-        #     inner_sample_index = idx % self.duplication
-        #     sample['instruct'] = self.instruction_list[inner_sample_index % len(self.instruction_list)]
-        # else:
-        #     if self.args.random_instruct:
-        #         # randomly choose one prompt
-        #         sample['instruct'] = random.choice(self.instruction_list)
-        #     else:
-        #         sample['instruct'] = self.instruction_list[0]
-
-
         if self.args.in_context_sample and self.args.formulation == 'SingleChoice':
             sample['history'] = [msg for msg in self.in_context_history]
 
         if self.proc is not None:
             sample['text'] = self.proc(sample)
+
+        sample['question_with_option'] = question_with_options(sample, option_mark=self.args.option_mark)
         
         return sample
 
     def __len__(self):
         return len(self.data) * self.duplication
-
-
-# def get_flowers102(args , config , formulation , preprocessor):
-#     if formulation == 'SingleChoice':
-#         if config is None:
-#             return Flowers102_Dataset(args=args , proc=preprocessor , duplication=args.dataset_duplication)
-#         else:
-#             return Flowers102_Dataset(args=args , config=config , proc=preprocessor , duplication=args.dataset_duplication)
-#     else:
-#         raise ValueError('current formulation {} is not supported yet'.format(formulation))   
-
 
 if __name__ == '__main__':
     ds = Flowers102_Dataset(args='' , duplication=1)

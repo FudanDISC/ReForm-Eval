@@ -7,7 +7,7 @@ import json
 import os
 import logging
 from collections import defaultdict, Counter
-from utils.data_utils import base64_to_image, get_image
+from utils.data_utils import base64_to_image, get_image, question_with_options
 from datasets import load_dataset
 
 refined_answers = {
@@ -160,6 +160,8 @@ class MCV_SingleChoice(Dataset):
         
         if self.args.in_context_sample and self.args.formulation == 'SingleChoice':
             new_sample['history'] = [msg for msg in self.in_context_history]
+        
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         
         
         if self.proc is not None:

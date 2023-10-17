@@ -5,7 +5,7 @@ import yaml
 import random
 import json
 import os
-from utils.data_utils import base64_to_image, get_image
+from utils.data_utils import get_image, base64_to_image, question_with_options
 from datasets import load_dataset
 refined_answers = {
     'supported': 'yes',
@@ -122,6 +122,7 @@ class MultiClassIden_SingleChoice(Dataset):
             # print(new_sample)
             new_sample['text'] = self.proc(new_sample)
             # print(new_sample['text'])
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         return new_sample
     
     

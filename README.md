@@ -225,7 +225,7 @@ python run_loader_eval.py --formulation SingleChoice --eval_stability \
     --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
 ```
 
-**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability.**
+**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` and `multi_round_eval` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability and be used for the multi-round evaluation.**
 
 Notice that each sample in the output json are supposed to be specific format:
 ```python
@@ -249,6 +249,12 @@ There are two ways to load data, using our framework directly or using Data Load
 
 **We also provide the download url of Hugging Face data: , you can directly download it!**
 
+**Download URL**
+
+
+**Wget**
+
+
 #### Using ReForm-Eval Framework
 If you load data from ReForm-Eval Framework, when running `run_eval.py` and `run_loader_eval.py`, you should set the data-related parameters, including `--dataset_name`, `--formulation`, `--dataset_config`, `--dataset_duplication`, `--in_context_sample` and `--capitalize`.
 
@@ -271,6 +277,7 @@ dataset = load_reform_dataset(
     data_duplication=5, # number of multiple tests for the same sample
     shuffle_options=True, # whether to shuffle the options for the same sample
     load_from_hf=True, # (Optional) whether to load from huggingface
+    option_mark='upper', # (Optional) the option mark to use, number/upper/lower/random
     offline_from_hf=False # (Optional) whether to load the huggingface data from the local path
 )
 ```
@@ -283,6 +290,7 @@ Notice that each sample of the loaded dataset will be a dict containing all info
     'answer': 2,
     'answer_options': ['yes', 'no', 'maybe'],
     'instruct': 'Based on the image, answer the question with the provided options.',
+    'question_with_option': 'Is there a cat in the image? Options: (A) yes; (B) no; (C) maybe.'
 }
 ```
 You may need to process them into a string with the desired format. You may be intersted in the [Preprocessors](models/prepare_models.md#preprocessors) we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the [Data Usage](#data-usage).
@@ -348,6 +356,7 @@ class Lynx_Interface(nn.Module):
 
 #### Step 3: Implement the Inference Function
 **Generation-based Black-Box Evaluation**
+
 We provide the Black-box Generation-based Inference Method.
 ```
 Black-box Generation-based Inference Method
@@ -491,6 +500,7 @@ In this function, you have to use the internal vision processor to get the visio
 ```
 
 **Likelihood-based White-Box Evaluation**
+
 We provide the White-box Likelihood-based Inference Method.
 ```
 White-box Likelihood-based Inference Method

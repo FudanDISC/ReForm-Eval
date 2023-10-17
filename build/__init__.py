@@ -147,6 +147,7 @@ def load_reform_dataset(dataset_name:str,
                  shuffle_options:Optional[bool]=True,
                  load_from_hf:Optional[bool]=True, 
                  offline_from_hf:Optional[bool]=False, 
+                 option_mark:Optional[str]='random',
                  preprocessor=None):
     """
     Return the constructed dataset
@@ -160,6 +161,8 @@ def load_reform_dataset(dataset_name:str,
         data_duplication: the number of multiple tests for the same sample, default to 5.
         shuffle_options: shuffle the options for the same sample, default to True.
         load_from_hf: whether to load from huggingface, load from local if set to False.
+        option_mark: the index mark for options in single-shoice questions, \
+                        "number" for (1,2,3,4), "lower" for (a,b,c,d) while "upper" for (A,B,C,D), "random" for randomly using one of them
         preprocessor: Optional, the model processor to process.
     Return:
         dataset: the constructed dataset
@@ -186,6 +189,7 @@ def load_reform_dataset(dataset_name:str,
     args.dataset_duplication = data_duplication
     args.random_instruct = random_instruct
     args.shuffle_options = shuffle_options
+    args.option_mark = option_mark
 
     # set the default arguments
     args.capitalize = True

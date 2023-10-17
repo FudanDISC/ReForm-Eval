@@ -81,6 +81,7 @@ class Lynx_Interface(nn.Module):
 
 #### Step 3: Implement the Inference Function
 **Generation-based Black-Box Evaluation**
+
 After that, find the generation-related code in the original Lynx project.
 ```python
 @torch.no_grad()
@@ -179,6 +180,7 @@ In this function, you have to use the internal vision processor to get the visio
 ```
 
 **Likelihood-based White-Box Evaluation**
+
 To support the likelihood evaluation, we add the following function in our model file `PATH_TO_REFORM-EVAL/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
 ```python
     def forward_likelihood(self, vision_input, input_ids, input_atts, labels, likelihood_reduction='sum'):
