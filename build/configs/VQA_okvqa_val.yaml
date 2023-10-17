@@ -5,4 +5,4 @@ data_config:
   image_path: '/remote-home/share/VQA/Images/val2014'
   data_path: '/remote-home/qwliu/LVLM-benchmark/OK-VQA/multi-choices/okvqa_1.0_val_10p.json'
   huggingface_data: 'huggingface_data/OK-VQA/okvqa_val_10p.json'
-  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/OK-VQA/okvqa_val_10p.json"
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/OK-VQA/okvqa_val_10p.json"
