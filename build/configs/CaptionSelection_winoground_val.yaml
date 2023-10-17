@@ -5,4 +5,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/raw_datasets/winoground/images'
   data_path: '/remote-home/qwliu/LVLM-benchmark/Winoground/caption_selection/winoground_1.0_val_10p.json'
   huggingface_data: 'huggingface_data/Winoground/winoground_all_10p.json'
-  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/Winoground/winoground_all_10p.json"
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/Winoground/winoground_all_10p.json"
