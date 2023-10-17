@@ -27,7 +27,9 @@ class VisualDialog_SingleChoice(BaseDataset):
         logging.info('The data config is: {}'.format(json.dumps(self.config)))
         self.image_path = self.config['data_config']['image_path']
         if args.hf == True:
-            data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test': self.config['data_config']['huggingface_data']}, split='test')
+            data = load_dataset("Aweminus/ReForm-Eval-Data", data_files={'test': self.config['data_config']['huggingface_data']}, split='test')
+        elif args.offline_hf:
+            data = load_dataset("json", data_files={'test': self.config['data_config']['offline_huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['data_path'], 'r'))
 

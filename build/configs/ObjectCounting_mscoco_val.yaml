@@ -9,5 +9,7 @@ data_config:
   # anns_path: '/remote-home/share/multimodal-datasets/MSCOCO/2014/annotations/CountQA_VQA_data.json'
   choice_path: '/remote-home/share/multimodal-datasets/MSCOCO/2014/annotations/answer_list.pkl'
   hf_anns_path: 'huggingface_data/MSCOCO/object-counting-all.json'
-  hf_choice_path: 'huggingface_data/MSCOCO/objectCounting_answer_list/answer_list.pkl'
+  hf_choice_path: 'huggingface_data/MSCOCO/objectCounting_answer_list/answer_list.json'
+  offline_huggingface_anns: './ReForm-Eval-Data/huggingface_data/MSCOCO/object-counting-all.json'
+  offline_huggingface_choice: './ReForm-Eval-Data/huggingface_data/MSCOCO/objectCounting_answer_list/answer_list.json'
   

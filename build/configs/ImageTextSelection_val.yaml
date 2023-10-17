@@ -7,3 +7,4 @@ data_config:
   load_from_bootstrap: True
   its_path: '/remote-home/share/multimodal-datasets/Gen_Eval/Image-Text-Selection/image-text-selection-object-sampled.json'
   huggingface_data: "huggingface_data/MSCOCO/image-text-selection-object-sampled.json"
+  offline_huggingfac_data: "./ReForm-Eval-Data/huggingface_data/MSCOCO/image-text-selection-object-sampled.json"

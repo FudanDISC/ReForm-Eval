@@ -5,3 +5,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/raw_datasets/GQA/images'
   data_path: '/remote-home/qwliu/LVLM-benchmark/GQA/multi-choices/gqa_2.0_val_10p.json'
   huggingface_data: 'huggingface_data/GQA/gqa_testdev_10p.json'
+  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/GQA/gqa_testdev_10p.json"

@@ -6,3 +6,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/IC15/'
   huggingface_data: 'huggingface_data/IC15/ic15_gocr_core_open_ended.json'
   data_path: '/remote-home/share/multimodal-datasets/core_datasets/ic15_gocr_core_open_ended.json'
+  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/IC15/ic15_gocr_core_open_ended.json'

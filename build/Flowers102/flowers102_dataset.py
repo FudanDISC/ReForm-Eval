@@ -55,9 +55,12 @@ class Flowers102_Dataset(Dataset):
         self.proc = proc
         self.duplication = duplication
         self.image_dir = self.config['data_config']['image_dir']
-        if self.args.hf == True:
+        if self.args.hf:
             self.anns_path = self.config['data_config']['hf_anns_path']
-            anns = data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
+            anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
+        elif self.args.offline_hf:
+            self.anns_path = self.config['data_config']['offline_huggingface_anns']
+            anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
         else:
             self.anns_path = self.config['data_config']['anns_path']
             anns = json.load(open(self.anns_path , 'r'))
@@ -84,7 +87,7 @@ class Flowers102_Dataset(Dataset):
             random.shuffle(data_item['options'])
             data_item['answer'] = data_item['options'].index(origin_ans)
         
-        if self.args.hf == True:
+        if self.args.hf || self.args.offline_hf:
             image = base64_to_image(data_item['image_name'])
         else:
             image = os.path.join(self.image_dir , data_item['image_name'])

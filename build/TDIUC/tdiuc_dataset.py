@@ -14,13 +14,15 @@ The original question and answer will be transformed according to the question t
 the question will be transformed into a single choice, and the answer will be replaced with the 
 corresponding option
 """
-def make_choices(question_type , answer , choice_path , hf):
+def make_choices(question_type , answer , choice_path , hf , offline_hf):
     yes_or_no = ['yes' , 'no']
     if answer in yes_or_no:
         return yes_or_no
     
-    if hf == True:
+    if hf:
         choice_list = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':os.path.join(choice_path , f'{question_type}.json')}, split='test')['choice']
+    elif offline_hf:
+        choice_list = load_dataset("json",data_files={'test':os.path.join(choice_path , f'{question_type}.json')}, split='test')['choice']
     else:
         with open(os.path.join(choice_path , f'{question_type}.pkl') , 'rb') as f:
             choice_list = pickle.load(f)
@@ -87,7 +89,7 @@ class TDIUC_Dataset(Dataset):
         self.duplication = duplication
         self.image_path = self.config['data_config']['image_path']
         self.task_kind = task_kind
-        if self.args.hf == True:
+        if self.args.hf:
             self.choice_path = self.config['data_config']['hf_choice_path']
             question_path = self.config['data_config']['hf_question_path']
             anns_path = self.config['data_config']['hf_anns_path']
@@ -99,6 +101,18 @@ class TDIUC_Dataset(Dataset):
                 load_dataset("Aweminus/ReForm-Eval",data_files={'test':anns_path}, split='test'),
                 key=lambda x : x['question_id']
             )
+        elif self.args.offline_hf:
+            self.choice_path = self.config['data_config']['offline_huggingface_choice']
+            question_path = self.config['data_config']['offline_huggingface_question']
+            anns_path = self.config['data_config']['offline_huggingface_anns']
+            questions = sorted(
+                load_dataset("json",data_files={'test':question_path}, split='test'),
+                key=lambda x : x['question_id']
+            )
+            annotations = sorted(
+                load_dataset("json",data_files={'test':anns_path}, split='test'),
+                key=lambda x : x['question_id']
+            )  
         else:
             self.choice_path = self.config['data_config']['choice_path']
             question_path = self.config['data_config']['question_path']
@@ -153,7 +167,7 @@ class TDIUC_Dataset(Dataset):
         else:
             raise ValueError('Wrong task type !!!') 
         
-        if self.args.hf != True:
+        if self.args.hf != True and self.args.offline_hf != True:
             # get 1/100 data for scene color detection and counting
             # get 1/40 for sport and position
             if self.task_kind in [7 , 9]:
@@ -168,7 +182,7 @@ class TDIUC_Dataset(Dataset):
         data_item = self.sample_data[sample_index]
         question = data_item['question']
 
-        if self.args.hf == True:
+        if self.args.hf || self.args.offline_hf:
             image = base64_to_image(data_item['image_id'])
         else:
             image_filename = str(data_item['image_id'])
@@ -178,27 +192,27 @@ class TDIUC_Dataset(Dataset):
         # Treated formulation as multi-choice
         answer = data_item['answer'][0]['answer']
         if self.task_kind == 1:
-            choice_list = make_choices('color' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('color' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 2:
-            choice_list = make_choices('object_presence' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('object_presence' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 3:
-            choice_list = make_choices('object_recognition' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('object_recognition' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 4:
-            choice_list = make_choices('scene_recognition' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('scene_recognition' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 5:
-            choice_list = make_choices('counting' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('counting' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 6:
-            choice_list = make_choices('sentiment_understanding' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('sentiment_understanding' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 7:
-            choice_list = make_choices('positional_reasoning' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('positional_reasoning' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 8:
-            choice_list = make_choices('utility_affordance' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('utility_affordance' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 9:
-            choice_list = make_choices('sport_recognition' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('sport_recognition' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 10:
-            choice_list = make_choices('attribute' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('attribute' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 11:
-            choice_list = make_choices('activity_recognition' , answer , self.choice_path , self.args.hf)
+            choice_list = make_choices('activity_recognition' , answer , self.choice_path , self.args.hf , self.args.offline_hf)
         elif self.task_kind == 12:
             # The answer set has only one 'doesnotapply' to give special treatment here
             choice_list = ['yes' , 'no']

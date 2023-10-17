@@ -5,3 +5,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/raw_datasets/viquae/viquae_images/images'
   data_path: '/remote-home/qwliu/LVLM-benchmark/ViQuAE/multi-choices/viquae_1.0_val_10p.json'
   huggingface_data: 'huggingface_data/ViQuAE/viquae_test_10p.json'
+  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/ViQuAE/viquae_test_10p.json"

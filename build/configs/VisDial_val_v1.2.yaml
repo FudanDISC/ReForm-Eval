@@ -6,3 +6,4 @@ data_config:
   data_path: '/remote-home/share/multimodal-datasets/VisDial/visdial_1.0_val_v1.2.json'
   dense_path: '/remote-home/share/multimodal-datasets/VisDial/visdial_1.0_val_dense_annotations.json'
   huggingface_data: 'huggingface_data/VisDial/Visdial_1.0_val_v1.2.json'
+  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/VisDial/Visdial_1.0_val_v1.2.json'

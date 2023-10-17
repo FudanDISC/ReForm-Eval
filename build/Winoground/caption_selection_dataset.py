@@ -35,6 +35,8 @@ class CaptionSelection_SingleChoice(Dataset):
         
         if args.hf == True:
             data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
+        elif args.offline_hf:
+            data = load_dataset("json",data_files={'test':self.config['offline_huggingface_data']}, split='test')
         else: 
             data = json.load(open(self.config['data_config']['data_path'], 'r'))
         assert data['version'] == self.config['version'], 'the data version ({}) and the config version ({}) does not match, please check'.format(data['version'], self.config['version'])
@@ -97,7 +99,7 @@ class CaptionSelection_SingleChoice(Dataset):
         sample_index = index // self.duplication
         new_sample = {k:v for k,v in self.samples[sample_index].items()}
         
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             image = base64_to_image(new_sample['image'])
             new_sample['image'] = image 
         else:

@@ -102,8 +102,7 @@ def main():
     # if args.output_dir is None:
     #     args.output_dir = os.path.dirname(args.prediction_file)
     
-    loader_eval(args.formulation, args.multi_round_eval, args.dataset_duplication,
-                args.eval_stability, args.prediction_file)
+    loader_eval(args.formulation, args.multi_round_eval, args.eval_stability, args.prediction_file)
 
 if __name__=='__main__':
     main()

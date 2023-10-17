@@ -6,3 +6,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/MSCOCO/2017/images/val2017/'
   huggingface_data: 'huggingface_data/MSCOCO/mos_core_multiple_choice.json'
   data_path: '/remote-home/share/multimodal-datasets/core_datasets/mos_core_multiple_choice.json'
+  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/MSCOCO/mos_core_multiple_choice.json'

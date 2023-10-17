@@ -131,7 +131,7 @@ We list the average ranking and score of the model under Generation Evaluation a
 ### Demo
 We provide one example of running the benchmark test, using Lynx model for VisDial Evaluation.
 ```bash
-CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 run_eval.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
     --dataset_name VisDial --output_dir output/lynx/VisDial/test_generation/ \
     --per_gpu_eval_batch_size 4 --formulation SingleChoice \
@@ -395,8 +395,17 @@ class MultimodalGPT_Interface(nn.Module):
 
 #### Fine-Grained Perception
 ##### MSCOCO-MCI
+```bash
+--dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/MulticlassIdentification_val.yaml
+```
 ##### MSCOCO-GOI
+```bash
+--dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/GroundedObjIdentification_val.yaml
+```
 ##### MSCOCO-MOS
+```bash
+--dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/MissingObjectSelection_val.yaml
+```
 
 ##### TDIUC-Color
 ```bash
@@ -489,6 +498,24 @@ class MultimodalGPT_Interface(nn.Module):
 --dataset_name VQA --formulation SingleChoice --dataset_config build/configs/VQA_imagenetvc_val.yaml
 ```
 
+#### Spatial Understanding
+
+##### CLEVR
+``` bash
+--dataset_name CLEVR --formulation SingleChoice --dataset_config build/configs/Spatial_clevr_val.yaml
+```
+
+##### VSR
+``` bash
+--dataset_name VSR --formulation SingleChoice --dataset_config build/configs/Spatial_vsr_val.yaml
+```
+
+##### MP3D
+``` bash
+--dataset_name MP3D --formulation SingleChoice --dataset_config build/configs/Spatial_mp3d_val.yaml
+```
+
+
 #### Multi-Turn Dialogue
 
 ##### VQA-MT
@@ -533,6 +560,60 @@ class MultimodalGPT_Interface(nn.Module):
 ```
 
 #### Visually Scene Recognition
+
+##### IC15
+```bash
+--dataset_name IC15 --formulation OCROpenEnded --dataset_config build/configs/GroundOCR_ic15_val.yaml
+```
+```bash
+--dataset_name IC15 --formulation OCROpenEnded --dataset_config build/configs/OCR_ic15_val.yaml
+```
+
+##### COCO_Text
+```bash
+--dataset_name COCO_text --formulation OCROpenEnded --dataset_config build/configs/GroundOCR_cocotext_val.yaml
+```
+```bash
+--dataset_name COCO_text --formulation OCROpenEnded --dataset_config build/configs/OCR_cocotext_val.yaml
+```
+
+##### TextOCR
+```bash
+--dataset_name TextOCR --formulation OCROpenEnded --dataset_config build/configs/GroundOCR_textocr_val.yaml
+```
+```bash
+--dataset_name TextOCR --formulation OCROpenEnded --dataset_config build/configs/OCR_textocr_val.yaml
+```
+
+##### CUTE80
+```bash
+--dataset_name CUTE80 --formulation OCROpenEnded --dataset_config build/configs/OCR_cute80_val.yaml
+```
+
+##### IIIT5K
+```bash
+--dataset_name IIIT5K --formulation OCROpenEnded --dataset_config build/configs/OCR_iiit5k_val.yaml
+```
+
+##### WordArt
+```bash
+--dataset_name WordArt --formulation OCROpenEnded --dataset_config build/configs/OCR_wordart_val.yaml
+```
+
+##### FUNSD
+```bash
+--dataset_name FUNSD --formulation KIEOpenEnded --dataset_config build/configs/KIE_funsd_val.yaml
+```
+
+##### POIE
+```bash
+--dataset_name POIE --formulation OCROpenEnded --dataset_config build/configs/KIE_poie_val.yaml
+```
+
+##### SROIE
+```bash
+--dataset_name SROIE --formulation OCROpenEnded --dataset_config build/configs/KIE_sroie_val.yaml
+```
 
 ##### TextVQA
 ``` bash
@@ -591,6 +672,7 @@ dataset = load_reform_dataset(
     data_duplication=5, # number of multiple tests for the same sample
     shuffle_options=True, # whether to shuffle the options for the same sample
     load_from_hf:Optional=True # whether to load from huggingface
+    offline_from_hf:Optional=False # whether to load the huggingface data from the local path
 )
 ```
 Notice that each sample of the loaded dataset will be a dict containing all information like: 
@@ -615,14 +697,14 @@ Our benchmark provides accuracy and instability as metrics for each task, to qua
 
 #### Method A
 
-**Step 1:** Use existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
+**Step 1:** Use an existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
 
 **Step 2:** Create the conda env corresponding to the model and install the necessary packages.
 
 **Step 3:** Switch to the corresponding conda env, run `run_eval.py` in the root path of this repository, and add necessary parameters.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 run_eval.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
     --dataset_name VisDial --output_dir output/lynx/VisDial/test_generation/ \
     --per_gpu_eval_batch_size 4 --formulation SingleChoice \
@@ -631,7 +713,7 @@ CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 run_eval.py \
     --dataset_config datasets/configs/VisDial_val_v1.2.yaml \
 ```
 
-**Step 4:** Check the inference progress and results in the terminal. The accuracy, the format hit rate and instability can also be viewed in `output_dir/log.txt`.
+**Step 4:** Check the inference progress and results in the terminal. The accuracy, (the format hit rate or instability) can also be viewed in `output_dir/log.txt`.
 
 #### Method B
 
@@ -649,12 +731,14 @@ loader_eval(formulation='SingleChoice',
             prediction_file='/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'
 )
 ```
+
 Or
 ```bash
-python run_loader_eval.py --formulation SingleChoice --multi_round_eval False \
-    --eval_stability True --prediction_file /path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+python run_loader_eval.py --formulation SingleChoice --eval_stability \
+    --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
 ```
-**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set to `eval_stability=True` when `formulation='SingleChoice'`, which means that only SingleChoice can measure the instability.**
+
+**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability.**
 
 Notice that each sample in the output json are supposed to be specific format:
 ```python
@@ -666,9 +750,10 @@ Notice that each sample in the output json are supposed to be specific format:
   'prediction': '(A) yes' # the prediction
 }
 ```
+
 **Important: during generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong.**
 
-**Step 4:** The accuracy, the format hit rate and instability can be viewed in `output_dir/log.txt`.
+**Step 4:** The accuracy, (the format hit rate or instability) can be viewed in `output_dir/log.txt`.
 
 ### Output Result
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:

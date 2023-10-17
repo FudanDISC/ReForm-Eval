@@ -7,4 +7,4 @@ data_config:
   # anns_path: '/remote-home/share/multimodal-datasets/Pets37/petKind_annotations_val.json'
   anns_path: '/remote-home/share/multimodal-datasets/Pets37/tenths_petKind_annotations_val.json'
   hf_anns_path: 'huggingface_data/Pets37/pets37_test_10p.json' 
-  
+  offline_huggingface_anns: './ReForm-Eval-Data/huggingface_data/Pets37/pets37_test_10p.json' 

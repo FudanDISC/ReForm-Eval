@@ -6,3 +6,4 @@ data_config:
   image_path: '/remote-home/share/multimodal-datasets/TextOCR/'
   huggingface_data: 'huggingface_data/TextOCR/textocr_gocr_core_open_ended.json'
   data_path: '/remote-home/share/multimodal-datasets/core_datasets/textocr_gocr_core_open_ended.json'
+  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/TextOCR/textocr_gocr_core_open_ended.json'

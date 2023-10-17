@@ -1,6 +1,8 @@
 import json
 import os
 from torch.utils.data import Dataset , DataLoader
+from utils.data_utils import base64_to_image
+from datasets import load_dataset
 from PIL import Image
 import pickle
 import random
@@ -8,9 +10,14 @@ import yaml
 import argparse
 
 
-def make_choices(answer , choice_path):
-    with open(choice_path , 'rb') as f:
-        choice_list = pickle.load(f)
+def make_choices(answer , choice_path , hf , offline_hf):
+    if hf:
+        choice_list = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':choice_path}, split='test')['choice']
+    elif offline_hf:
+        choice_list = load_dataset("json",data_files={'test':choice_path}, split='test')['choice']
+    else:
+        with open(choice_path , 'rb') as f:
+            choice_list = pickle.load(f)
     # In addition to the correct answer, 3 other choices are drawn
     try:
         choice_list.remove(int(answer))
@@ -70,13 +77,18 @@ class ObjectCounting_SingleChoice(Dataset):
         self.proc = proc
         self.duplication = duplication
         self.image_dir = self.config['data_config']['image_dir']
-        if self.args.hf == True:
+        if self.args.hf:
             self.choice_path = self.config['data_config']['hf_choice_path']
             self.anns_path = self.config['data_config']['hf_anns_path']
+            anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
+        elif self.args.offline_hf:
+            self.choice_path = self.config['data_config']['hf_choice_path']
+            self.anns_path = self.config['data_config']['hf_anns_path']
+            anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
         else:
             self.choice_path = self.config['data_config']['choice_path']
             self.anns_path = self.config['data_config']['anns_path']
-        anns = json.load(open(self.anns_path , 'r'))
+            anns = json.load(open(self.anns_path , 'r'))
 
         self.data = []
         for idx , ann in enumerate(anns):
@@ -95,17 +107,15 @@ class ObjectCounting_SingleChoice(Dataset):
         data_item = self.data[sample_index]
 
         question = data_item['question']
-        if self.args.hf == True:
+        if self.args.hf || self.args.offline_hf:
             image = base64_to_image(data_item['image'])
         else:
             image = os.path.join(self.image_dir , data_item['image_name'])
         answer = str(data_item['answer'])
-        choice_list = make_choices(answer , self.choice_path)
+        choice_list = make_choices(answer , self.choice_path , self.args.hf , self.args.offline_hf)
 
         if self.args.shuffle_options:
             random.shuffle(choice_list)
-
-
 
         sample = {
             'sample_id' : data_item['sample_id'],

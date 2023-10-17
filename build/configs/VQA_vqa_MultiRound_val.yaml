@@ -5,3 +5,4 @@ data_config:
   image_path: '/remote-home/share/VQA/Images/val2014'
   data_path: '/remote-home/share/multimodal-datasets/VQA_MultiRound/VQA_MultiRound_v1.0.json'
   huggingface_data: 'huggingface_data/VisDial/VQA_MultiTurn_v1.0.json'
+  offline_huggingface_data: './ReForm-Eval-Data/huggingface_data/VisDial/VQA_MultiTurn_v1.0.json'

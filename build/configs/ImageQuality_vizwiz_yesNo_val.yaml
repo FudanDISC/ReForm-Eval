@@ -11,5 +11,7 @@ data_config:
   singleChoice_anns_path: '/remote-home/share/multimodal-datasets/IQA/annotations/tenths_singleChoice_val.json'
   hf_yesNo_anns_path: 'huggingface_data/VizWiz/vizwiz_yesno_val_10p.json'
   hf_singleChoice_anns_path: 'huggingface_data/VizWiz/vizwiz_singleChoice_val_10p.json'
+  offline_huggingface_yesNo_anns: './ReForm-Eval-Data/huggingface_data/VizWiz/vizwiz_yesno_val_10p.json'
+  offline_huggingface_singleChoice_anns: './ReForm-Eval-Data/huggingface_data/VizWiz/vizwiz_singleChoice_val_10p.json'
 
 

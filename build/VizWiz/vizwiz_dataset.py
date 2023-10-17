@@ -54,12 +54,18 @@ class VizWiz_Dataset(Dataset):
         self.proc = proc
         self.duplication = duplication
         self.image_dir = self.config['data_config']['image_path']
-        if self.args.hf == True:
+        if self.args.hf:
             if self.config['task_kind'] == 'SingleChoice':
                 self.anns_path = self.config['data_config']['hf_singleChoice_anns_path']
             elif self.config['task_kind'] == 'YesOrNo':
                 self.anns_path = self.config['data_config']['hf_yesNo_anns_path']
             anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
+        elif self.args.offline_hf:
+            if self.config['task_kind'] == 'SingleChoice':
+                self.anns_path = self.config['data_config']['offline_huggingface_yesNo_anns']
+            elif self.config['task_kind'] == 'YesOrNo':
+                self.anns_path = self.config['data_config']['offline_huggingface_singleChoice_anns']
+            anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
         else:
             if self.config['task_kind'] == 'SingleChoice':
                 self.anns_path = self.config['data_config']['singleChoice_anns_path']
@@ -88,7 +94,7 @@ class VizWiz_Dataset(Dataset):
             random.shuffle(data_item['options'])
             data_item['answer'] = data_item['options'].index(origin_ans)
 
-        if self.args.hf == True:
+        if self.args.hf || self.args.offline_hf:
             image = base64_to_image(data_item['image_name'])
         else:
             image = os.path.join(self.image_dir , data_item['image_name'])

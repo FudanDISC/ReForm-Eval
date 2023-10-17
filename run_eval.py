@@ -241,6 +241,7 @@ def main():
     parser.add_argument('--core_eval', action='store_true', help='only eval on the core datasets')
     # hugging face
     parser.add_argument('--hf', action='store_true', help='whether to load the dataset directly from Hugging Face')
+    parser.add_argument('--offline_hf', action='store_true', help='whether to load the Hugging Face data from the local path')
     args = parser.parse_args()
 
     if 'WORLD_SIZE' in os.environ:

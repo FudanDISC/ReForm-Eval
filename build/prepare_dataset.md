@@ -11,7 +11,7 @@ You can load our dataset directly from our Hugging Face repository, avoiding the
 from datasets import load_dataset
 # You can add (field="data") in parameters for extracting "data" keys.
 # Load from the Hugging Face page
-dataset = load_dataset("Aweminus/ReForm-Eval",data_files={'test':'huggingface_data/MEDIC/disaster-type-selection-sampled.json'}, split='test') 
+dataset = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':'huggingface_data/MEDIC/disaster-type-selection-sampled.json'}, split='test') 
 # Load from the local path
 dataset = load_dataset("json",data_files={'test':'/path/to/disaster-type-selection.json'}, split='test')
 ```
@@ -22,23 +22,24 @@ task: 'dts' # disaster type selection
 data_config:
   load_from_bootstrap: True
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
-  medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json" 
+  medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json"
   huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the path of hugging face data
+  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the local path of hugging face data
 ```
-
+  
 And in `./build/MEDIC/disaster_type_dataset.py`, the hugging data path is read directly from the config file, so no changes are needed.
 ```python
     if args.hf:
-        data = load_dataset("Aweminus/ReForm-Eval",data_files={'test':self.config['huggingface_data']}, split='test')
+        data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['huggingface_data']}, split='test')
 ```
 
 If you cannot access hugging face, you can use the following command to download the dataset, and then load the dataset locally still with a single line of code.
 ```bash
 git lfs install
-git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval
+git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 ```
 
-Then you need to modify `huggingface_data` to the local path of the dataset:
+When you run the above command from the root directory of this repository, `offline_huggingface_data` do not need to be modified, otherwise it need to be modified:
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection
@@ -46,7 +47,8 @@ data_config:
   load_from_bootstrap: True
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json" 
-  huggingface_data: "/path/to/disaster-type-selection.json" # The place you need to modify (the local path of hugging face data)
+  huggingface_data: "/path/to/disaster-type-selection.json" # the path of hugging face data
+  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the local path of hugging face data)
 ```
 
 ### Manually Download

@@ -4,3 +4,4 @@ data_config:
   load_from_bootstrap: True
   nocaps_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Caption/NoCaps/captions-sampled.json"
   huggingface_data: "huggingface_data/NoCaps/captions-sampled.json"
+  offline_huggingface_data: "./ReForm-Eval-Data/huggingface_data/NoCaps/captions-sampled.json"

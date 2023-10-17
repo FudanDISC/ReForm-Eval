@@ -42,7 +42,7 @@ from .VSR import get_vsr
 # from .Winoground.matching_dataset import get_matching
 from .MP3D import get_mp3d
 from .OCR.ocr_dataset import get_ocr
-from .VizWiz.iqa_dataset import get_vizwiz
+from .VizWiz import get_vizwiz
 from typing import Optional
 
 def build_dataset(args, dataset_name:str, formulation:str, dataset_config:Optional[dict]=None, preprocessor=None):
@@ -152,6 +152,7 @@ def load_reform_dataset(dataset_name:str,
                  data_duplication:Optional[int]=5,
                  shuffle_options:Optional[bool]=True,
                  load_from_hf:Optional[bool]=True, 
+                 offline_from_hf:Optional[bool]=False, 
                  preprocessor=None):
     """
     Return the constructed dataset
@@ -178,7 +179,10 @@ def load_reform_dataset(dataset_name:str,
     args = Namespace()
 
     # set the important arguments to the namespace
-    args.hf = load_from_hf
+    if load_from_hf == True:
+        args.hf = load_from_hf
+    if offline_from_hf == True:
+        args.offline_hf = offline_from_hf
 
     assert inference_method in ['generation', 'likelihood'], "the inference method should be 'generation' or 'likelihood'"
     args.infer_method = inference_method

@@ -22,6 +22,8 @@ class VisualEntailmentMatching(Dataset):
         self.args = args
         if args.hf:
             data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['huggingface_data']}, split='test')
+        elif args.offline_hf:
+            data = load_dataset("json",data_files={'test':self.config['offline_huggingface_data']}, split='test')
         else:
             data = json.load(open(self.config['data_config']['vem_path'], 'r'))
         # detect gt info
