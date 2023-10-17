@@ -1,7 +1,7 @@
 source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="Pets37"
-dc="datasets/configs/ImageClassification_pets37_val.yaml"
+dc="build/configs/ImageClassification_pets37_val.yaml"
 
 ######################################  BLIP2
 # conda activate blip2

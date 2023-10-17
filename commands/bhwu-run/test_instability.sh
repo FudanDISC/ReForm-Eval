@@ -22,7 +22,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --output_dir output/bhwu_output/instability/blip2_t5/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -30,7 +30,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --output_dir output/bhwu_output/instability/blip2_t5/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -38,7 +38,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --output_dir output/bhwu_output/instability/blip2_t5/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -47,7 +47,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_vicuna_instruct --model_type vicuna7b \
     --output_dir output/bhwu_output/instability/blip2_vicuna_instruct/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -55,7 +55,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_vicuna_instruct --model_type vicuna7b \
     --output_dir output/bhwu_output/instability/blip2_vicuna_instruct/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -63,7 +63,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_vicuna_instruct --model_type vicuna7b \
     --output_dir output/bhwu_output/instability/blip2_vicuna_instruct/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -72,7 +72,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5_instruct --model_type flant5xl \
     --output_dir output/bhwu_output/instability/blip2_t5_instruct/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -80,7 +80,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5_instruct --model_type flant5xl \
     --output_dir output/bhwu_output/instability/blip2_t5_instruct/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -88,7 +88,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5_instruct --model_type flant5xl \
     --output_dir output/bhwu_output/instability/blip2_t5_instruct/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -97,7 +97,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model minigpt4 --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml \
     --output_dir output/bhwu_output/instability/minigpt4/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -105,7 +105,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model minigpt4 --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml \
     --output_dir output/bhwu_output/instability/minigpt4/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -113,7 +113,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model minigpt4 --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml \
     --output_dir output/bhwu_output/instability/minigpt4/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -128,7 +128,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/LLaVA-7B-v0/ \
     --output_dir output/bhwu_output/instability/llava/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -136,7 +136,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/LLaVA-7B-v0/ \
     --output_dir output/bhwu_output/instability/llava/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -144,7 +144,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/LLaVA-7B-v0/ \
     --output_dir output/bhwu_output/instability/llava/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -153,7 +153,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/llava-llama-2-7b-chat-lightning-lora-preview/ --model_type /remote-home/share/LLM_CKPT/Llama-2-7b-chat-hf/ \
     --output_dir output/bhwu_output/instability/llava2/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -161,7 +161,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/llava-llama-2-7b-chat-lightning-lora-preview/ --model_type /remote-home/share/LLM_CKPT/Llama-2-7b-chat-hf/ \
     --output_dir output/bhwu_output/instability/llava2/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -169,7 +169,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/llava-llama-2-7b-chat-lightning-lora-preview/ --model_type /remote-home/share/LLM_CKPT/Llama-2-7b-chat-hf/ \
     --output_dir output/bhwu_output/instability/llava2/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -184,7 +184,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mplugowl --model_name mplugowl --model_type /remote-home/share/multimodal-models/mplug-owl-llama-7b/ \
     --output_dir output/bhwu_output/instability/mplugowl/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -192,7 +192,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mplugowl --model_name mplugowl --model_type /remote-home/share/multimodal-models/mplug-owl-llama-7b/ \
     --output_dir output/bhwu_output/instability/mplugowl/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -200,7 +200,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mplugowl --model_name mplugowl --model_type /remote-home/share/multimodal-models/mplug-owl-llama-7b/ \
     --output_dir output/bhwu_output/instability/mplugowl/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -215,7 +215,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model imagebindLLM  --model_name imagebindLLM  --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
     --output_dir output/bhwu_output/instability/imagebindLLM/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -223,7 +223,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model imagebindLLM  --model_name imagebindLLM  --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
     --output_dir output/bhwu_output/instability/imagebindLLM/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -231,7 +231,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model imagebindLLM  --model_name imagebindLLM  --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
     --output_dir output/bhwu_output/instability/imagebindLLM/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -246,7 +246,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llama_adapterv2  --model_name llama_adapterv2  --model_type /remote-home/share/multimodal-models/pyllama_data \
     --output_dir output/bhwu_output/instability/llama_adapterv2/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -254,7 +254,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llama_adapterv2  --model_name llama_adapterv2  --model_type /remote-home/share/multimodal-models/pyllama_data \
     --output_dir output/bhwu_output/instability/llama_adapterv2/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -262,7 +262,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llama_adapterv2  --model_name llama_adapterv2  --model_type /remote-home/share/multimodal-models/pyllama_data \
     --output_dir output/bhwu_output/instability/llama_adapterv2/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -277,7 +277,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mmgpt --model_name Multimodal-GPT \
     --output_dir output/bhwu_output/instability/mmgpt/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -285,7 +285,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mmgpt --model_name Multimodal-GPT \
     --output_dir output/bhwu_output/instability/mmgpt/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -293,7 +293,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mmgpt --model_name Multimodal-GPT \
     --output_dir output/bhwu_output/instability/mmgpt/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -308,7 +308,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model pandagpt  --model_name pandagpt  --model_type /remote-home/share/multimodal-models/pandagpt_pretrained_ckpt/ \
     --output_dir output/bhwu_output/instability/mmgpt/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -316,7 +316,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model pandagpt  --model_name pandagpt  --model_type /remote-home/share/multimodal-models/pandagpt_pretrained_ckpt/ \
     --output_dir output/bhwu_output/instability/mmgpt/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -324,7 +324,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model pandagpt  --model_name pandagpt  --model_type /remote-home/share/multimodal-models/pandagpt_pretrained_ckpt/ \
     --output_dir output/bhwu_output/instability/mmgpt/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -339,7 +339,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model shikra  --model_name /remote-home/share/multimodal-models/shikra-7b-v1/ \
     --output_dir output/bhwu_output/instability/shikra/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -347,7 +347,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model shikra  --model_name /remote-home/share/multimodal-models/shikra-7b-v1/ \
     --output_dir output/bhwu_output/instability/shikra/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -355,7 +355,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model shikra  --model_name /remote-home/share/multimodal-models/shikra-7b-v1/ \
     --output_dir output/bhwu_output/instability/shikra/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -370,7 +370,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_vicuna.yaml \
     --output_dir output/bhwu_output/instability/cheetor_vicuna/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -378,7 +378,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_vicuna.yaml \
     --output_dir output/bhwu_output/instability/cheetor_vicuna/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -386,7 +386,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_vicuna.yaml \
     --output_dir output/bhwu_output/instability/cheetor_vicuna/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -395,7 +395,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_llama2.yaml \
     --output_dir output/bhwu_output/instability/cheetor_llama2/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -403,7 +403,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_llama2.yaml \
     --output_dir output/bhwu_output/instability/cheetor_llama2/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -411,7 +411,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_llama2.yaml \
     --output_dir output/bhwu_output/instability/cheetor_llama2/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -426,7 +426,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model bliva --model_name bliva_vicuna \
     --output_dir output/bhwu_output/instability/bliva/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -434,7 +434,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model bliva --model_name bliva_vicuna \
     --output_dir output/bhwu_output/instability/bliva/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -442,7 +442,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model bliva --model_name bliva_vicuna \
     --output_dir output/bhwu_output/instability/bliva/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random
@@ -457,7 +457,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
     --output_dir output/bhwu_output/instability/lynx/scienceqa_random/random_instruct/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --random_instruct
@@ -465,7 +465,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
     --output_dir output/bhwu_output/instability/lynx/scienceqa_random/shuffle_options/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark upper --shuffle_options
@@ -473,7 +473,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
     --output_dir output/bhwu_output/instability/lynx/scienceqa_random/random_mark/eval_gen \
-    --dataset_name VQA_Random --dataset_config datasets/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
+    --dataset_name VQA_Random --dataset_config build/configs/VQA_scienceqa_randomness_val_v2.0.yaml \
     --infer_method $INFER_METHOD --in_context_sample --temperature 0.2 --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice --do_eval --dataset_duplication 5 \
     --option_mark random

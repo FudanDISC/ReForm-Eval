@@ -2,7 +2,7 @@ source /root/anaconda3/etc/profile.d/conda.sh
 
 ############### Sport 
 dm="TDIUC"
-dc="datasets/configs/TDIUC.yaml"
+dc="build/configs/TDIUC.yaml"
 
 conda activate blip2
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
@@ -65,7 +65,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
 
 ############### Scene
 dm="TDIUC"
-dc="datasets/configs/TDIUC_scene.yaml"
+dc="build/configs/TDIUC_scene.yaml"
 conda activate blip2
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
@@ -128,7 +128,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
 ########### color 
 
 dm="TDIUC"
-dc="datasets/configs/TDIUC_color.yaml"
+dc="build/configs/TDIUC_color.yaml"
 conda activate blip2
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
@@ -190,7 +190,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
 
 ########### color 
 dm="TDIUC"
-dc="datasets/configs/TDIUC_position.yaml"
+dc="build/configs/TDIUC_position.yaml"
 conda activate blip2
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
@@ -252,7 +252,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
 
 ############### detection
 dm="TDIUC"
-dc="datasets/configs/TDIUC_detection.yaml"
+dc="build/configs/TDIUC_detection.yaml"
 conda activate blip2
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
@@ -316,7 +316,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
 source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="TDIUC"
-dc="datasets/configs/TDIUC_counting.yaml"
+dc="build/configs/TDIUC_counting.yaml"
 conda activate blip2
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \

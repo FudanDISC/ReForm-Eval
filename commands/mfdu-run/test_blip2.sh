@@ -14,7 +14,7 @@ function blip2_likelihood(){
     function MCI(){
         ##### mci
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+        dataset_config=build/configs/MulticlassIdentification_val.yaml
         output_dir=output/mfdu_output/mci_output/${store_model_name}_${infer_method}_${formulation}
         #output_dir=output/mfdu_output/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
@@ -40,7 +40,7 @@ function blip2_likelihood(){
     function GOI(){
         ##### goi
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+        dataset_config=build/configs/GroundedObjIdentification_val.yaml
         output_dir=output/mfdu_output/goi_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -63,7 +63,7 @@ function blip2_likelihood(){
     ##### MOS
     function MOS(){
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+        dataset_config=build/configs/MissingObjectSelection_val.yaml
         output_dir=output/mfdu_output/mos_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -86,7 +86,7 @@ function blip2_likelihood(){
     ##### TL
     function TL(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextLegibility_val.yaml
+        dataset_config=build/configs/TextLegibility_val.yaml
         output_dir=output/mfdu_output/tl_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -109,7 +109,7 @@ function blip2_likelihood(){
     ##### TTC
     function TTC(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextTypeClassification_val.yaml
+        dataset_config=build/configs/TextTypeClassification_val.yaml
         output_dir=output/mfdu_output/ttc_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -133,7 +133,7 @@ function blip2_likelihood(){
     ##### CLEVR
     function CLEVR(){
         dataset_name=CLEVR
-        dataset_config=datasets/configs/Spatial_clevr_val.yaml
+        dataset_config=build/configs/Spatial_clevr_val.yaml
         output_dir=output/mfdu_output/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -156,7 +156,7 @@ function blip2_likelihood(){
     ##### VSR
     function VSR(){
         dataset_name=VSR
-        dataset_config=datasets/configs/Spatial_vsr_val.yaml
+        dataset_config=build/configs/Spatial_vsr_val.yaml
         output_dir=output/mfdu_output/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -179,7 +179,7 @@ function blip2_likelihood(){
     ##### MP3D
     function MP3D(){
         dataset_name=MP3D
-        dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+        dataset_config=build/configs/Spatial_mp3d_val.yaml
         output_dir=output/mfdu_output/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -206,7 +206,7 @@ function blip2_likelihood(){
         formulation=OCROpenEnded
         ### cocotext
         dataset_name=COCO_text
-        dataset_config=datasets/configs/OCR_cocotext_val.yaml
+        dataset_config=build/configs/OCR_cocotext_val.yaml
         output_dir=output/mfdu_output/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -227,7 +227,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### cute80
         dataset_name=CUTE80
-        dataset_config=datasets/configs/OCR_cute80_val.yaml
+        dataset_config=build/configs/OCR_cute80_val.yaml
         output_dir=output/mfdu_output/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -248,7 +248,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/OCR_ic15_val.yaml
+        dataset_config=build/configs/OCR_ic15_val.yaml
         output_dir=output/mfdu_output/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -269,7 +269,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### iiit5k
         dataset_name=IIIT5K
-        dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+        dataset_config=build/configs/OCR_iiit5k_val.yaml
         output_dir=output/mfdu_output/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -290,7 +290,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/OCR_textocr_val.yaml
+        dataset_config=build/configs/OCR_textocr_val.yaml
         output_dir=output/mfdu_output/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -311,7 +311,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### wordart
         dataset_name=WordArt
-        dataset_config=datasets/configs/OCR_wordart_val.yaml
+        dataset_config=build/configs/OCR_wordart_val.yaml
         output_dir=output/mfdu_output/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -333,7 +333,7 @@ function blip2_likelihood(){
         ###################Ground OCR
         ### coco text
         dataset_name=COCO_text
-        dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
         output_dir=output/mfdu_output/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -354,7 +354,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+        dataset_config=build/configs/GroundOCR_ic15_val.yaml
         output_dir=output/mfdu_output/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -375,7 +375,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+        dataset_config=build/configs/GroundOCR_textocr_val.yaml
         output_dir=output/mfdu_output/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -398,7 +398,7 @@ function blip2_likelihood(){
         formulation=KIEOpenEnded
         ### funsd
         dataset_name=FUNSD
-        dataset_config=datasets/configs/KIE_funsd_val.yaml
+        dataset_config=build/configs/KIE_funsd_val.yaml
         output_dir=output/mfdu_output/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -419,7 +419,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=POIE
-        dataset_config=datasets/configs/KIE_poie_val.yaml
+        dataset_config=build/configs/KIE_poie_val.yaml
         output_dir=output/mfdu_output/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -440,7 +440,7 @@ function blip2_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=SROIE
-        dataset_config=datasets/configs/KIE_sroie_val.yaml
+        dataset_config=build/configs/KIE_sroie_val.yaml
         output_dir=output/mfdu_output/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -486,7 +486,7 @@ function blip2_generation(){
     function MCI(){
         ##### mci
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+        dataset_config=build/configs/MulticlassIdentification_val.yaml
         output_dir=output/mfdu_output/mci_output/${store_model_name}_${infer_method}_${formulation}
         #output_dir=output/mfdu_output/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
@@ -512,7 +512,7 @@ function blip2_generation(){
     function GOI(){
         ##### goi
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+        dataset_config=build/configs/GroundedObjIdentification_val.yaml
         output_dir=output/mfdu_output/goi_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -535,7 +535,7 @@ function blip2_generation(){
     ##### MOS
     function MOS(){
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+        dataset_config=build/configs/MissingObjectSelection_val.yaml
         output_dir=output/mfdu_output/mos_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -558,7 +558,7 @@ function blip2_generation(){
     ##### TL
     function TL(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextLegibility_val.yaml
+        dataset_config=build/configs/TextLegibility_val.yaml
         output_dir=output/mfdu_output/tl_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -581,7 +581,7 @@ function blip2_generation(){
     ##### TTC
     function TTC(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextTypeClassification_val.yaml
+        dataset_config=build/configs/TextTypeClassification_val.yaml
         output_dir=output/mfdu_output/ttc_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -605,7 +605,7 @@ function blip2_generation(){
     ##### CLEVR
     function CLEVR(){
         dataset_name=CLEVR
-        dataset_config=datasets/configs/Spatial_clevr_val.yaml
+        dataset_config=build/configs/Spatial_clevr_val.yaml
         output_dir=output/mfdu_output/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -628,7 +628,7 @@ function blip2_generation(){
     ##### VSR
     function VSR(){
         dataset_name=VSR
-        dataset_config=datasets/configs/Spatial_vsr_val.yaml
+        dataset_config=build/configs/Spatial_vsr_val.yaml
         output_dir=output/mfdu_output/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -651,7 +651,7 @@ function blip2_generation(){
     ##### MP3D
     function MP3D(){
         dataset_name=MP3D
-        dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+        dataset_config=build/configs/Spatial_mp3d_val.yaml
         output_dir=output/mfdu_output/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -678,7 +678,7 @@ function blip2_generation(){
         formulation=OCROpenEnded
         ### cocotext
         dataset_name=COCO_text
-        dataset_config=datasets/configs/OCR_cocotext_val.yaml
+        dataset_config=build/configs/OCR_cocotext_val.yaml
         output_dir=output/mfdu_output/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -699,7 +699,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### cute80
         dataset_name=CUTE80
-        dataset_config=datasets/configs/OCR_cute80_val.yaml
+        dataset_config=build/configs/OCR_cute80_val.yaml
         output_dir=output/mfdu_output/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -720,7 +720,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/OCR_ic15_val.yaml
+        dataset_config=build/configs/OCR_ic15_val.yaml
         output_dir=output/mfdu_output/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -741,7 +741,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### iiit5k
         dataset_name=IIIT5K
-        dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+        dataset_config=build/configs/OCR_iiit5k_val.yaml
         output_dir=output/mfdu_output/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -762,7 +762,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/OCR_textocr_val.yaml
+        dataset_config=build/configs/OCR_textocr_val.yaml
         output_dir=output/mfdu_output/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -783,7 +783,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### wordart
         dataset_name=WordArt
-        dataset_config=datasets/configs/OCR_wordart_val.yaml
+        dataset_config=build/configs/OCR_wordart_val.yaml
         output_dir=output/mfdu_output/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -805,7 +805,7 @@ function blip2_generation(){
         ###################Ground OCR
         ### coco text
         dataset_name=COCO_text
-        dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
         output_dir=output/mfdu_output/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -826,7 +826,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+        dataset_config=build/configs/GroundOCR_ic15_val.yaml
         output_dir=output/mfdu_output/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -847,7 +847,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+        dataset_config=build/configs/GroundOCR_textocr_val.yaml
         output_dir=output/mfdu_output/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -870,7 +870,7 @@ function blip2_generation(){
         formulation=KIEOpenEnded
         ### funsd
         dataset_name=FUNSD
-        dataset_config=datasets/configs/KIE_funsd_val.yaml
+        dataset_config=build/configs/KIE_funsd_val.yaml
         output_dir=output/mfdu_output/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -891,7 +891,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=POIE
-        dataset_config=datasets/configs/KIE_poie_val.yaml
+        dataset_config=build/configs/KIE_poie_val.yaml
         output_dir=output/mfdu_output/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -912,7 +912,7 @@ function blip2_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=SROIE
-        dataset_config=datasets/configs/KIE_sroie_val.yaml
+        dataset_config=build/configs/KIE_sroie_val.yaml
         output_dir=output/mfdu_output/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -958,7 +958,7 @@ function instructblip2_flant5_likelihood(){
     function MCI(){
         ##### mci
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+        dataset_config=build/configs/MulticlassIdentification_val.yaml
         output_dir=output/mfdu_output/mci_output/${store_model_name}_${infer_method}_${formulation}
         #output_dir=output/mfdu_output/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
@@ -984,7 +984,7 @@ function instructblip2_flant5_likelihood(){
     function GOI(){
         ##### goi
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+        dataset_config=build/configs/GroundedObjIdentification_val.yaml
         output_dir=output/mfdu_output/goi_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1007,7 +1007,7 @@ function instructblip2_flant5_likelihood(){
     ##### MOS
     function MOS(){
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+        dataset_config=build/configs/MissingObjectSelection_val.yaml
         output_dir=output/mfdu_output/mos_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1030,7 +1030,7 @@ function instructblip2_flant5_likelihood(){
     ##### TL
     function TL(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextLegibility_val.yaml
+        dataset_config=build/configs/TextLegibility_val.yaml
         output_dir=output/mfdu_output/tl_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1053,7 +1053,7 @@ function instructblip2_flant5_likelihood(){
     ##### TTC
     function TTC(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextTypeClassification_val.yaml
+        dataset_config=build/configs/TextTypeClassification_val.yaml
         output_dir=output/mfdu_output/ttc_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1077,7 +1077,7 @@ function instructblip2_flant5_likelihood(){
     ##### CLEVR
     function CLEVR(){
         dataset_name=CLEVR
-        dataset_config=datasets/configs/Spatial_clevr_val.yaml
+        dataset_config=build/configs/Spatial_clevr_val.yaml
         output_dir=output/mfdu_output/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1100,7 +1100,7 @@ function instructblip2_flant5_likelihood(){
     ##### VSR
     function VSR(){
         dataset_name=VSR
-        dataset_config=datasets/configs/Spatial_vsr_val.yaml
+        dataset_config=build/configs/Spatial_vsr_val.yaml
         output_dir=output/mfdu_output/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1123,7 +1123,7 @@ function instructblip2_flant5_likelihood(){
     ##### MP3D
     function MP3D(){
         dataset_name=MP3D
-        dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+        dataset_config=build/configs/Spatial_mp3d_val.yaml
         output_dir=output/mfdu_output/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1150,7 +1150,7 @@ function instructblip2_flant5_likelihood(){
         formulation=OCROpenEnded
         ### cocotext
         dataset_name=COCO_text
-        dataset_config=datasets/configs/OCR_cocotext_val.yaml
+        dataset_config=build/configs/OCR_cocotext_val.yaml
         output_dir=output/mfdu_output/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1171,7 +1171,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### cute80
         dataset_name=CUTE80
-        dataset_config=datasets/configs/OCR_cute80_val.yaml
+        dataset_config=build/configs/OCR_cute80_val.yaml
         output_dir=output/mfdu_output/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1192,7 +1192,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/OCR_ic15_val.yaml
+        dataset_config=build/configs/OCR_ic15_val.yaml
         output_dir=output/mfdu_output/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1213,7 +1213,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### iiit5k
         dataset_name=IIIT5K
-        dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+        dataset_config=build/configs/OCR_iiit5k_val.yaml
         output_dir=output/mfdu_output/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1234,7 +1234,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/OCR_textocr_val.yaml
+        dataset_config=build/configs/OCR_textocr_val.yaml
         output_dir=output/mfdu_output/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1255,7 +1255,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### wordart
         dataset_name=WordArt
-        dataset_config=datasets/configs/OCR_wordart_val.yaml
+        dataset_config=build/configs/OCR_wordart_val.yaml
         output_dir=output/mfdu_output/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1277,7 +1277,7 @@ function instructblip2_flant5_likelihood(){
         ###################Ground OCR
         ### coco text
         dataset_name=COCO_text
-        dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
         output_dir=output/mfdu_output/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1298,7 +1298,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+        dataset_config=build/configs/GroundOCR_ic15_val.yaml
         output_dir=output/mfdu_output/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1319,7 +1319,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+        dataset_config=build/configs/GroundOCR_textocr_val.yaml
         output_dir=output/mfdu_output/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1342,7 +1342,7 @@ function instructblip2_flant5_likelihood(){
         formulation=KIEOpenEnded
         ### funsd
         dataset_name=FUNSD
-        dataset_config=datasets/configs/KIE_funsd_val.yaml
+        dataset_config=build/configs/KIE_funsd_val.yaml
         output_dir=output/mfdu_output/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1363,7 +1363,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=POIE
-        dataset_config=datasets/configs/KIE_poie_val.yaml
+        dataset_config=build/configs/KIE_poie_val.yaml
         output_dir=output/mfdu_output/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1384,7 +1384,7 @@ function instructblip2_flant5_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=SROIE
-        dataset_config=datasets/configs/KIE_sroie_val.yaml
+        dataset_config=build/configs/KIE_sroie_val.yaml
         output_dir=output/mfdu_output/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1430,7 +1430,7 @@ function instructblip2_flant5_generation(){
     function MCI(){
         ##### mci
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+        dataset_config=build/configs/MulticlassIdentification_val.yaml
         output_dir=output/mfdu_output/mci_output/${store_model_name}_${infer_method}_${formulation}
         #output_dir=output/mfdu_output/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
@@ -1456,7 +1456,7 @@ function instructblip2_flant5_generation(){
     function GOI(){
         ##### goi
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+        dataset_config=build/configs/GroundedObjIdentification_val.yaml
         output_dir=output/mfdu_output/goi_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1479,7 +1479,7 @@ function instructblip2_flant5_generation(){
     ##### MOS
     function MOS(){
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+        dataset_config=build/configs/MissingObjectSelection_val.yaml
         output_dir=output/mfdu_output/mos_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1502,7 +1502,7 @@ function instructblip2_flant5_generation(){
     ##### TL
     function TL(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextLegibility_val.yaml
+        dataset_config=build/configs/TextLegibility_val.yaml
         output_dir=output/mfdu_output/tl_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1525,7 +1525,7 @@ function instructblip2_flant5_generation(){
     ##### TTC
     function TTC(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextTypeClassification_val.yaml
+        dataset_config=build/configs/TextTypeClassification_val.yaml
         output_dir=output/mfdu_output/ttc_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1549,7 +1549,7 @@ function instructblip2_flant5_generation(){
     ##### CLEVR
     function CLEVR(){
         dataset_name=CLEVR
-        dataset_config=datasets/configs/Spatial_clevr_val.yaml
+        dataset_config=build/configs/Spatial_clevr_val.yaml
         output_dir=output/mfdu_output/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1572,7 +1572,7 @@ function instructblip2_flant5_generation(){
     ##### VSR
     function VSR(){
         dataset_name=VSR
-        dataset_config=datasets/configs/Spatial_vsr_val.yaml
+        dataset_config=build/configs/Spatial_vsr_val.yaml
         output_dir=output/mfdu_output/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1595,7 +1595,7 @@ function instructblip2_flant5_generation(){
     ##### MP3D
     function MP3D(){
         dataset_name=MP3D
-        dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+        dataset_config=build/configs/Spatial_mp3d_val.yaml
         output_dir=output/mfdu_output/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1622,7 +1622,7 @@ function instructblip2_flant5_generation(){
         formulation=OCROpenEnded
         ### cocotext
         dataset_name=COCO_text
-        dataset_config=datasets/configs/OCR_cocotext_val.yaml
+        dataset_config=build/configs/OCR_cocotext_val.yaml
         output_dir=output/mfdu_output/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1643,7 +1643,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### cute80
         dataset_name=CUTE80
-        dataset_config=datasets/configs/OCR_cute80_val.yaml
+        dataset_config=build/configs/OCR_cute80_val.yaml
         output_dir=output/mfdu_output/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1664,7 +1664,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/OCR_ic15_val.yaml
+        dataset_config=build/configs/OCR_ic15_val.yaml
         output_dir=output/mfdu_output/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1685,7 +1685,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### iiit5k
         dataset_name=IIIT5K
-        dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+        dataset_config=build/configs/OCR_iiit5k_val.yaml
         output_dir=output/mfdu_output/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1706,7 +1706,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/OCR_textocr_val.yaml
+        dataset_config=build/configs/OCR_textocr_val.yaml
         output_dir=output/mfdu_output/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1727,7 +1727,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### wordart
         dataset_name=WordArt
-        dataset_config=datasets/configs/OCR_wordart_val.yaml
+        dataset_config=build/configs/OCR_wordart_val.yaml
         output_dir=output/mfdu_output/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1749,7 +1749,7 @@ function instructblip2_flant5_generation(){
         ###################Ground OCR
         ### coco text
         dataset_name=COCO_text
-        dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
         output_dir=output/mfdu_output/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1770,7 +1770,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+        dataset_config=build/configs/GroundOCR_ic15_val.yaml
         output_dir=output/mfdu_output/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1791,7 +1791,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+        dataset_config=build/configs/GroundOCR_textocr_val.yaml
         output_dir=output/mfdu_output/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1814,7 +1814,7 @@ function instructblip2_flant5_generation(){
         formulation=KIEOpenEnded
         ### funsd
         dataset_name=FUNSD
-        dataset_config=datasets/configs/KIE_funsd_val.yaml
+        dataset_config=build/configs/KIE_funsd_val.yaml
         output_dir=output/mfdu_output/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1835,7 +1835,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=POIE
-        dataset_config=datasets/configs/KIE_poie_val.yaml
+        dataset_config=build/configs/KIE_poie_val.yaml
         output_dir=output/mfdu_output/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1856,7 +1856,7 @@ function instructblip2_flant5_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=SROIE
-        dataset_config=datasets/configs/KIE_sroie_val.yaml
+        dataset_config=build/configs/KIE_sroie_val.yaml
         output_dir=output/mfdu_output/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1902,7 +1902,7 @@ function instructblip2_vicuna_likelihood(){
     function MCI(){
         ##### mci
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+        dataset_config=build/configs/MulticlassIdentification_val.yaml
         output_dir=output/mfdu_output/mci_output/${store_model_name}_${infer_method}_${formulation}
         #output_dir=output/mfdu_output/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
@@ -1928,7 +1928,7 @@ function instructblip2_vicuna_likelihood(){
     function GOI(){
         ##### goi
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+        dataset_config=build/configs/GroundedObjIdentification_val.yaml
         output_dir=output/mfdu_output/goi_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1951,7 +1951,7 @@ function instructblip2_vicuna_likelihood(){
     ##### MOS
     function MOS(){
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+        dataset_config=build/configs/MissingObjectSelection_val.yaml
         output_dir=output/mfdu_output/mos_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1974,7 +1974,7 @@ function instructblip2_vicuna_likelihood(){
     ##### TL
     function TL(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextLegibility_val.yaml
+        dataset_config=build/configs/TextLegibility_val.yaml
         output_dir=output/mfdu_output/tl_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -1997,7 +1997,7 @@ function instructblip2_vicuna_likelihood(){
     ##### TTC
     function TTC(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextTypeClassification_val.yaml
+        dataset_config=build/configs/TextTypeClassification_val.yaml
         output_dir=output/mfdu_output/ttc_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2021,7 +2021,7 @@ function instructblip2_vicuna_likelihood(){
     ##### CLEVR
     function CLEVR(){
         dataset_name=CLEVR
-        dataset_config=datasets/configs/Spatial_clevr_val.yaml
+        dataset_config=build/configs/Spatial_clevr_val.yaml
         output_dir=output/mfdu_output/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2044,7 +2044,7 @@ function instructblip2_vicuna_likelihood(){
     ##### VSR
     function VSR(){
         dataset_name=VSR
-        dataset_config=datasets/configs/Spatial_vsr_val.yaml
+        dataset_config=build/configs/Spatial_vsr_val.yaml
         output_dir=output/mfdu_output/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2067,7 +2067,7 @@ function instructblip2_vicuna_likelihood(){
     ##### MP3D
     function MP3D(){
         dataset_name=MP3D
-        dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+        dataset_config=build/configs/Spatial_mp3d_val.yaml
         output_dir=output/mfdu_output/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2094,7 +2094,7 @@ function instructblip2_vicuna_likelihood(){
         formulation=OCROpenEnded
         ### cocotext
         dataset_name=COCO_text
-        dataset_config=datasets/configs/OCR_cocotext_val.yaml
+        dataset_config=build/configs/OCR_cocotext_val.yaml
         output_dir=output/mfdu_output/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2115,7 +2115,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### cute80
         dataset_name=CUTE80
-        dataset_config=datasets/configs/OCR_cute80_val.yaml
+        dataset_config=build/configs/OCR_cute80_val.yaml
         output_dir=output/mfdu_output/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2136,7 +2136,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/OCR_ic15_val.yaml
+        dataset_config=build/configs/OCR_ic15_val.yaml
         output_dir=output/mfdu_output/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2157,7 +2157,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### iiit5k
         dataset_name=IIIT5K
-        dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+        dataset_config=build/configs/OCR_iiit5k_val.yaml
         output_dir=output/mfdu_output/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2178,7 +2178,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/OCR_textocr_val.yaml
+        dataset_config=build/configs/OCR_textocr_val.yaml
         output_dir=output/mfdu_output/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2199,7 +2199,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### wordart
         dataset_name=WordArt
-        dataset_config=datasets/configs/OCR_wordart_val.yaml
+        dataset_config=build/configs/OCR_wordart_val.yaml
         output_dir=output/mfdu_output/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2221,7 +2221,7 @@ function instructblip2_vicuna_likelihood(){
         ###################Ground OCR
         ### coco text
         dataset_name=COCO_text
-        dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
         output_dir=output/mfdu_output/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2242,7 +2242,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+        dataset_config=build/configs/GroundOCR_ic15_val.yaml
         output_dir=output/mfdu_output/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2263,7 +2263,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+        dataset_config=build/configs/GroundOCR_textocr_val.yaml
         output_dir=output/mfdu_output/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2286,7 +2286,7 @@ function instructblip2_vicuna_likelihood(){
         formulation=KIEOpenEnded
         ### funsd
         dataset_name=FUNSD
-        dataset_config=datasets/configs/KIE_funsd_val.yaml
+        dataset_config=build/configs/KIE_funsd_val.yaml
         output_dir=output/mfdu_output/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2307,7 +2307,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=POIE
-        dataset_config=datasets/configs/KIE_poie_val.yaml
+        dataset_config=build/configs/KIE_poie_val.yaml
         output_dir=output/mfdu_output/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2328,7 +2328,7 @@ function instructblip2_vicuna_likelihood(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=SROIE
-        dataset_config=datasets/configs/KIE_sroie_val.yaml
+        dataset_config=build/configs/KIE_sroie_val.yaml
         output_dir=output/mfdu_output/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2374,7 +2374,7 @@ function instructblip2_vicuna_generation(){
     function MCI(){
         ##### mci
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+        dataset_config=build/configs/MulticlassIdentification_val.yaml
         output_dir=output/mfdu_output/mci_output/${store_model_name}_${infer_method}_${formulation}
         #output_dir=output/mfdu_output/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
@@ -2400,7 +2400,7 @@ function instructblip2_vicuna_generation(){
     function GOI(){
         ##### goi
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+        dataset_config=build/configs/GroundedObjIdentification_val.yaml
         output_dir=output/mfdu_output/goi_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2423,7 +2423,7 @@ function instructblip2_vicuna_generation(){
     ##### MOS
     function MOS(){
         dataset_name=MSCOCO
-        dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+        dataset_config=build/configs/MissingObjectSelection_val.yaml
         output_dir=output/mfdu_output/mos_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2446,7 +2446,7 @@ function instructblip2_vicuna_generation(){
     ##### TL
     function TL(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextLegibility_val.yaml
+        dataset_config=build/configs/TextLegibility_val.yaml
         output_dir=output/mfdu_output/tl_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2469,7 +2469,7 @@ function instructblip2_vicuna_generation(){
     ##### TTC
     function TTC(){
         dataset_name=COCO_text
-        dataset_config=datasets/configs/TextTypeClassification_val.yaml
+        dataset_config=build/configs/TextTypeClassification_val.yaml
         output_dir=output/mfdu_output/ttc_output/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2493,7 +2493,7 @@ function instructblip2_vicuna_generation(){
     ##### CLEVR
     function CLEVR(){
         dataset_name=CLEVR
-        dataset_config=datasets/configs/Spatial_clevr_val.yaml
+        dataset_config=build/configs/Spatial_clevr_val.yaml
         output_dir=output/mfdu_output/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2516,7 +2516,7 @@ function instructblip2_vicuna_generation(){
     ##### VSR
     function VSR(){
         dataset_name=VSR
-        dataset_config=datasets/configs/Spatial_vsr_val.yaml
+        dataset_config=build/configs/Spatial_vsr_val.yaml
         output_dir=output/mfdu_output/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2539,7 +2539,7 @@ function instructblip2_vicuna_generation(){
     ##### MP3D
     function MP3D(){
         dataset_name=MP3D
-        dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+        dataset_config=build/configs/Spatial_mp3d_val.yaml
         output_dir=output/mfdu_output/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2566,7 +2566,7 @@ function instructblip2_vicuna_generation(){
         formulation=OCROpenEnded
         ### cocotext
         dataset_name=COCO_text
-        dataset_config=datasets/configs/OCR_cocotext_val.yaml
+        dataset_config=build/configs/OCR_cocotext_val.yaml
         output_dir=output/mfdu_output/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2587,7 +2587,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### cute80
         dataset_name=CUTE80
-        dataset_config=datasets/configs/OCR_cute80_val.yaml
+        dataset_config=build/configs/OCR_cute80_val.yaml
         output_dir=output/mfdu_output/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2608,7 +2608,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/OCR_ic15_val.yaml
+        dataset_config=build/configs/OCR_ic15_val.yaml
         output_dir=output/mfdu_output/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2629,7 +2629,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### iiit5k
         dataset_name=IIIT5K
-        dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+        dataset_config=build/configs/OCR_iiit5k_val.yaml
         output_dir=output/mfdu_output/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2650,7 +2650,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/OCR_textocr_val.yaml
+        dataset_config=build/configs/OCR_textocr_val.yaml
         output_dir=output/mfdu_output/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2671,7 +2671,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### wordart
         dataset_name=WordArt
-        dataset_config=datasets/configs/OCR_wordart_val.yaml
+        dataset_config=build/configs/OCR_wordart_val.yaml
         output_dir=output/mfdu_output/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2693,7 +2693,7 @@ function instructblip2_vicuna_generation(){
         ###################Ground OCR
         ### coco text
         dataset_name=COCO_text
-        dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
         output_dir=output/mfdu_output/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2714,7 +2714,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### ic15
         dataset_name=IC15
-        dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+        dataset_config=build/configs/GroundOCR_ic15_val.yaml
         output_dir=output/mfdu_output/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2735,7 +2735,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### textocr
         dataset_name=TextOCR
-        dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+        dataset_config=build/configs/GroundOCR_textocr_val.yaml
         output_dir=output/mfdu_output/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2758,7 +2758,7 @@ function instructblip2_vicuna_generation(){
         formulation=KIEOpenEnded
         ### funsd
         dataset_name=FUNSD
-        dataset_config=datasets/configs/KIE_funsd_val.yaml
+        dataset_config=build/configs/KIE_funsd_val.yaml
         output_dir=output/mfdu_output/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2779,7 +2779,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=POIE
-        dataset_config=datasets/configs/KIE_poie_val.yaml
+        dataset_config=build/configs/KIE_poie_val.yaml
         output_dir=output/mfdu_output/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}
@@ -2800,7 +2800,7 @@ function instructblip2_vicuna_generation(){
         CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
         ### funsd
         dataset_name=SROIE
-        dataset_config=datasets/configs/KIE_sroie_val.yaml
+        dataset_config=build/configs/KIE_sroie_val.yaml
         output_dir=output/mfdu_output/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
         flag=" --core_eval
             --model ${model}

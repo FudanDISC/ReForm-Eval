@@ -3,7 +3,7 @@
 source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="TDIUC"
-dc="datasets/configs/TDIUC_utility.yaml"
+dc="build/configs/TDIUC_utility.yaml"
 ######################################  BLIP2
 conda activate llava
 

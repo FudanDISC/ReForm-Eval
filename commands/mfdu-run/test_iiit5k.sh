@@ -4,7 +4,7 @@ formulation=OCROpenEnded
 duplication=5
 batch_size=4
 dataset_name=COCO_text
-dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+dataset_config=build/configs/GroundOCR_cocotext_val.yaml
 
 conda activate /remote-home/mfdu/anaconda3/envs/blip2
 model=blip2

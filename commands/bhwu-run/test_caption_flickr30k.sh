@@ -24,7 +24,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/blip2_t5/default_length \
     --infer_method generation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -32,7 +32,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_vicuna_instruct --model_type vicuna7b \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/blip2_vicuna_instruct/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -40,7 +40,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5_instruct --model_type flant5xl \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/blip2_t5_instruct/default_length \
     --infer_method generation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model minigpt4 --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/minigpt4/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -62,7 +62,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/LLaVA-7B-v0/ \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/llava/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -70,7 +70,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/llava-llama-2-7b-chat-lightning-lora-preview/ --model_type /remote-home/share/LLM_CKPT/Llama-2-7b-chat-hf/ \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/llava2/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -84,7 +84,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mplugowl --model_name mplugowl --model_type /remote-home/share/multimodal-models/mplug-owl-llama-7b/ \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/mplugowl/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -98,7 +98,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model imagebindLLM --model_name imagebindLLM --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/imagebindLLM/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -112,7 +112,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llama_adapterv2  --model_name llama_adapterv2  --model_type /remote-home/share/multimodal-models/pyllama_data \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/llama_adapterv2/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -126,7 +126,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mmgpt --model_name Multimodal-GPT \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/mmgpt/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -140,7 +140,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model pandagpt  --model_name pandagpt  --model_type /remote-home/share/multimodal-models/pandagpt_pretrained_ckpt/ \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/pandagpt/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -154,7 +154,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model shikra  --model_name /remote-home/share/multimodal-models/shikra-7b-v1/ \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/shikra/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -168,7 +168,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_vicuna.yaml \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/cheetor_vicuna/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -176,7 +176,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_llama2.yaml \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/cheetor_llama2/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -190,7 +190,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model bliva --model_name bliva_vicuna \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/bliva/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \
@@ -204,7 +204,7 @@ elif [ "$machine" -eq 235 ]; then
 fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
-    --dataset_name Flickr30K --dataset_config datasets/configs/Caption_Flickr30K_val.yaml \
+    --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
     --output_dir output/bhwu_output/caption/flickr30k/lynx/default_length \
     --infer_method generation --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation Generation \

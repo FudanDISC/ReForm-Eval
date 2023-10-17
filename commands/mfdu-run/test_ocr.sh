@@ -399,26 +399,26 @@ function test_all(){
 }
 
 dataset_name=IC15
-dataset_config=datasets/configs/OCR_ic15_val.yaml
+dataset_config=build/configs/OCR_ic15_val.yaml
 store_dataset=ic15
 test_all
 
 dataset_name=COCO_text
-dataset_config=datasets/configs/OCR_cocotext_val.yaml
+dataset_config=build/configs/OCR_cocotext_val.yaml
 store_dataset=cocotext
 test_all
 
 dataset_name=WordArt
-dataset_config=datasets/configs/OCR_wordart_val.yaml
+dataset_config=build/configs/OCR_wordart_val.yaml
 store_dataset=wordart
 test_all
 
 dataset_name=IIIT5K
-dataset_config=datasets/configs/OCR_iiit5k_val.yaml
+dataset_config=build/configs/OCR_iiit5k_val.yaml
 store_dataset=iiit5k
 test_all
 
 dataset_name=TextOCR
-dataset_config=datasets/configs/OCR_textocr_val.yaml
+dataset_config=build/configs/OCR_textocr_val.yaml
 store_dataset=textocr
 test_all

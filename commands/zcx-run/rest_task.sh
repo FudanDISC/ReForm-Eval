@@ -2,7 +2,7 @@ source /remote-home/bhwu/anaconda3/etc/profile.d/conda.sh
 
 #################### ImageNet-1K
 dm="ImageNet-1K"
-dc="datasets/configs/ImageClassification_imagenet1k_val.yaml"
+dc="build/configs/ImageClassification_imagenet1k_val.yaml"
 
 conda activate llava
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
@@ -121,7 +121,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
 
 #################### VizWiz_singlechoice
 dm="VizWiz"
-dc="datasets/configs/ImageQuality_vizwiz_singleChoice_val.yaml"
+dc="build/configs/ImageQuality_vizwiz_singleChoice_val.yaml"
 
 conda activate blip2
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
@@ -178,7 +178,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
 
 #################### VizWiz_yesNo
 dm="VizWiz"
-dc="datasets/configs/ImageQuality_vizwiz_yesNo_val.yaml"
+dc="build/configs/ImageQuality_vizwiz_yesNo_val.yaml"
 
 conda activate blip2
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
@@ -236,7 +236,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
 
 #################### MSCOCO
 dm="MSCOCO"
-dc="datasets/configs/ObjectCounting_mscoco_val.yaml"
+dc="build/configs/ObjectCounting_mscoco_val.yaml"
 
 conda activate mmgpt
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \

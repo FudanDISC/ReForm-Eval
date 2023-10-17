@@ -23,7 +23,7 @@ We conduct a comprehensive evaluation of 16 open-source LVLMs across various cap
 
 Only when multiple models exist at the same time, both of the GitHub URL and the model URL are provided.
 
-### Add Your Own Models
+### Create Your Own Model Interface 
 To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `PATH_TO_REFORM-EVAL/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
 
 #### Step 1: Configure the Code Path
@@ -82,7 +82,52 @@ class Lynx_Interface(nn.Module):
 #### Step 3: Implement the Inference Function
 **Generation-based Black-Box Evaluation**
 
-After that, find the generation-related code in the original Lynx project.
+We provide the Black-box Generation-based Inference Method.
+```
+Black-box Generation-based Inference Method
+
+Args:
+    image (list[PIL.Image]):
+        The batch of input images. Each element is loaded as PIL.Image.
+    prompt (list[str]):
+        The batch of input textual prompts. Prompts should be formulated as a dialoge by the
+        model preprocessor (see utils/preprocessors.py)
+    temperature (float, **optional**):
+        A generation-related parameter: the temperature parameter in the generation process
+        of language models.
+    max_new_tokens (int, **optional**):
+        A generation-related parameter: the maximal number of tokens a model can generate.
+        
+Returns:
+    outputs (list[str]):
+        The generated output response in text.
+
+```
+
+An example is provided below:
+
+```python
+>>> # An example of VQA for LLaVA
+>>> from models.interfaces.llava_interface import LLaVA_Interface
+>>> from PIL import Image
+
+>>> image = Image.open(PATH_TO_IMAGE).convert('RGB')
+>>> model = LLaVA_Interface(PATH_TO_LLAVA, device='cuda:0')
+
+>>> prompt = "A chat between a curious human and an artificial intelligence assistant. The\
+              assistant gives helpful detailed, and polite answers to the human's questions.\
+              ###Human: <image>\n Can you see the Image? Options: (A) yes; (B) no.\
+              ###Assistant: The answer is (A) yes.\
+              ###Human: What color is the truck? Options: (A) blue; (B) orange.\
+              ###Assistant: The answer is"
+
+>>> # Generation-based Inference
+>>> outputs = model.raw_batch_generate([image], [prompt])
+>>> outputs
+"(B) orange."
+```
+
+Then, find the generation-related code in the original Lynx project.
 ```python
 @torch.no_grad()
 def evaluation(model, data_loader, device, config):
@@ -180,6 +225,47 @@ In this function, you have to use the internal vision processor to get the visio
 ```
 
 **Likelihood-based White-Box Evaluation**
+
+We provide the White-box Likelihood-based Inference Method.
+```
+White-box Likelihood-based Inference Method
+
+Args:
+    image (list[PIL.Image]):
+        The batch of input images. Each element is loaded as PIL.Image.
+    prompt (list[str]):
+        The batch of input textual prompts. Prompts should be formulated as a dialoge by the
+        model preprocessor (see utils/preprocessors.py)
+    candidates (list[list[str]]):
+        The list of candidate lists, each element (candidates[i]) is the candidate list
+        of the corresponding question.
+        
+Returns:
+    outputs (list[int]):
+        The generated output prediction index. Each element (outputs[i]) is the selected index
+        of the corresponding candidates. The prediction is therefore (candidates[i][outputs[i]])
+```
+
+Here is an example:
+```python
+>>> # An example of VQA for LLaVA
+>>> from models.interfaces.llava_interface import LLaVA_Interface
+>>> from PIL import Image
+
+>>> image = Image.open(PATH_TO_IMAGE).convert('RGB')
+>>> model = LLaVA_Interface(PATH_TO_LLAVA, device='cuda:0')
+
+>>> prompt = "A chat between a curious human and an artificial intelligence assistant. The\
+              assistant gives helpful detailed, and polite answers to the human's questions.\
+              ###Human: What color is the truck?\
+              ###Assistant:"
+>>> candidates = ['orange', 'blue']
+
+>>> # Likelihood-based Inference
+>>> outputs = model.raw_batch_predict([image], [prompt], [candidates])
+>>> outputs
+1
+```
 
 To support the likelihood evaluation, we add the following function in our model file `PATH_TO_REFORM-EVAL/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
 ```python
@@ -380,7 +466,7 @@ Additionally, you should add the following codes in  `PATH_TO_REFORM-EVAL/models
 ```
 
 #### Done!
-Finally, you can use the following model arguments in the main entrance to evaluate your model!
+Finally, you can use the following model arguments in the main entrance to evaluate your model! 
 ```bash
 --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml
 ```

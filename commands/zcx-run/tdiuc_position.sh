@@ -3,7 +3,7 @@
 source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="TDIUC"
-dc="datasets/configs/TDIUC_position.yaml"
+dc="build/configs/TDIUC_position.yaml"
 ######################################  BLIP2
 conda activate blip2
 

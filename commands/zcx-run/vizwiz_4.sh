@@ -3,7 +3,7 @@
 source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="VizWiz"
-dc="datasets/configs/ImageQuality_vizwiz_singleChoice_val.yaml"
+dc="build/configs/ImageQuality_vizwiz_singleChoice_val.yaml"
 ######################################  BLIP2
 conda activate blip2
 

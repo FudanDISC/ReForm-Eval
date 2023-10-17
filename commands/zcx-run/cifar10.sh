@@ -137,14 +137,14 @@ CUDA_VISIBLE_DEVICES=7 torchrun --nproc_per_node 1 run_eval.py \
 #     --dataset_name CIFAR10 --output_dir output/imagebindLLM/cifar10_test/generation \
 #     --per_gpu_eval_batch_size 1 --formulation SingleChoice --dataset_duplication 5 \
 #     --infer_method likelihood --do_eval --option_mark upper \
-#     --dataset_config datasets/configs/ImageClassification_cifar10_val.yaml --half_evaluation \
+#     --dataset_config build/configs/ImageClassification_cifar10_val.yaml --half_evaluation \
 
 # CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node 4 run_eval.py \
 #     --model imagebindLLM  --model_name imagebindLLM --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
 #     --dataset_name CIFAR10 --output_dir output/imagebindLLM/cifar10_test/likelihood \
 #     --per_gpu_eval_batch_size 1 --formulation SingleChoice --dataset_duplication 5 \
 #     --infer_method generation --do_eval --option_mark upper --in_context_sample \
-#     --dataset_config datasets/configs/ImageClassification_cifar10_val.yaml --half_evaluation
+#     --dataset_config build/configs/ImageClassification_cifar10_val.yaml --half_evaluation
 
 # ###################################  otter
 # conda activate otter

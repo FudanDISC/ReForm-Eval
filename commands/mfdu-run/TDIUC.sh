@@ -71,21 +71,21 @@ function eval_tdiuc(){
         --dataset_config $dc --half_evaluation
 }
 
-# dc="datasets/configs/TDIUC_color.yaml"
+# dc="build/configs/TDIUC_color.yaml"
 # store_name=TDIUC_color
 # eval_tdiuc
-# dc="datasets/configs/TDIUC_counting.yaml"
+# dc="build/configs/TDIUC_counting.yaml"
 # store_name=TDIUC_counting
 # eval_tdiuc
-# dc="datasets/configs/TDIUC_detection.yaml"
+# dc="build/configs/TDIUC_detection.yaml"
 # store_name=TDIUC_detection
 # eval_tdiuc
-# dc="datasets/configs/TDIUC_position.yaml"
+# dc="build/configs/TDIUC_position.yaml"
 # store_name=TDIUC_position
 # eval_tdiuc
-# dc="datasets/configs/TDIUC_scene.yaml"
+# dc="build/configs/TDIUC_scene.yaml"
 # store_name=TDIUC_scene
 # eval_tdiuc
-dc="datasets/configs/TDIUC.yaml"
+dc="build/configs/TDIUC.yaml"
 store_name=TDIUC_sport
 eval_tdiuc

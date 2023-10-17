@@ -2,7 +2,7 @@ source /root/anaconda3/etc/profile.d/conda.sh
 
 #### VizWiz_4
 # dm="VizWiz"
-# dc="datasets/configs/ImageQuality_vizwiz_singleChoice_val.yaml"
+# dc="build/configs/ImageQuality_vizwiz_singleChoice_val.yaml"
 # conda activate imagebind_LLM
 # CUDA_VISIBLE_DEVICES=0,1,2,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
 #     --model imagebindLLM  --model_name imagebindLLM --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
@@ -20,7 +20,7 @@ source /root/anaconda3/etc/profile.d/conda.sh
 
 #### Pets37
 dm="Pets37"
-dc="datasets/configs/ImageClassification_pets37_val.yaml"
+dc="build/configs/ImageClassification_pets37_val.yaml"
 conda activate bliva
 CUDA_VISIBLE_DEVICES=0,1,2,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \
     --model bliva  --model_name bliva_vicuna \

@@ -138,12 +138,14 @@ We list the average ranking and the score of the model under Generation Evaluati
 ```bash
 git clone https://github.com/FudanDISC/ReForm-Eval.git
 cd ReForm-Eval
+pip install -r requirements.txt
 ```
 
 **If you want to test all existing 16 models, you need to run the following command**
 ```bash
 git clone https://github.com/FudanDISC/ReForm-Eval.git --recursive
 cd ReForm-Eval
+pip install -r requirements.txt
 ```
 
 2. Build from source
@@ -179,7 +181,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 run_eval.py \
     --per_gpu_eval_batch_size 4 --formulation SingleChoice \
     --infer_method generation --do_eval --half_evaluation  --dataset_duplication 1 \
     --in_context_sample --option_mark upper \
-    --dataset_config datasets/configs/VisDial_val_v1.2.yaml \
+    --dataset_config build/configs/VisDial_val_v1.2.yaml \
 ```
 
 **Step 4:** Check the inference progress and results in the terminal. The accuracy, (the format hit rate or instability) can also be viewed in `output_dir/log.txt`.
@@ -760,7 +762,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 run_eval.py \
     --per_gpu_eval_batch_size 4 --formulation SingleChoice \
     --infer_method generation --do_eval --half_evaluation  --dataset_duplication 1 \
     --in_context_sample --option_mark upper \
-    --dataset_config datasets/configs/VisDial_val_v1.2.yaml \
+    --dataset_config build/configs/VisDial_val_v1.2.yaml \
 ```
 
 The num of `--nproc_per_node` must be equal to the num of `CUDA_VISIBLE_DEVICES`. 
@@ -841,8 +843,21 @@ We only list a few models as examples. For the remaining existing models, please
 --model blip2  --model_name blip2_t5_instruct  --model_type flant5xl
 # InstructBLIP vicuna
 --model blip2  --model_name blip2_vicuna_instruct  --model_type vicuna7b
-
 ```
+You also have to put `bert-base-uncased` and `google/flan-t5-xl` folders on the root directory of our repository.
+```
+|-- ReForm-Eval
+    |-- bert-base-uncased
+    |-- google
+        |-- flan-t5-xl
+        ...
+    |-- build
+    |-- commands
+    |-- metrics
+    |-- models
+    ...
+```
+
 #### LLaVA
 ```bash
 # LLaVA v0

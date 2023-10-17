@@ -13,9 +13,21 @@ We only list some models as examples. For the remaining existing models, please 
 --model blip2  --model_name blip2_t5_instruct  --model_type flant5xl
 # InstructBLIP vicuna
 --model blip2  --model_name blip2_vicuna_instruct  --model_type vicuna7b
-
-
 ```
+You also have to put `bert-base-uncased` and `google/flan-t5-xl` folders on the root directory of our repository.
+```
+|-- ReForm-Eval
+    |-- bert-base-uncased
+    |-- google
+        |-- flan-t5-xl
+        ...
+    |-- build
+    |-- commands
+    |-- metrics
+    |-- models
+    ...
+```
+
 #### LLaVA
 ```bash
 # LLaVA v0

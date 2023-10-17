@@ -23,7 +23,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/blip2_t5/eval_v1 \
     --infer_method $INFER_METHOD \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -32,7 +32,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_vicuna_instruct --model_type vicuna7b \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/blip2_vicuna_instruct/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -41,7 +41,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5_instruct --model_type flant5xl \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/blip2_t5_instruct/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -50,7 +50,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model minigpt4 --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/minigpt4/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -65,7 +65,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/LLaVA-7B-v0/ \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/llava/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -74,7 +74,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llava --model_name /remote-home/share/multimodal-models/llava/llava-llama-2-7b-chat-lightning-lora-preview/ --model_type /remote-home/share/LLM_CKPT/Llama-2-7b-chat-hf/ \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/llava2/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -89,7 +89,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mplugowl --model_name mplugowl --model_type /remote-home/share/multimodal-models/mplug-owl-llama-7b/ \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/mplugowl/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -104,7 +104,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model imagebindLLM  --model_name imagebindLLM  --model_type /remote-home/share/multimodal-models/imagebindllm_ckpts \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/imagebindLLM/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -119,7 +119,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model llama_adapterv2  --model_name llama_adapterv2  --model_type /remote-home/share/multimodal-models/pyllama_data \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/llama_adapterv2/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -134,7 +134,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model mmgpt --model_name Multimodal-GPT \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/mmgpt/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -149,7 +149,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model pandagpt  --model_name pandagpt  --model_type /remote-home/share/multimodal-models/pandagpt_pretrained_ckpt/ \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/pandagpt/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -164,7 +164,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model shikra  --model_name /remote-home/share/multimodal-models/shikra-7b-v1/ \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/shikra/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -179,7 +179,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_vicuna.yaml \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/cheetor_vicuna/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -188,7 +188,7 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model cheetor  --model_name models/interfaces/Cheetah/eval_configs/cheetah_eval_llama2.yaml \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/cheetor_llama2/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -203,7 +203,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model bliva --model_name bliva_vicuna \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/bliva/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \
@@ -218,7 +218,7 @@ fi
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
     --in_context_sample \
-    --dataset_name RefCOCO --dataset_config datasets/configs/ReferringExpression_val.yaml \
+    --dataset_name RefCOCO --dataset_config build/configs/ReferringExpression_val.yaml \
     --output_dir output/bhwu_output/res/lynx/eval_v1 \
     --infer_method $INFER_METHOD --half_evaluation \
     --per_gpu_eval_batch_size 1 --formulation SingleChoice \

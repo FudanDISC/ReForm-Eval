@@ -399,18 +399,18 @@ function test_all(){
 }
 
 dataset_name=MSCOCO
-dataset_config=datasets/configs/MulticlassIdentification_val.yaml
+dataset_config=build/configs/MulticlassIdentification_val.yaml
 store_dataset=mci
 test_all
 dataset_name=MSCOCO
-dataset_config=datasets/configs/GroundedObjIdentification_val.yaml
+dataset_config=build/configs/GroundedObjIdentification_val.yaml
 store_dataset=goi
 test_all
 dataset_name=MSCOCO
-dataset_config=datasets/configs/MissingObjectSelection_val.yaml
+dataset_config=build/configs/MissingObjectSelection_val.yaml
 store_dataset=mos
 test_all
 dataset_name=COCO_text
-dataset_config=datasets/configs/TextTypeClassification_val.yaml
+dataset_config=build/configs/TextTypeClassification_val.yaml
 store_dataset=ttc
 test_all

@@ -790,17 +790,17 @@ function test_all1(){
     CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 run_eval.py $flag
 }
 # dataset_name=CLEVR
-# dataset_config=datasets/configs/Spatial_clevr_val.yaml
+# dataset_config=build/configs/Spatial_clevr_val.yaml
 # store_dataset=clevr
 # test_all
 # dataset_name=VSR
-# dataset_config=datasets/configs/Spatial_vsr_val.yaml
+# dataset_config=build/configs/Spatial_vsr_val.yaml
 # store_dataset=vsr
 # test_all
 # infer_method=generation
 # test_all1
 
 # dataset_name=MP3D
-# dataset_config=datasets/configs/Spatial_mp3d_val.yaml
+# dataset_config=build/configs/Spatial_mp3d_val.yaml
 # store_dataset=mp3d
 # test_all

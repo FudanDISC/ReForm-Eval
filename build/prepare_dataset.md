@@ -47,7 +47,7 @@ git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 **Wget**
 []
 
-When you git clone the dataset or place the downloaded data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
+When you git clone the dataset or place the unzipped data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
 
 ```
 |-- ReForm-Eval

@@ -1,7 +1,7 @@
 source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="MSCOCO"
-dc="datasets/configs/ObjectCounting_mscoco_val.yaml"
+dc="build/configs/ObjectCounting_mscoco_val.yaml"
 
 ######################################  BLIP2
 # conda activate blip2

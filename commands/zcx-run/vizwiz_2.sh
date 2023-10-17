@@ -3,7 +3,7 @@
 # source /root/anaconda3/etc/profile.d/conda.sh
 
 dm="VizWiz"
-dc="datasets/configs/ImageQuality_vizwiz_yesNo_val.yaml"
+dc="build/configs/ImageQuality_vizwiz_yesNo_val.yaml"
 # ######################################  BLIP2
 # conda activate blip2
 
@@ -26,14 +26,14 @@ CUDA_VISIBLE_DEVICES=1 torchrun --nproc_per_node 1 run_eval.py \
 #     --dataset_name VizWiz --output_dir output/blip2/vizwiz/instruct_flant5xl_refine/yesNo/likelihood \
 #     --per_gpu_eval_batch_size 8 --formulation SingleChoice --dataset_duplication 5 --in_context_sample \
 #     --infer_method likelihood --do_eval --option_mark upper \
-#     --dataset_config datasets/configs/ImageQuality_vizwiz_yesNo_val.yaml \
+#     --dataset_config build/configs/ImageQuality_vizwiz_yesNo_val.yaml \
 
 # torchrun --nproc_per_node 8 run_eval.py \
 #     --model blip2  --model_name blip2_t5_instruct  --model_type flant5xl \
 #     --dataset_name VizWiz --output_dir output/blip2/vizwiz/instruct_flant5xl_refine/yesNo/generation \
 #     --per_gpu_eval_batch_size 4 --formulation SingleChoice --dataset_duplication 5 --in_context_sample \
 #     --infer_method generation --do_eval --option_mark upper \
-#     --dataset_config datasets/configs/ImageQuality_vizwiz_yesNo_val.yaml \
+#     --dataset_config build/configs/ImageQuality_vizwiz_yesNo_val.yaml \
 
 # CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
 #     --model blip2  --model_name blip2_vicuna_instruct  --model_type vicuna7b \

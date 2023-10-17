@@ -2,7 +2,7 @@ source /root/anaconda3/etc/profile.d/conda.sh
 
 #################### ImageNet1K
 dm="ImageNet-1K"
-dc="datasets/configs/ImageClassification_imagenet1k_val.yaml"
+dc="build/configs/ImageClassification_imagenet1k_val.yaml"
 conda activate llava
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node 8 run_eval.py \
@@ -21,7 +21,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node 8 run_eval.py \
 
 
 dm="TDIUC"
-dc="datasets/configs/TDIUC_scene.yaml"
+dc="build/configs/TDIUC_scene.yaml"
 conda activate minigpt4
 
 CUDA_VISIBLE_DEVICES=0,1,2,4,5,6,7 torchrun --nproc_per_node 7 run_eval.py \

@@ -79,3 +79,5 @@ build/bdist.linux-x86_64/
 build/VQA/vqar_dataset.py
 
 code_tree.txt
+
+ReForm-Eval-Data/

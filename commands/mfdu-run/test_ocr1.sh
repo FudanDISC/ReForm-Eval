@@ -400,32 +400,32 @@ function test_all(){
 
 
 dataset_name=FUNSD
-dataset_config=datasets/configs/KIE_funsd_val.yaml
+dataset_config=build/configs/KIE_funsd_val.yaml
 store_dataset=kie_funsd
 test_all
 
 dataset_name=POIE
-dataset_config=datasets/configs/KIE_poie_val.yaml
+dataset_config=build/configs/KIE_poie_val.yaml
 store_dataset=kie_poie
 test_all
 
 dataset_name=SROIE
-dataset_config=datasets/configs/KIE_sroie_val.yaml
+dataset_config=build/configs/KIE_sroie_val.yaml
 store_dataset=kie_sroie
 test_all
 
 dataset_name=IC15
-dataset_config=datasets/configs/GroundOCR_ic15_val.yaml
+dataset_config=build/configs/GroundOCR_ic15_val.yaml
 store_dataset=gocr_ic15
 test_all
 
 dataset_name=COCO_text
-dataset_config=datasets/configs/GroundOCR_cocotext_val.yaml
+dataset_config=build/configs/GroundOCR_cocotext_val.yaml
 store_dataset=gocr_cocotext
 test_all
 
 dataset_name=TextOCR
-dataset_config=datasets/configs/GroundOCR_textocr_val.yaml
+dataset_config=build/configs/GroundOCR_textocr_val.yaml
 store_dataset=gocr_textocr
 test_all
 

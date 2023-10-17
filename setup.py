@@ -1,10 +1,12 @@
 from setuptools import setup, find_packages
 
+
 setup(
     name='ReForm-Eval',
     version='1.0',
     packages=find_packages(),
     install_requires=[
+        'datasets'
         'pycocoevalcap',
         'tqdm',
         'scikit-learn'
