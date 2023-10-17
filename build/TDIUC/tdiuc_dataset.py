@@ -182,7 +182,7 @@ class TDIUC_Dataset(Dataset):
         data_item = self.sample_data[sample_index]
         question = data_item['question']
 
-        if self.args.hf || self.args.offline_hf:
+        if self.args.hf or self.args.offline_hf:
             image = base64_to_image(data_item['image_id'])
         else:
             image_filename = str(data_item['image_id'])

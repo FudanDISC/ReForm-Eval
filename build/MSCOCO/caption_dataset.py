@@ -56,7 +56,7 @@ class Caption(Dataset):
         sample_index = index // self.duplication
         new_sample = {k:v for k,v in self.samples[sample_index].items()}
         
-        if self.args.hf:
+        if self.args.hf or self.args.offline_hf:
             image = base64_to_image(new_sample['image'])
         else:
             image = get_image(new_sample['image'])
@@ -77,7 +77,7 @@ class Caption(Dataset):
     def rawitem(self, index):
         sample_index = index // self.duplication
         new_sample = {k:v for k,v in self.samples[sample_index].items()}
-        if self.args.hf:
+        if self.args.hf or self.args.offline_hf:
             image = base64_to_image(new_sample['image'])
         else:
             image = get_image(new_sample['image'])

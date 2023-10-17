@@ -94,7 +94,7 @@ class VizWiz_Dataset(Dataset):
             random.shuffle(data_item['options'])
             data_item['answer'] = data_item['options'].index(origin_ans)
 
-        if self.args.hf || self.args.offline_hf:
+        if self.args.hf or self.args.offline_hf:
             image = base64_to_image(data_item['image_name'])
         else:
             image = os.path.join(self.image_dir , data_item['image_name'])

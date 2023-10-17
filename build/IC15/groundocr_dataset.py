@@ -120,7 +120,7 @@ class GroundOCR_OpenEnded(Dataset):
             sample_index = index // self.duplication
             new_sample['instruct'] = self.instruction_list[sample_index % len(self.instruction_list)]  
             new_sample['question'] = self.samples[sample_index]['question'][sample_index % len(self.samples[sample_index]['question'])]
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             raw_image = base64_to_image(new_sample['image'])
         else:
             raw_image = get_image(new_sample['image'])

@@ -88,7 +88,7 @@ class KIE_OpenEnded(Dataset):
         new_sample['answer'] = self.samples[sample_index]['answer']
         new_sample['question'] = self.samples[sample_index]['question']
         
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             image = base64_to_image(new_sample['image'])
             new_sample['image'] = image 
         else:

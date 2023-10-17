@@ -80,7 +80,7 @@ class VQA_SingleChoice(Dataset):
         self.duplication = duplication
         
         for i, item in tqdm.tqdm(enumerate(data), desc='preprocessing the data file'):
-            if self.args.hf:
+            if self.args.hf or self.args.offline_hf:
                 image_path = item['image_id']
                 
             else:

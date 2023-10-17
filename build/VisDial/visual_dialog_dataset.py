@@ -158,7 +158,7 @@ class VisualDialog_SingleChoice(BaseDataset):
         
         self.randomness_control(new_sample, index)
 
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             image = base64_to_image(new_sample['image'])
             new_sample['image'] = image 
         else:#统一读取图片

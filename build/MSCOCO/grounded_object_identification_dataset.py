@@ -134,7 +134,7 @@ class GroundedObjIden_SingleChoice(Dataset):
         if self.args.in_context_sample and self.args.formulation == 'SingleChoice':
             new_sample['history'] = [msg for msg in self.in_context_history]
 
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             raw_image = base64_to_image(new_sample['image'])
         else:
             raw_image = get_image(new_sample['image'])

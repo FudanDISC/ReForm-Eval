@@ -149,9 +149,9 @@ cd ReForm-Eval
 pip install .
 ```
 
-**Note: If you run this command in a virtual environment, it will be installed in that virtual environment. If you run it in the base environment, it will be installed in the all environments.**
+**Note: If you run this command in a virtual environment, it will be installed in that virtual environment. If you run it in the base environment, it will be installed in all environments.**
 
-The advantage of build source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` commands, and can be executed in any path.
+The advantage of building from source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` commands, and can be executed in any path, including the dataloader function `load_reform_dataset`.
 
 ### Demo
 We provide one example of running the benchmark test, using Lynx model for VisDial Evaluation.

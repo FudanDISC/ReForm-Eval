@@ -107,7 +107,7 @@ class OCR_OpenEnded(Dataset):
             # print(new_sample)
             new_sample['text'] = self.proc(new_sample)
             # print(new_sample['text'])
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             raw_image = base64_to_image(new_sample['image'])
         else:
             raw_image = get_image(new_sample['image'])

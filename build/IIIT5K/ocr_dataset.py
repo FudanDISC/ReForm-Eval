@@ -85,7 +85,7 @@ class OCR_OpenEnded(Dataset):
         sample_index = index // self.duplication
         new_sample = {k:v for k,v in self.samples[sample_index].items()}
         new_sample['answer'] = self.samples[sample_index]['answer']
-        if self.args.hf == True:
+        if self.args.hf == True or self.args.offline_hf:
             image = base64_to_image(new_sample['image'])
             new_sample['image'] = image 
         else:

@@ -3,9 +3,7 @@ from .VisDial import get_visdial
 from .MSCOCO import get_mscoco
 from .COCO_text import get_cocotext
 # #from .ImageTextMatching.image_text_matching_dataset import get_itm
-# from .VQA.vqa_dataset import get_vqa
-# from .VQA.kvqa_dataset import get_kvqa
-# from .VQA.vqar_dataset import get_vqa_random
+from .VQA import get_vqa, get_kvqa
 from .WikiHow import get_wikihow
 from .SNLI_VE import get_snli_ve
 # from .NLVR import get_nlvr
@@ -25,7 +23,7 @@ from .POIE import get_poie
 from .SROIE import get_sroie
 from .CLEVR import get_clevr
 from .VSR import get_vsr
-# from .MOCHEG.mcv_dataset import get_mcv
+from .MOCHEG import get_mcv
 # # from .VizWiz.iqa_dataset import get_vizwiz
 # from .VizWiz.vizwiz_dataset_hf import get_vizwiz
 # # from .ImageNet1K.dataset import get_imagenet1k
@@ -36,12 +34,14 @@ from .VSR import get_vsr
 # from .Pets37.pets37_dataset_hf import get_pets37
 # # from .Flowers102.dataset import get_flowers102
 # from .Flowers102.flowers102_dataset_hf import get_flowers102
-# from .AOKVQA.qra_dataset import get_vqra
-# from .AOKVQA.qar_dataset import get_vqar
-# from .Winoground.caption_selection_dataset import get_caption_selection
-# from .Winoground.matching_dataset import get_matching
+from .Flowers102 import get_flowers102
+from .ImageNet1K import get_imagenet1k
+from .CIFAR10 import get_cifar10
+from .Pets37 import get_pets37 
+from .AOKVQA import get_vqra, get_vqar
+from .Winoground import get_caption_selection
 from .MP3D import get_mp3d
-from .OCR.ocr_dataset import get_ocr
+from .OCR import get_ocr
 from .VizWiz import get_vizwiz
 from typing import Optional
 
@@ -60,18 +60,12 @@ def build_dataset(args, dataset_name:str, formulation:str, dataset_config:Option
         >>> from datasets import build_dataset
         >>> dataset = build_dataset("VisDial", "SingleChoice")
     """
-    # if args.hf == True:
-    #     from .VizWiz.vizwiz_dataset_hf import get_vizwiz as get_vizwiz_hf
-    #     #后面加dataset_hf.py的函数
-    # else:
-    #     from .VizWiz.iqa_dataset import get_vizwiz
-    #     #后面加dataset.py的函数
 
 
     if dataset_name == 'VQA':
         return get_vqa(args, dataset_config, formulation, preprocessor)
-    elif dataset_name == 'VQA_Random':
-        return get_vqa_random(args, dataset_config, formulation, preprocessor)
+    # elif dataset_name == 'VQA_Random':
+    #     return get_vqa_random(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'KVQA':
         return get_kvqa(args, dataset_config, formulation, preprocessor) 
     elif dataset_name == 'VisDial':
@@ -179,10 +173,8 @@ def load_reform_dataset(dataset_name:str,
     args = Namespace()
 
     # set the important arguments to the namespace
-    if load_from_hf == True:
-        args.hf = load_from_hf
-    if offline_from_hf == True:
-        args.offline_hf = offline_from_hf
+    args.hf = load_from_hf
+    args.offline_hf = offline_from_hf
 
     assert inference_method in ['generation', 'likelihood'], "the inference method should be 'generation' or 'likelihood'"
     args.infer_method = inference_method
@@ -203,8 +195,8 @@ def load_reform_dataset(dataset_name:str,
     
     if dataset_name == 'VQA':
         return get_vqa(args, dataset_config, formulation, preprocessor)
-    elif dataset_name == 'VQA_Random':
-        return get_vqa_random(args, dataset_config, formulation, preprocessor)
+    # elif dataset_name == 'VQA_Random':
+    #     return get_vqa_random(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'KVQA':
         return get_kvqa(args, dataset_config, formulation, preprocessor) 
     elif dataset_name == 'VisDial':
@@ -267,8 +259,8 @@ def load_reform_dataset(dataset_name:str,
         return get_vqar(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'CaptionSelection':
         return get_caption_selection(args, dataset_config, formulation, preprocessor)
-    elif dataset_name == 'Matching':
-        return get_matching(args, dataset_config, formulation, preprocessor)
+    # elif dataset_name == 'Matching':
+    #     return get_matching(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'MP3D':
         return get_mp3d(args, dataset_config, formulation, preprocessor)
     elif dataset_name == 'Flowers102':

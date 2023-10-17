@@ -107,7 +107,7 @@ class ObjectCounting_SingleChoice(Dataset):
         data_item = self.data[sample_index]
 
         question = data_item['question']
-        if self.args.hf || self.args.offline_hf:
+        if self.args.hf or self.args.offline_hf:
             image = base64_to_image(data_item['image'])
         else:
             image = os.path.join(self.image_dir , data_item['image_name'])
