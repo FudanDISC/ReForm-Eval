@@ -1,7 +1,7 @@
 ## 📥 Prepare Dataset
 To address the wide range of questions posed by users, LVLMs need to possess diverse capabilities. For a comprehensive evaluation, we curate 61 benchmark datasets from existing resources, summarizing the assessed capabilities into 2 major categories and 8 sub-categories.
 
-<p align="center"><img src="../base_dimensions.png" width="200" height="200"/></p>
+<p align="center"><img src="../base_dimensions.png" width="600" height="600"/></p>
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
 
@@ -10,7 +10,7 @@ You can load our dataset directly from our Hugging Face repository, avoiding the
 ```python
 from datasets import load_dataset
 # You can add (field="data") in parameters for extracting "data" keys.
-# Load from the Hugging Face page
+# Load from the Hugging Face Hub
 dataset = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':'huggingface_data/MEDIC/disaster-type-selection-sampled.json'}, split='test') 
 # Load from the local path
 dataset = load_dataset("json",data_files={'test':'/path/to/disaster-type-selection.json'}, split='test')
@@ -23,23 +23,23 @@ data_config:
   load_from_bootstrap: True
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json"
-  huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the path of hugging face data
-  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the relative local path of hugging face data
+  huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the relative path in Hugging Face Hub
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the relative local path of Hugging Face data
 ```
   
-And in `./build/MEDIC/disaster_type_dataset.py`, the hugging data path is read directly from the config file, so no changes are needed.
+And in `./build/MEDIC/disaster_type_dataset.py`, the specific path of Hugging Face Hub is read directly from the config file, so no changes are needed.
 ```python
     if args.hf:
         data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
 ```
 
-If you cannot access hugging face, you can use the following command to download the dataset, and then load the dataset locally still with a single line of code.
+If you cannot access Hugging Face, you can use the following command to download the dataset, and then load the dataset locally.
 ```bash
 git lfs install
 git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 ```
 
-When you git clone the dataset from the root directory of this repository, `offline_huggingface_data` do not need to be modified, otherwise it need to be modified:
+When you git clone the dataset from the root directory of this repository, `offline_huggingface_data` does not need to be modified, otherwise it needs to be modified:
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection
@@ -47,8 +47,8 @@ data_config:
   load_from_bootstrap: True
   image_path: "/remote-home/share/multimodal-datasets/raw_datasets/MEDIC/data"
   medic_path: "/remote-home/share/multimodal-datasets/Gen_Eval/Disaster-Type-Selection/disaster-type-selection-sampled.json" 
-  huggingface_data: "/path/to/disaster-type-selection.json" # the path of hugging face data
-  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the relative local path of hugging face data)
+  huggingface_data: "huggingface_data/MEDIC/disaster-type-selection-sampled.json" # the relative path in Hugging Face Hub
+  offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the relative local path of Hugging Face data)
 ```
 
 ### Manually Download
@@ -92,7 +92,8 @@ Alternatively, all datasets are also provided with URLs and you can manually dow
 | WordArt          | [https://drive.google.com/file/d/1SanxRwTxd2q](https://drive.google.com/file/d/1SanxRwTxd2q)|
 
 
-After downloading the all dataset, you need to modify all paths of config files in `PATH_TO_REFORM-EVAL/datasets/configs/`.
+After downloading all dataset, you need to modify following paths of config files in `PATH_TO_REFORM-EVAL/datasets/configs/`.
+
 ```YAML
 dataset: 'MEDIC'
 task: 'dts' # disaster type selection

@@ -186,7 +186,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 run_eval.py \
 #### Method B
 
 **Step 1:** Build a dataset using our Data Loader and process them into a string with the desired format of the corresponding model.
-```python
+<!-- ```python
 from build import load_reform_dataset
 
 # example for loading VQA v2
@@ -203,7 +203,7 @@ dataset = load_reform_dataset(
     load_from_hf:=True, # (Optional) whether to load from huggingface
     offline_from_hf:=False # (Optional) whether to load the huggingface data from the local path
 )
-```
+``` -->
 
 **Step 2:** The model outputs a json file, such as `/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'`, based on the dataset built by **step 1**.
 
@@ -237,15 +237,19 @@ Notice that each sample in the output json are supposed to be specific format:
 }
 ```
 
-**Important: during generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong.**
+**Important: During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong.**
 
 **Step 4:** The accuracy, (the format hit rate or instability) can be viewed in `output_dir/log.txt`.
 
 ### Load Data
 There are two ways to load data, using our framework directly or using Data Loader.
 
-#### Using ReForm-Eval Framework
+**Note:The most recommendation for loading data is using Hugging Face Data. We introduce how to load Hugging Face data in each method. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)**
 
+#### Using ReForm-Eval Framework
+If you load data from ReForm-Eval Framework, when running `run_eval.py` and `run_loader_eval.py`, you should set the data-related parameters, including `--dataset_name`, `--formulation`, `--dataset_config`, `--dataset_duplication`, `--in_context_sample` and `--capitalize`.
+
+**Please set `--hf` or `--online_hf` if you would like to load data from Hugging Face. `--hf` is loading from Hugging Face Hub, and `--online_hf` is loading Hugging Face data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
 
 #### Using Data Loader
 ReForm-Eval provides the direct data loader if you would like to perform evaluation without our framework. Here is an example:
@@ -263,8 +267,8 @@ dataset = load_reform_dataset(
     random_instruct=True, # whether to use different instructions for the same sample
     data_duplication=5, # number of multiple tests for the same sample
     shuffle_options=True, # whether to shuffle the options for the same sample
-    load_from_hf:=True, # (Optional) whether to load from huggingface
-    offline_from_hf:=False # (Optional) whether to load the huggingface data from the local path
+    load_from_hf=True, # (Optional) whether to load from huggingface
+    offline_from_hf=False # (Optional) whether to load the huggingface data from the local path
 )
 ```
 Notice that each sample of the loaded dataset will be a dict containing all information like: 
@@ -279,6 +283,9 @@ Notice that each sample of the loaded dataset will be a dict containing all info
 }
 ```
 You may need to process them into a string with the desired format. You may be intersted in the [Preprocessors](models/prepare_models.md#preprocessors) we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the [Data Usage](#data-usage).
+
+**Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load Hugging Face data. `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading Hugging Face data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
+
 
 ### Create Your Own Model Interface
 To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `PATH_TO_REFORM-EVAL/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
