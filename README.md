@@ -90,7 +90,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
   - [Demo](#demo)
   - [Parameters](#parameters)
   - [Model Usage](#model-usage)
-  - [Complete Model Usage](modles/complete_model_usage.md#comlete_model_usage)
+  - [Complete Model Usage](models/complete_model_usage.md#complete-model-usage)
   - [Data Usage](#data-usage)
 - [Evaluation](#🚀-evaluation)
   - [Data Loader](#data-loader)
@@ -230,11 +230,11 @@ def main():
 All parameters used are listed above and you can modify any parameter to customize your evaluation settings.
 
 ### Model Usage
-For model-related parameters, we list required parameters of all 16 models. When running the evaluation, these commands must be applied for specific models.
+When running the evaluation, these model-related parameters must be applied for specific models.
 
-**Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based Black-Box Evaluation` in [Add Your Own Models](models/prepare_models.md#add-your-own-models)**
+**Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based Black-Box Evaluation` in [Add Your Own Models](models/prepare_models.md#add-your-own-models).**
 
-We only list a few models as examples. For the remaining existing models, please refer to the Complete Model Usage.
+We only list a few models as examples. For the remaining existing models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
 
 #### BLIP-2 + InstructBLIP
 ```bash
@@ -265,8 +265,10 @@ We only list a few models as examples. For the remaining existing models, please
 ```
 
 ### Data Usage
+For data-related parameters, we list required parameters of different tasks for comprehensive evaluation.
 
 #### Coarse-Grained Perception
+Coarse-grained perception (CG) is the ability to recognize the overall layout and main objects at the image level.
 ##### Flowers102
 ```bash
 --dataset_name Flowers102 --formulation SingleChoice --dataset_config build/configs/ImageClassification_flowers102_val.yaml
@@ -305,6 +307,7 @@ We only list a few models as examples. For the remaining existing models, please
 ```
 
 #### Fine-Grained Perception
+Fine-grained perception (FG) requires detailed sensing at the object level.
 ##### MSCOCO-MCI
 ```bash
 --dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/MulticlassIdentification_val.yaml
@@ -348,6 +351,7 @@ We only list a few models as examples. For the remaining existing models, please
 ```
 
 #### Visually Grounded Reasoning
+A reliable LVLM is supposed to perform reasoning based on multi-modal contextual information. In order to assess such capability, we adopt the commonly applied visual question answering (VQA) task and its variant, knowledge-based visual question answer (K-VQA), which further requires models to utilize internally stored knowledge.
 
 ##### VQA v2
 ``` bash
@@ -410,7 +414,7 @@ We only list a few models as examples. For the remaining existing models, please
 ```
 
 #### Spatial Understanding
-
+Spatial understanding is the key to the real-life application of LVLMs on robots. This task requires a comprehensive understanding of both the object-object and object-observer relationship so as to make reasonable behaviors.
 ##### CLEVR
 ``` bash
 --dataset_name CLEVR --formulation SingleChoice --dataset_config build/configs/Spatial_clevr_val.yaml
@@ -428,7 +432,7 @@ We only list a few models as examples. For the remaining existing models, please
 
 
 #### Multi-Turn Dialogue
-
+ReForm-Eval evaluates the performance of LVLMs in multi-turn dialogues.
 ##### VQA-MT
 ``` bash
 --dataset_name VisDial --formulation SingleChoice --dataset_config build/configs/VQA_vqa_MultiRound_val.yaml --online_multi_round --num_workers 0
@@ -440,7 +444,7 @@ We only list a few models as examples. For the remaining existing models, please
 ```
 
 #### Cross-Modal Inference
-
+We consider two tasks: image-text matching (ITM) requires models to measure the cross-modal similarities and visual entailment (VE) demands models to check whether the information is entailed across modalities.
 ##### MSCOCO-ITM
 ```bash
 --dataset_name MSCOCO --formulation SingleChoice --dataset_config build/configs/ImageTextMatching_val.yaml
@@ -470,8 +474,8 @@ We only list a few models as examples. For the remaining existing models, please
 --dataset_name MCV  --formulation SingleChoice --dataset_config build/configs/MCV_mocheg_val.yaml
 ```
 
-#### Visually Scene Recognition
-
+#### Scene Text Perception
+Scene text perception enables LVLMs to identify, understand, and perform inference based on text in images.
 ##### IC15
 ```bash
 --dataset_name IC15 --formulation OCROpenEnded --dataset_config build/configs/GroundOCR_ic15_val.yaml
@@ -542,7 +546,7 @@ We only list a few models as examples. For the remaining existing models, please
 ```
 
 #### Visual Description
-
+Visual description is an inherent capability of LVLMs as generative models.
 ##### MSCOCO
 ```bash
 --dataset_name MSCOCO --formulation Generation --dataset_config build/configs/Caption_MSCOCO_val.yaml
