@@ -498,7 +498,7 @@ function blip2_generation(){
             --dataset_config ${dataset_config} 
             --output_dir ${output_dir} 
             --infer_method ${infer_method} 
-
+            --shuffle_options
             --per_gpu_eval_batch_size ${batch_size}
             --formulation ${formulation}
             --do_eval 
@@ -615,7 +615,7 @@ function blip2_generation(){
             --dataset_config ${dataset_config} 
             --output_dir ${output_dir} 
             --infer_method ${infer_method} 
-
+            --shuffle_options
             --per_gpu_eval_batch_size ${batch_size}
             --formulation ${formulation}
             --do_eval 
@@ -638,7 +638,7 @@ function blip2_generation(){
             --dataset_config ${dataset_config} 
             --output_dir ${output_dir} 
             --infer_method ${infer_method} 
-
+            --shuffle_options
             --per_gpu_eval_batch_size ${batch_size}
             --formulation ${formulation}
             --do_eval 
@@ -661,7 +661,7 @@ function blip2_generation(){
             --dataset_config ${dataset_config} 
             --output_dir ${output_dir} 
             --infer_method ${infer_method} 
-
+            --shuffle_options
             --per_gpu_eval_batch_size ${batch_size}
             --formulation ${formulation}
             --do_eval 
@@ -937,7 +937,7 @@ function blip2_generation(){
     CLEVR
     VSR
     MP3D
-    OCR
+    # OCR
 }
 
 function instructblip2_flant5_likelihood(){

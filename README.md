@@ -122,7 +122,8 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 ## 🦾 Model Performance
 We list the average ranking and the score of the model under Generation Evaluation and Likelihood Evaluation in the table below. 
 
-**If you get results using the new LVLM interface on our benchmark, please contact us to add your model to [Model Performance](#🦾-model-performance).**
+**If you get results on our benchmark using the new LVLM interface, please contact us to add your model to this table.**
+**`Email: yewang22@m.fudan.edu.cn`**
 
 | Model          | Gen-Avg-Rank | Gen-Avg-Score | Like-Avg-Rank | Like-Avg     |
 |----------------|--------------|---------------|---------------|--------------|
