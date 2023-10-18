@@ -11,7 +11,6 @@
     <img src="https://img.shields.io/badge/Licence-Apashe_2.0-Green" />
     <a href="https://github.com/FudanDISC"><img src="https://img.shields.io/badge/DISC-Repositories-blue" /></a>
     <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?label=Stars" />
-    <!-- <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?label=Downloads" /> -->
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FFudanDISC%2FReForm-Eval&count_bg=%23D8659B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
 </p>
 
@@ -124,14 +123,8 @@ We list the average ranking and the score of the model under Generation Evaluati
 
 `Gen-Avg-Rank` and `Like-Avg-Rank` represents the average rank of Generation and Likelihood evaluation. `Gen-Avg-Score` and `Like-Avg-Score` are the average score of Generation and Likelihood evaluation, respectively.
 
-<!-- This table presents the comprehensive performance of each model across dimensions, from which several insights can be gleaned. 
-(1) BLIP-2 and InstructBLIP continue to hold the top-2 positions in most dimensions, but in some individual dimensions, Lynx, BLIVA, and Shikra also take the lead. 
-(2) It’s worth noting that the effectiveness of models like BLIVA and Lynx only becomes apparent when using likelihood evaluation. We suspect this is attributed to the instruction-following ability of models. 
-(3) Compared to models based on CLIP visual encoders, PandaGPT and IB-LLM, which are based on the ImageBind encoder, exhibit relatively poorer performance in image-text tasks. Meanwhile, most top-performing models utilize Vicuna and FlanT5 as the backbone. 
-(4) Apart from the architecture, a common characteristic among BLIP-2, InstructBLIP, Lynx, and BLIVA is the use of relatively high-quality data during pre-training.  -->
 
 ## 🔥 Getting Start
-<!-- **Before performing the evaluation, please refer to [Prepare Dataset](build/prepare_dataset.md#prepare-dataset) and [Prepare Models](models/prepare_models.md#prepare-models).** Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions. -->
 
 ### Install
 **1. Git clone our repository, via the following command**
@@ -1382,106 +1375,6 @@ Visual description is an inherent capability of LVLMs as generative models.
 ```bash
 --dataset_name Flickr30K --formulation Generation --dataset_config build/configs/Caption_Flickr30K_val.yaml
 ```
-<!-- ### Data Loader
-
-ReForm-Eval provides the direct data loader if you would like to perform evaluation without our framework. Here is an example:
-```python
-from build import load_reform_dataset
-
-# example for loading VQA v2
-dataset = load_reform_dataset(
-    # dataset config, please check Data Usage for available arguments
-    dataset_name='VQA',
-    formulation='SingleChoice',
-    dataset_config='/path/to/ReForm-Eval/build/configs/VQA_vqa_v2_val.yaml',
-    inference_method='generation', # inference method, generation / likeligood
-    in_context_sample=True, # whether to include in-context-sample
-    random_instruct=True, # whether to use different instructions for the same sample
-    data_duplication=5, # number of multiple tests for the same sample
-    shuffle_options=True, # whether to shuffle the options for the same sample
-    load_from_hf:=True, # (Optional) whether to load from huggingface
-    offline_from_hf:=False # (Optional) whether to load the huggingface data from the local path
-)
-```
-Notice that each sample of the loaded dataset will be a dict containing all information like: 
-```
-{
-    'sample_id': 'VQA_000',
-    'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=640x484>,
-    'question': 'Is there a cat in the image?',
-    'answer': 2,
-    'answer_options': ['yes', 'no', 'maybe'],
-    'instruct': 'Based on the image, answer the question with the provided options.',
-}
-```
-You may need to process them into a string with the desired format. You may be intersted in the [Preprocessors](models/prepare_models.md#preprocessors) we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the [Data Usage](#data-usage). -->
-
-<!-- ### Evaluation Using Our Benchmark
-Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. We provide two methods: 
-
-**(A)** Create the interface in our framework and run it directly. 
-
-**(B)** Use the Data Loader we provide and output the inference results, then provide a new script to evaluate with our benchmark, taking the problem formulation and the output json file as input.
-
-#### Method A
-
-**Step 1:** Use an existing model interface or create a new model interface based on ReForm-Eval framework refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
-
-**Step 2:** Create the conda env corresponding to the model and install the necessary packages.
-
-**Step 3:** Switch to the corresponding conda env, run `run_eval.py` in the root path of this repository, and add necessary parameters.
-
-```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 run_eval.py \
-    --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml \
-    --dataset_name VisDial --output_dir output/lynx/VisDial/test_generation/ \
-    --per_gpu_eval_batch_size 4 --formulation SingleChoice \
-    --infer_method generation --do_eval --half_evaluation  --dataset_duplication 1 \
-    --in_context_sample --option_mark upper \
-    --dataset_config datasets/configs/VisDial_val_v1.2.yaml \
-```
-
-**Step 4:** Check the inference progress and results in the terminal. The accuracy, (the format hit rate or instability) can also be viewed in `output_dir/log.txt`.
-
-#### Method B
-
-**Step 1:** Build a dataset using our Data Loader and process them into a string with the desired format of the corresponding model.
-
-**Step 2:** The model outputs different results based on the dataset built by different data-related parameters.
-
-**Step 3:** Run our new script `run_loader_eval.py`, taking the problem formulation and the output json file as main parameters of input.
-```python
-from run_loader_eval import loader_eval
-
-loader_eval(formulation='SingleChoice',
-            multi_round_eval=False,
-            eval_stability=True,
-            prediction_file='/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'
-)
-```
-
-Or
-```bash
-python run_loader_eval.py --formulation SingleChoice --eval_stability \
-    --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
-```
-
-**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability.**
-
-Notice that each sample in the output json are supposed to be specific format:
-```python
-{
-  # dataset information
-  'sample_id': 'VQA_0'
-  'answer': 1
-  'answer_options': ['yes', 'no', 'maybe']
-  'prediction': '(A) yes' # the prediction
-}
-```
-
-**Important: during generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong.**
-
-**Step 4:** The accuracy, (the format hit rate or instability) can be viewed in `output_dir/log.txt`. -->
 
 ### Output Result
 The output json file is generated in your `--output_dir` path, and you can dircetly look up the corresponding json file for the final result. You can also run command by ipython in the terminal:
