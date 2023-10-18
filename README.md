@@ -8,11 +8,17 @@
 
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-green" />
-    ![Static Badge](https://img.shields.io/badge/Licence-Apashe_2.0-Green)
     <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?style=social" />
     <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" />
-    <img src="https://img.shields.io/github/views/FudanDISC/ReForm-Eval?style=social" />
+    <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FFudanDISC%2FReForm-Eval&count_bg=%23D8659B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
 </p>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/Paper-PDF-orange" />
+    <img src="https://img.shields.io/badge/Paper-Arxiv-orange" />
+    <img src="https://img.shields.io/badge/HF Dataset-ReForm-Eval-Data-orange" />
+</p>
+
 
 <div align="center">
   <h2 >ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h2>
