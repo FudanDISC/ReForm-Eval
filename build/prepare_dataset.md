@@ -45,7 +45,7 @@ git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 [https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
 
 **wget**
-```bash
+```
 wget https://drive.google.com/uc?export=download&id=13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx
 ```
 
@@ -90,10 +90,15 @@ dataset = load_dataset("json",data_files={'test':'/path/to/disaster-type-selecti
 
 If you intend to check out one sample of our formulated data, mostly, you should add `[0]` between `dataset` and `['data']`, which is different from `json.load`.
 ```python
-dataset = dataset[0]['data'][n] #n: 
+dataset = dataset[0]['data'][n] #n: The `n` th sample you want to check out
 ```
 
-But 
+However, a few json files for some dataset such as TDIUC, you do not need to specify a `['data']` field to get a sample.
+```python
+dataset = dataset[0]
+```
+
+We saved the image in the form of `base64` in all json files. These processed texts are restored to complete images by PIL when the dataset is built.
 
 <!-- You can load our dataset directly from our Hugging Face repository, avoiding the hassle of manual downloading, so this is also the most recommended method. 
 
@@ -173,7 +178,7 @@ data_config:
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the relative local path of Hugging Face data)
 ``` -->
 
-### Manual Download
+### Manual Download (Not recommended)
 Alternatively, all datasets are also provided with URLs and you can manually download them.
 
 | Dataset          | URL                                                                          |

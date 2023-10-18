@@ -177,8 +177,6 @@ cd ReForm-Eval
 pip install .
 ```
 
-**Note:** If you run this command in a virtual env, it will be installed in that virtual env. If you run it in the base env, it will be installed in all envs.
-
 The advantage of building from source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` by modifying the config file, and can be executed in any path, including the dataloader function `load_reform_dataset`.
 
 Open your shell configuration file.
@@ -260,7 +258,7 @@ python run_loader_eval.py --formulation SingleChoice --eval_stability \
     --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
 ```
 
-**There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` and `multi_round_eval` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability and be used for the multi-round evaluation.**
+**Note:** There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` and `multi_round_eval` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability and be used for the multi-round evaluation.
 
 Notice that each sample in the output json are supposed to be specific format:
 ```python
@@ -273,23 +271,21 @@ Notice that each sample in the output json are supposed to be specific format:
 }
 ```
 
-**Important: During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong. The requirement for likelihood prediction is `int`, and for generation prediction is `str`.**
+**Note:** During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong. The requirement for likelihood prediction is `int`, and for generation prediction is `str`.**
 
 **Step 4:** The accuracy, (the format hit rate or instability) can be viewed in `output_dir/log.txt`.
 
 ### Load Data
 There are two ways to load data, using our framework directly or using Data Loader.
 
-**Note: The most recommendation is using Hugging Face Data. We introduce how to load Hugging Face data from Hugging Face Hub or the local path. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)**
+**Note:** The most recommendation is using Hugging Face Data. We introduce how to load Hugging Face data from Hugging Face Hub or the local path. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset).
 
-Here is the download URL of Hugging Face data and you can directly download it!
+Here is the Google Drive URL of Hugging Face data and you can directly download it!
 
-**download URL**
-
-[https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
+**download URL:** [https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
 
 **wget**
-```bash
+```
 wget https://drive.google.com/uc?export=download&id=13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx
 ```
 
@@ -869,7 +865,7 @@ When running the evaluation, these model-related parameters must be applied for 
 
 **Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based White-Box Evaluation` in [Create Your Own Model Interface](#create-your-own-model-interface).**
 
-We only list a few examples as examples. For the remaining existing models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
+We only list a few examples of BLIP-2 and InstructBLIP here. For the remaining models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
 
 #### BLIP-2 + InstructBLIP
 ```bash

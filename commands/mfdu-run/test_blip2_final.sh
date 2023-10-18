@@ -941,8 +941,8 @@ function blip2_generation(){
         formulation=OCROpenEnded
         infer_method=generation
         dataset_name=COCO_text
-        dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        dataset_config=build/configs/GroundOCR_cocotext_val.yaml
+        output_dir=output/test_20231017/test/gocr_output/cocotext1/${store_model_name}_${infer_method}_${formulation}
         flag=" 
             --model ${model}
             --model_name ${model_name}
