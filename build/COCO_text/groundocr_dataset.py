@@ -18,7 +18,7 @@ refined_answers = {
 }
 
 def get_options(options, answer):
-    return options, options.index(answer)
+    return options, answer
 
 def draw_bbox(img, bboxs, is_label=False):
     img = np.array(img)

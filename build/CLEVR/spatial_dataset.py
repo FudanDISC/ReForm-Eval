@@ -27,7 +27,8 @@ def random_options(options, answer_idx):
 
 
 def get_options(options, answer):
-    return options, options.index(answer)
+    ## answer is option index
+    return options, answer
 
 class Spatial_SingleChoice(Dataset):
     # the TrueOrFlase version of the visual Dialog dataset
@@ -74,7 +75,7 @@ class Spatial_SingleChoice(Dataset):
 
         for i, item in tqdm.tqdm(enumerate(data), desc='preprocessing the data file'):
             current_sample = {'sample_id': item['question_id'],
-                              'image': item['image'],
+                              'image': item['image'] if 'img' not in item else item['img'],
                               'question': item['question'],
                               'answer': item['answer'],
                               'answer_options': item['answer_options']

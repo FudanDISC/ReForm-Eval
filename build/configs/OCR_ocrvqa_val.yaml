@@ -3,7 +3,7 @@ version: '1.0'
 split: 'test'
 data_config:
   image_path: '/remote-home/share/multimodal-datasets/raw_datasets/OCRVQA/test_images'
-  data_path: '/remote-home/qwliu/LVLM-benchmark/OCR-VQA/open-qa/ocrvqa_1.0_val_10p.json'
+  data_path: '/remote-home/share/multimodal-datasets/raw_json_folder/OCR-VQA/ocrvqa_1.0_val_10p.json'
   huggingface_data: 'huggingface_data/OCR-VQA/ocrvqa_test_10p.json'
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/OCR-VQA/ocrvqa_test_10p.json"
   

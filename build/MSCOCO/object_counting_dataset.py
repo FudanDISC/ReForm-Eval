@@ -12,9 +12,9 @@ import argparse
 
 def make_choices(answer , choice_path , hf , offline_hf):
     if hf:
-        choice_list = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':choice_path}, split='test')['choice']
+        choice_list = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':choice_path}, split='test')['choice'][0]
     elif offline_hf:
-        choice_list = load_dataset("json",data_files={'test':choice_path}, split='test')['choice']
+        choice_list = load_dataset("json",data_files={'test':choice_path}, split='test')['choice'][0]
     else:
         with open(choice_path , 'rb') as f:
             choice_list = pickle.load(f)

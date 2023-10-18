@@ -9,6 +9,7 @@ import logging
 from collections import defaultdict, Counter
 from build.base_dataset import BaseDataset
 from utils.data_utils import get_image, base64_to_image, question_with_options
+from utils.preprocessors import ConvSingleChoiceProcessor
 from datasets import load_dataset
 
 def random_options(options, answer, n=4):
@@ -84,6 +85,9 @@ class VisualDialog_SingleChoice(BaseDataset):
             assert duplication % len(self.instruction_list) == 0, "the duplication times should be multiplication of the number of different prompts"
         
         self.samples = []
+        if proc is None:
+            tmp_proc = ConvSingleChoiceProcessor(' ')
+            self.tmp_proc = tmp_proc
         self.proc = proc
         self.duplication = duplication
         self.sample2history = defaultdict(list)
@@ -113,9 +117,13 @@ class VisualDialog_SingleChoice(BaseDataset):
                 question = questions_list[round['question']]
                 if args.options_in_history:
                     # need to put the options in the history
-                    assert proc is not None, 'to put options in the history, a preprocessor is required'
-                    full_question, full_answer = proc.process_qa(question=question, options=[self.answer_list[ans] for ans in round['answer_options']],\
-                                                                  answer=self.answer_list[round['answer']])
+                    # assert proc is not None, 'to put options in the history, a preprocessor is required'
+                    if proc is not None:
+                        full_question, full_answer = proc.process_qa(question=question, options=[self.answer_list[ans] for ans in round['answer_options']],\
+                                                                    answer=self.answer_list[round['answer']])
+                    else:
+                        full_question, full_answer = self.tmp_proc.process_qa(question=question, options=[self.answer_list[ans] for ans in round['answer_options']],\
+                                                                    answer=self.answer_list[round['answer']])
                     history.append({'from': 'human', 'value': full_question})
                     history.append({'from': 'assistant', 'value': full_answer})
                 else:
@@ -125,7 +133,7 @@ class VisualDialog_SingleChoice(BaseDataset):
                 current_sample = {'sample_id': question_id,
                                   'round_id': j,
                                   # 'history': tmp_history,
-                                  'image': image_path,
+                                  'image': image_path if 'image_base64' not in item else item['image_base64'], 
                                   # 'image_caption': item['caption'],
                                   'question': question,
                                   'answer': round['answer'],
@@ -145,9 +153,9 @@ class VisualDialog_SingleChoice(BaseDataset):
             sample_index = self.index_info[sample_index][1]
         new_sample = {k:v for k,v in self.samples[sample_index].items()}
         if self.args.online_multi_round:
-            if not self.already_updated[new_sample['sample_id']] and self.args.local_rank == 0:
+            if not self.already_updated[new_sample['sample_id']]:
                 print(self.sample2update[new_sample['sample_id']], new_sample['sample_id'], index, sample_index)
-            assert self.already_updated[new_sample['sample_id']], 'the history of the current sample {} is not updated yet'.format(new_sample['sample_id'])
+            assert self.already_updated[new_sample['sample_id']], 'the history of the current sample {} is not updated yet, under the online multi-round mode, you may need to update it using dataset.update_history'.format(new_sample['sample_id'])
 
         image_id, round_id = new_sample['sample_id'].split('_')
         if self.args.in_context_sample:
@@ -211,8 +219,12 @@ class VisualDialog_SingleChoice(BaseDataset):
                     most_common_response = Counter(self.sample2update[sample_id]).most_common(1)[0][0]
                     if self.args.options_in_history:
                         target_sample = self.samples[self.sample_id2index[sample_id]]
-                        full_question, full_answer = self.proc.process_qa(target_sample['question'], [self.answer_list[ans] for ans in target_sample['answer_options']]\
-                                                                          , most_common_response)
+                        if self.proc is not None:
+                            full_question, full_answer = self.proc.process_qa(target_sample['question'], [self.answer_list[ans] for ans in target_sample['answer_options']]\
+                                                                            , most_common_response)
+                        else:
+                            full_question, full_answer = self.tmp_proc.process_qa(target_sample['question'], [self.answer_list[ans] for ans in target_sample['answer_options']]\
+                                                                            , most_common_response)
                         self.sample2history[id][2*round_id+1]['value'] = full_answer
                         self.sample2history[id][2*round_id]['value'] = full_question
                     else:

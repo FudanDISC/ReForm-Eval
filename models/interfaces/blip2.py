@@ -111,7 +111,7 @@ class BLIP2_Interface(nn.Module):
             imgs = imgs.to(torch.float16)
         imgs = imgs.to(self.device)
         prompts = question_list
-        output = self.model.predict_class({"image": imgs, "prompt": prompts}, candidates, likelihood_reduction=likelihood_reduction)
+        output = self.model.predict_class({"image": imgs, "prompt": prompts}, candidates)
         
         # transfer the rank list to the predict class
         # print(type(output))

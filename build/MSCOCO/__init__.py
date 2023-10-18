@@ -2,27 +2,21 @@ import yaml
 
 def get_mscoco(args, config, formulation, preprocessor):
     if config is None:
-        from .multiclass_identification_dataset import MultiClassIden_SingleChoice, MultiClassIden_TrueOrFlase
+        from .multiclass_identification_dataset import MultiClassIden_SingleChoice
         if formulation == 'SingleChoice':
             return MultiClassIden_SingleChoice(args=args, proc=preprocessor, duplication=args.dataset_duplication)
-        elif formulation == 'TrueOrFalse':
-            return MultiClassIden_TrueOrFlase(args=args, proc=preprocessor, duplication=args.dataset_duplication)
     else:
         config = yaml.load(open(config, 'r'), Loader=yaml.Loader)
         if config['task'] == 'mci':
-            from .multiclass_identification_dataset import MultiClassIden_SingleChoice, MultiClassIden_TrueOrFlase
+            from .multiclass_identification_dataset import MultiClassIden_SingleChoice
             if formulation == 'SingleChoice':
                 return MultiClassIden_SingleChoice(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication)
-            elif formulation == 'TrueOrFalse':
-                return MultiClassIden_TrueOrFlase(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication) 
             else:
                 raise ValueError('current formulation {} is not supported yet'.format(formulation))
         elif config['task'] == 'goi':
-            from .grounded_object_identification_dataset import GroundedObjIden_SingleChoice, GroundedObjIden_TrueOrFlase
+            from .grounded_object_identification_dataset import GroundedObjIden_SingleChoice
             if formulation == 'SingleChoice':
                 return GroundedObjIden_SingleChoice(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication)
-            elif formulation == 'TrueOrFalse':
-                return GroundedObjIden_TrueOrFlase(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication) 
             else:
                 raise ValueError('current formulation {} is not supported yet'.format(formulation))
         elif config['task'] == 'og':

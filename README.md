@@ -8,6 +8,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-green" />
+    ![Static Badge](https://img.shields.io/badge/Licence-Apashe_2.0-Green)
     <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?style=social" />
     <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" />
     <img src="https://img.shields.io/github/views/FudanDISC/ReForm-Eval?style=social" />
@@ -157,7 +158,16 @@ pip install .
 
 **Note: If you run this command in a virtual env, it will be installed in that virtual env. If you run it in the base env, it will be installed in all envs.**
 
-The advantage of building from source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` commands, and can be executed in any path, including the dataloader function `load_reform_dataset`.
+The advantage of building from source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` by modifying the config file, and can be executed in any path, including the dataloader function `load_reform_dataset`.
+
+Open your shell configuration file.
+```bash
+vim ~/.bashrc
+```
+Add the following line at the end of the file:
+```bash
+export PYTHONPATH=/path/to/ReForm-Eval:$PYTHONPATH
+```
 
 ### Pipeline
 Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. We provide two methods: 
@@ -214,7 +224,7 @@ dataset = load_reform_dataset(
 ```python
 from run_loader_eval import loader_eval
 
-loader_eval(formulation='SingleChoice',
+dataset = loader_eval(formulation='SingleChoice',
             multi_round_eval=False,
             eval_stability=True,
             prediction_file='/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'
@@ -833,7 +843,7 @@ When running the evaluation, these model-related parameters must be applied for 
 
 **Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based White-Box Evaluation` in [Create Your Own Model Interface](#create-your-own-model-interface).**
 
-We only list a few models as examples. For the remaining existing models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
+We only list a few examples as examples. For the remaining existing models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
 
 #### BLIP-2 + InstructBLIP
 ```bash
@@ -856,6 +866,200 @@ You also have to put `bert-base-uncased` and `google/flan-t5-xl` folders on the 
     |-- metrics
     |-- models
     ...
+```
+
+If you load `blip2_t5`, you need to add the `predict_class` function in `blip2_t5.py`.
+```python
+    def predict_class(
+        self,
+        samples,
+        candidates,
+        n_segments=1,
+    ):
+        # If candidates is a list of lists, each sample has its candidates, then we need to iterate one by one
+        if type(candidates[0]) == list:
+            results = []
+
+            for i in range(samples["image"].size(0)):
+                # add support for different prompts for different samples
+                this_sample = {
+                    "image": samples["image"][i].unsqueeze(0),
+                    "prompt": samples["prompt"][i] if type(samples["prompt"]) == list else samples['prompt'],
+                }
+
+                if "text_input" in samples.keys():
+                    this_sample["text_input"] = [samples["text_input"][i]]
+
+                if 'context' in samples.keys():
+                    this_sample['context'] = [samples["context"][i]]
+
+                if 'history' in samples.keys():
+                    this_sample['history'] = [samples["history"][i]]
+
+                if 'caption' in samples.keys():
+                    this_sample['caption'] = [samples["caption"][i]]
+
+                this_result = self._predict_class(this_sample, candidates[i], n_segments)
+                results.append(this_result)
+
+            try:
+                results = torch.cat(results, dim=0)
+            except:
+                results = [res.tolist()[0] for res in results]
+
+            return results
+
+        return self._predict_class(samples, candidates, n_segments)
+
+    def _predict_class(
+        self,
+        samples,
+        candidates,
+        n_segments=1,
+    ):
+        """
+        Args:
+            samples (dict): A dictionary containing the following keys:
+                - image (torch.Tensor): A tensor of shape (batch_size, 3, H, W)
+                - prompt: the instruction
+            candidates:
+                (list): A list of candidate class names;
+            n_segments:
+                (int): Split the candidates into n_segments and predict one by one. This is useful when the number of candidates is too large.
+        Returns:
+            output_class: predicted class index
+        """
+
+        image = samples["image"]
+        prompt = samples["prompt"]
+
+        bs = image.size(0)
+
+        if isinstance(prompt, str):
+            prompt = [prompt] * bs
+        else:
+            assert len(prompt) == bs, "The number of prompts must be equal to the batch size."
+
+        if "text_input" in samples.keys():
+            if type(samples["text_input"][0]) == list:
+                prompt = [prompt[i].format(*samples["text_input"][i]) for i in range(len(prompt))]
+            else:
+                prompt = [prompt[i].format(samples["text_input"][i]) for i in range(len(prompt))]
+
+        # scienceqa
+        if 'context' in samples.keys() and samples['context'] != '':
+            prompt = [f'context: {samples["context"][i]}. {prompt[i]}' for i in range(len(prompt))]
+
+        # visual dialog
+        if 'history' in samples.keys() and samples['history'][0] != '':
+            prompt = [f'dialog history: {samples["history"][i]}\n{prompt[i]}' for i in range(len(prompt))]
+
+        if 'caption' in samples.keys() and samples['caption'][0] != '':
+            prompt = [f'This image has the caption "{samples["caption"][i]}". {prompt[i]}' for i in range(len(prompt))]
+
+        query_tokens = self.query_tokens.expand(bs, -1, -1)
+ 
+        if image.dim() == 5:
+            inputs_t5, atts_t5 = [], []
+            for j in range(image.size(2)):
+                this_frame = image[:,:,j,:,:]
+                with self.maybe_autocast():
+                    frame_embeds = self.ln_vision(self.visual_encoder(this_frame))
+                    frame_atts = torch.ones(frame_embeds.size()[:-1], dtype=torch.long).to(image.device)
+
+                frame_query_output = self.Qformer.bert(
+                    query_embeds=query_tokens,
+                    encoder_hidden_states=frame_embeds,
+                    encoder_attention_mask=frame_atts,
+                    return_dict=True,
+                )
+
+                frame_inputs_t5 = self.t5_proj(frame_query_output.last_hidden_state[:,:query_tokens.size(1),:])
+                frame_atts_t5 = torch.ones(frame_inputs_t5.size()[:-1], dtype=torch.long).to(image.device)
+                inputs_t5.append(frame_inputs_t5)
+                atts_t5.append(frame_atts_t5)
+            inputs_t5 = torch.cat(inputs_t5, dim=1)
+            atts_t5 = torch.cat(atts_t5, dim=1)
+        else:
+            with self.maybe_autocast():
+                image_embeds = self.ln_vision(self.visual_encoder(image))
+            image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(image.device)
+
+            query_output = self.Qformer.bert(
+                query_embeds=query_tokens,
+                encoder_hidden_states=image_embeds,
+                encoder_attention_mask=image_atts,
+                return_dict=True,
+            )
+
+            inputs_t5 = self.t5_proj(query_output.last_hidden_state[:,:query_tokens.size(1),:])
+            atts_t5 = torch.ones(inputs_t5.size()[:-1], dtype=torch.long).to(image.device)
+
+        input_tokens = self.t5_tokenizer(
+            prompt, padding="longest", return_tensors="pt"
+        ).to(image.device)
+        output_tokens = self.t5_tokenizer(
+            candidates, padding="longest", return_tensors="pt"
+        ).to(image.device)
+
+        encoder_atts = torch.cat([atts_t5, input_tokens.attention_mask], dim=1)
+
+        n_cands = len(candidates)
+
+        with self.maybe_autocast(dtype=torch.bfloat16):
+            inputs_embeds = self.t5_model.encoder.embed_tokens(input_tokens.input_ids)
+            inputs_embeds = torch.cat([inputs_t5, inputs_embeds], dim=1)
+
+            encoder_outputs = self.t5_model.encoder(
+                inputs_embeds=inputs_embeds,
+                attention_mask=encoder_atts,
+            )
+
+            all_losses = []
+            for n in range(n_segments):
+                seg_len = n_cands // n_segments
+                if n == (n_segments - 1):
+                    seg_len = n_cands - seg_len * (n_segments - 1)
+
+                # this_encoder_outputs = copy.deepcopy(encoder_outputs)
+                this_encoder_outputs = BaseModelOutput(
+                    last_hidden_state=encoder_outputs[0].clone(),
+                )
+
+                this_encoder_outputs['last_hidden_state'] = this_encoder_outputs[0].repeat_interleave(seg_len, dim=0)
+                this_encoder_atts = encoder_atts.repeat_interleave(seg_len, dim=0)
+
+                start_i = n * (n_cands // n_segments)
+                end_i = start_i + seg_len
+                this_output_tokens_ids = output_tokens.input_ids[start_i:end_i].repeat(bs, 1)
+                this_output_tokens_atts = output_tokens.attention_mask[start_i:end_i].repeat(bs, 1)
+
+                this_targets = this_output_tokens_ids.masked_fill(this_output_tokens_ids == self.t5_tokenizer.pad_token_id, -100)
+
+                outputs = self.t5_model(
+                    encoder_outputs=this_encoder_outputs,
+                    attention_mask=this_encoder_atts,
+                    decoder_attention_mask=this_output_tokens_atts,
+                    return_dict=True,
+                    labels=this_targets,
+                    reduction="none",
+                )
+                loss = outputs.loss
+
+                loss = loss.reshape(bs, seg_len)
+                # output_class_ranks = torch.argsort(loss, dim=-1)
+                all_losses.append(loss)
+
+            all_losses = torch.cat(all_losses, dim=-1)
+            output_class_ranks = torch.argsort(all_losses, dim=-1)
+
+        return output_class_ranks
+```
+
+Then, you should run the following command to implement the modification.
+```
+cd models/LAVIS
+pip install e .
 ```
 
 #### LLaVA
@@ -1058,6 +1262,8 @@ ReForm-Eval evaluates the performance of LVLMs in multi-turn dialogues.
 ``` bash
 --dataset_name VisDial --formulation SingleChoice --dataset_config build/configs/VisDial_val_v1.2.yaml --online_multi_round --num_workers 0
 ```
+
+Please refer to [Online Multi-round Dialogue](build/prepare_dataset.md#online-multi-round-dialogue) for the details of the setup of online multi-round dialogues.
 
 #### Cross-Modal Inference
 We consider two tasks: image-text matching (ITM) requires models to measure the cross-modal similarities and visual entailment (VE) demands models to check whether the information is entailed across modalities.

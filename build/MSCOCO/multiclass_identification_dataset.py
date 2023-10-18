@@ -14,7 +14,8 @@ refined_answers = {
 }
 
 def get_options(options, answer):
-    return options, options.index(answer)
+    ## answer is option index
+    return options, answer
 
 def random_options(options, answer_idx):
     answer = options[answer_idx]

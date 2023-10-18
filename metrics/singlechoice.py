@@ -21,7 +21,7 @@ class SingleChoiceMetric(object):
     def __call__(self, prediction, answer, options=None):
         # check the prediction type
         if self.infer_method == 'generation':
-            assert isinstance(prediction, str), 'the prediction for gneration-based evaluation should be str'
+            assert isinstance(prediction, str), 'the prediction for generation-based evaluation should be str'
         elif self.infer_method == 'likelihood':
             assert isinstance(prediction, int), 'the prediction for likelihood-based evaluation should be int'
         else:

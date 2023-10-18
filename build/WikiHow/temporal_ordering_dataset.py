@@ -5,11 +5,11 @@ import random
 import json
 import os
 from utils.preprocessors import BaseProcessor, SingleChoiceProcessor
-from utils.data_utils import get_image, base64_to_image
+from utils.data_utils import get_image, base64_to_image, question_with_options
 from datasets import load_dataset
 
 def random_options(options, answer):
-    ori_answer = options[answer]
+    ori_answer = options[int(answer)]
     random.shuffle(options)
     return options, options.index(ori_answer)
 
@@ -113,6 +113,8 @@ class WikiHowImageTextSelection(Dataset):
         if self.proc is not None:
             new_sample['text'] = self.proc(new_sample)
         
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
+        
         return new_sample
 
     def rawitem(self, index):
@@ -126,6 +128,7 @@ class WikiHowImageTextSelection(Dataset):
         if new_sample['answer_options'] is None:
             raise Exception("current answer option doesn't support improvisation!")
         new_sample['question'] = random.choice(self.instruction_list).format(new_sample['task'])
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         return new_sample
     
     def __len__(self):

@@ -7,11 +7,11 @@ import os
 import numpy as np
 import cv2
 from PIL import Image
-from utils.data_utils import get_image, base64_to_image
+from utils.data_utils import get_image, base64_to_image, question_with_options
 from datasets import load_dataset
 
 def random_options(options, answer):
-    ori_answer = options[answer]
+    ori_answer = options[int(answer)]
     random.shuffle(options)
     return options, options.index(ori_answer)
 
@@ -135,7 +135,9 @@ class ReferringExpressionSelection(Dataset):
         
         if self.proc is not None:
             new_sample['text'] = self.proc(new_sample)
-    
+
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
+        
         return new_sample
     
     def rawitem(self, index):
@@ -153,7 +155,7 @@ class ReferringExpressionSelection(Dataset):
         raw_image = Image.open(new_sample['image']).convert("RGB")
         image = draw_bbox(raw_image, [new_sample['bbox']])
         new_sample['image'] = Image.fromarray(image).convert('RGB')
-        
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         return new_sample
     
     def __len__(self):

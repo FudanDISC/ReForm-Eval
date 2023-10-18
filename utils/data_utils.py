@@ -47,3 +47,6 @@ def question_with_options(item, option_mark='random'):
             else:
                 ret += '; '
     return ret
+
+if __name__ == "__main__":
+    pass

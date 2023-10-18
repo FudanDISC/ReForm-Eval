@@ -138,3 +138,60 @@ We also provide the raw json file, like the one pointing to "medic_path".
 ```
 wget https://drive.google.com/uc?export=download&id=1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc
 ```
+
+### Online Multi-round dialogue
+For multi-round VQA tasks, different from VisDial to perform offline multi-round dialogue (use GT in the dialogue history), we consider online multi-round dialogue (use previous output in the dialogue history).
+
+In our framework, we use the "--online_multi_round" parameter to indicate the setting.
+
+If you perform online multi-round dialogue without out framework, you need to be careful to update the history in the dataset during the evaluation, here is the example of this procedure in our framework (in run_eval.py):
+```python
+def get_pred_result(samples, prediction, metric):
+    history_result = []
+    # iterate through the prediction batch
+    for i in range(len(prediction)):
+        # detect whether the prediction matches a opton
+        correct, final_pred = metric(prediction[i], samples['answer'][i], samples['answer_options'][i])
+        if final_pred is None:
+            # if the prediction does not match the option, then keep it
+            final_pred = prediction[i]
+        else:
+            # then map the prediction to the original option
+            try:
+                final_pred = samples['answer_options'][i][final_pred]
+            except:
+                print('found invalid prediction: {}'.format(prediction[i]))
+                final_pred = prediction[i]
+                # raise ValueError
+        history_result.append([samples['sample_id'][i], final_pred])
+    return history_result
+
+def gpu_info(gpu_index):
+    gpu_status = os.popen('nvidia-smi | grep %').read().split('\n')[gpu_index].split('|')
+    power = int(gpu_status[1].split()[-3][:-1])
+    memory = int(gpu_status[2].split('/')[0].strip()[:-3])
+    return power, memory  
+for batch in tqdm.tqdm(dataloader, desc='evaluating'):
+    # the inference process
+    if args.infer_method == 'generation':
+        res = model(batch['image'], batch['text'], **generation_kwargs)
+    else:
+        res = model(batch['image'], batch['text'], batch['answer_options'], **likelihood_kwargs)
+    
+    # get the prediction from the output
+    generated_history_infos = get_pred_result(batch, res, metric)
+    # gather all predictions from all gpus
+    gathered_history = [i for i in range(args.n_gpus)]
+    dist.all_gather_object(gathered_history, generated_history_infos)
+    # make the update to the dialog history in the dataset
+    """
+    gathered_history: List[List[str, str]], each element is a list of the sample_id and prediction result.
+    Here is an example of dataset_duplication=5, our model finishes the prediction for the first round in the VisDial_00 sample.
+    >>> gathered_history
+    [['VisDial_00_round0', 'yes'], ['VisDial_00_round0', 'no'], ['VisDial_00_round0', 'yes'], ['VisDial_00_round0']]
+    """
+    dataset.update_history(gathered_history)
+``` 
+Then in the next round, the history will be updated with the prediction "yes". 
+
+Also notice that "round_id" should be included in the output json, during evaluation, use "--multi_round_eval" to evaluate the relationship between the model performance and the number of dialogue rounds.

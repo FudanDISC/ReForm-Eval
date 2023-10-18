@@ -3,6 +3,6 @@ version: '2.0'
 split: 'COCO_val2014'
 data_config:
   image_path: '/remote-home/share/VQA/Images/val2014'
-  data_path: '/remote-home/qwliu/LVLM-benchmark/VQA_v2/multi-choices/vqa_2.0_val_10p.json'
+  data_path: '/remote-home/share/multimodal-datasets/raw_json_folder/VQA_v2/vqa_2.0_val_10p.json'
   huggingface_data: 'huggingface_data/VQA_v2/vqa_val_10p.json'
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/VQA_v2/vqa_val_10p.json"

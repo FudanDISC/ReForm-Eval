@@ -5,11 +5,11 @@ import random
 import json
 import os
 import base64
-from utils.data_utils import get_image, base64_to_image
+from utils.data_utils import get_image, base64_to_image, question_with_options
 from datasets import load_dataset
 
 def random_options(options, answer):
-    ori_answer = options[answer]
+    ori_answer = options[int(answer)]
     random.shuffle(options)
     return options, options.index(ori_answer)
 
@@ -110,6 +110,8 @@ class DisasterTypeSelection(Dataset):
         if self.proc is not None:
             new_sample['text'] = self.proc(new_sample)
         
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
+        
         return new_sample
     
     def rawitem(self, index):
@@ -123,6 +125,7 @@ class DisasterTypeSelection(Dataset):
         if new_sample['answer_options'] is None:
             raise Exception("current dataset didn't support temporal bootstrap!")
         new_sample['question'] = random.choice(self.instruction_list)
+        new_sample['question_with_option'] = question_with_options(new_sample, option_mark=self.args.option_mark)
         return new_sample
     
     def __len__(self):

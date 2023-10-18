@@ -3,6 +3,6 @@ version: '2.0'
 split: 'val'
 data_config:
   image_path: '/remote-home/share/multimodal-datasets/raw_datasets/vizwiz/vizwiz_image_quality/val'
-  data_path: '/remote-home/qwliu/LVLM-benchmark/VizWiz/multi-choices/vizwiz_2.0_val_10p.json'
+  data_path: '/remote-home/share/multimodal-datasets/raw_json_folder/VizWiz/vizwiz_2.0_val_10p.json'
   huggingface_data: 'huggingface_data/VizWiz/vizwiz_val_10p.json'
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/VizWiz/vizwiz_val_10p.json"

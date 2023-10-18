@@ -102,7 +102,11 @@ def run_eval_multi_round(args, dataset, model):
         likelihood_kwargs['likelihood_reduction'] = args.likelihood_reduction
 
     current_res = []
-    metric = get_metric(args.formulation)
+    if args.formulation == 'SingleChoice':
+        metric_param = {'infer_method': args.infer_method}
+    else:
+        metric_param = None
+    metric = get_metric(args.formulation, metric_param)
     logger.info("***** Runing Evaluation *****")
     logger.info("  Num examples = %d", len(dataset))
     logger.info("  Batch size = %d", args.eval_batch_size)
@@ -129,7 +133,7 @@ def run_eval_multi_round(args, dataset, model):
     final_res = []
     for item in current_res:
         for i in range(len(item['prediction'])):
-            sample = {k: v[i] for k,v in item.items() if not isinstance(v, torch.Tensor)}
+            sample = {k: v[i] for k,v in item.items() if (not isinstance(v, torch.Tensor) and not isinstance(v[i], Image.Image))}
             final_res.append(sample)
     
     # remove duplication if necessary in Distributed version

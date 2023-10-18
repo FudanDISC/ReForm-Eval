@@ -148,6 +148,7 @@ def load_reform_dataset(dataset_name:str,
                  load_from_hf:Optional[bool]=True, 
                  offline_from_hf:Optional[bool]=False, 
                  option_mark:Optional[str]='random',
+                 online_multi_round:Optional[bool]=True,
                  preprocessor=None):
     """
     Return the constructed dataset
@@ -163,6 +164,7 @@ def load_reform_dataset(dataset_name:str,
         load_from_hf: whether to load from huggingface, load from local if set to False.
         option_mark: the index mark for options in single-shoice questions, \
                         "number" for (1,2,3,4), "lower" for (a,b,c,d) while "upper" for (A,B,C,D), "random" for randomly using one of them
+        online_multi_round: whethor to load in online multi-round mode, only for multi-turn VQA tasks, default to True
         preprocessor: Optional, the model processor to process.
     Return:
         dataset: the constructed dataset
@@ -195,7 +197,7 @@ def load_reform_dataset(dataset_name:str,
     args.capitalize = True
     args.dataset_subsample = None
     args.options_in_history = True
-    args.online_multi_round = True
+    args.online_multi_round = online_multi_round
 
     
     if dataset_name == 'VQA':
