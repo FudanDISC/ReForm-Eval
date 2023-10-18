@@ -3,8 +3,6 @@ For model-related parameters, we list required parameters of all 16 models. When
 
 **Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based Black-Box Evaluation` in [Create Your Own Model Interface](#create-your-own-model-interface)**
 
-We only list some models as examples. For the remaining existing models, please refer to the Complete Model Usage.
-
 #### BLIP-2 + InstructBLIP
 ```bash
 # BLIP-2 flant5

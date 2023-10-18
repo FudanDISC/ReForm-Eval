@@ -180,6 +180,8 @@ class TDIUC_Dataset(Dataset):
                 self.sample_data = self.data
             else:
                 self.sample_data = self.data[::100]
+        else:
+            self.sample_data = self.data
             
     def __getitem__(self, idx):
         sample_index = idx // self.duplication

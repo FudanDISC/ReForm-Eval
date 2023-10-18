@@ -82,8 +82,8 @@ class ObjectCounting_SingleChoice(Dataset):
             self.anns_path = self.config['data_config']['hf_anns_path']
             anns = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.anns_path}, split='test')
         elif self.args.offline_hf:
-            self.choice_path = self.config['data_config']['hf_choice_path']
-            self.anns_path = self.config['data_config']['hf_anns_path']
+            self.choice_path = self.config['data_config']['offline_huggingface_choice']
+            self.anns_path = self.config['data_config']['offline_huggingface_anns']
             anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
         else:
             self.choice_path = self.config['data_config']['choice_path']

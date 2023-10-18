@@ -85,7 +85,9 @@ The unified formulation enables universal and comprehensive evaluation. For each
 
 Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](https://arxiv.org/abs/2307.02469)), we additionally design an instability-aware evaluation strategy and introduce a metric to characterize such instability. 
 
-**🔧🔧🔧ReForm-Eval serves as a reliable tool for quantitative analysis of LVLMs, aiding in the research and development of LVLMs.🔧🔧🔧**
+**🔧🔧🔧 ReForm-Eval serves as a reliable tool for quantitative analysis of LVLMs, aiding in the research and development of LVLMs. 🔧🔧🔧**
+
+**🙌🙌🙌 We welcome a diverse range of large vision and language models to participate in ReForm-Eval benchmark evaluation!!! 🙌🙌🙌**
 
 ## 📣 Update
 **If you have any questions, please send us an email or leave a github issue!**
@@ -118,7 +120,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 - [Related Projects](#🔏-related-projects)
 
 ## 🦾 Model Performance
-We list the average ranking and the score of the model under Generation Evaluation and Likelihood Evaluation in the table below. New models will be added soon.
+We list the average ranking and the score of the model under Generation Evaluation and Likelihood Evaluation in the table below. If you get results using the new LVLM interface on our benchmark, please contact us to add your model to [Model Performance](#🦾-model-performance).
 
 | Model          | Gen-Avg-Rank | Gen-Avg-Score | Like-Avg-Rank | Like-Avg     |
 |----------------|--------------|---------------|---------------|--------------|

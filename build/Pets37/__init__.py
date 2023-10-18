@@ -6,7 +6,7 @@ def get_pets37(args , config , formulation , preprocessor):
     else:
         config = config
     
-    from .pets37_datset import Pets37_Dataset
+    from .pets37_dataset import Pets37_Dataset
     if formulation == 'SingleChoice':
         if config is None:
             return Pets37_Dataset(args=args , proc=preprocessor , duplication=args.dataset_duplication)
