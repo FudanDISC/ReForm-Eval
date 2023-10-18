@@ -94,6 +94,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
   - [Data Usage](#data-usage)
   - [Output Result](#output-result)
 - [Citation](#🖋-citation)
+- [Acknowledgements](#🤝-acknowledgements)
 - [Related Projects](#🔏-related-projects)
 
 ## 🦾 Model Performance
