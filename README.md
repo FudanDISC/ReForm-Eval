@@ -35,7 +35,7 @@
 ---
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗ReForm-Eval-Data</a> | <a href="https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing">☁️Google Drive</a>
+  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗ReForm-Eval-Data</a> | <a href="https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view">☁️Google Drive</a>
 </p>
 
 
