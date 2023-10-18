@@ -18,7 +18,7 @@
     <a href="https://arxiv.org/pdf/2310.02569.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" /></a>
     <a href="https://arxiv.org/abs/2310.02569"><img src="https://img.shields.io/badge/Paper-Arxiv-red" /></a>
     <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗_Hugging_Face-Dataset-orange" /></a>
-    <a href="https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing"><img src="https://img.shields.io/badge/Google_Drive-Dataset-orange?logo=googledrive" /></a>
+    <a href="https://drive.google.com/file/d/1GjWvm0f6fkJ7VFySKyEfb2N_KyZxcdyI/view"><img src="https://img.shields.io/badge/Google_Drive-Dataset-orange?logo=googledrive" /></a>
 </p>
 
 
@@ -35,7 +35,7 @@
 ---
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗ReForm-Eval-Data</a> | <a href="https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view">☁️Google Drive</a>
+  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗ReForm-Eval-Data</a> | <a href="https://drive.google.com/file/d/1GjWvm0f6fkJ7VFySKyEfb2N_KyZxcdyI/view">☁️Google Drive</a>
 </p>
 
 
@@ -78,7 +78,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 **If you have any questions, please send us an email or leave a github issue!**
 **`Email: yewang22@m.fudan.edu.cn`**
 
-- **[2023-10]** We released a version of the original paper containing 16 model interfaces and 61 reformulated datasets!
+- **[2023-10]** We released the initial version of the [ReForm-Eval](https://arxiv.org/abs/2310.02569), containing interfaces of 16 models and 61 converted reformulated datasets [ReForm-Eval-Data](https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main)!
 
 ## 📖 Contents
 - [Model Performance](#🦾-model-performance)
@@ -255,11 +255,11 @@ Here is the Google Drive link of ReForm-Eval-Data and you can directly download 
 
 **download URL**
 
-[https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view](https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view)
+[https://drive.google.com/file/d/1GjWvm0f6fkJ7VFySKyEfb2N_KyZxcdyI/view](https://drive.google.com/file/d/1GjWvm0f6fkJ7VFySKyEfb2N_KyZxcdyI/view)
 
 **wget**
 ```
-wget https://drive.google.com/uc?export=download&id=1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b
+wget https://drive.google.com/uc?export=download&id=1GjWvm0f6fkJ7VFySKyEfb2N_KyZxcdyI
 ```
 
 #### Using ReForm-Eval Framework
