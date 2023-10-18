@@ -9,8 +9,8 @@
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-Green" />
     <img src="https://img.shields.io/badge/Licence-Apashe_2.0-Green" />
-    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval" />
-    <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval" />
+    <img src="https://img.shields.io/github/Stars/FudanDISC/ReForm-Eval" />
+    <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total" />
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FFudanDISC%2FReForm-Eval&count_bg=%23D8659B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
 </p>
 <!-- <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" /> -->
@@ -18,14 +18,16 @@
 <p align="center">
     <a href="https://arxiv.org/pdf/2310.02569.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" /></a>
     <a href="https://arxiv.org/abs/2310.02569"><img src="https://img.shields.io/badge/Paper-Arxiv-red" /></a>
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗_Hugging_Face-Dataset-orange" /></a>
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Google_Drive-Dataset-orange?logo=google" /></a>
     <!-- <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗-Dataset-orange" />
     <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" /> -->
 </p>
 
-<p align="center">
+<!-- <p align="center">
     <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗_Hugging_Face-Dataset-orange" /></a>
-    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" /></a>
-</p>
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Google_Drive-Dataset-orange?logo=google" /></a>
+</p> -->
 
 
 <div align="center">

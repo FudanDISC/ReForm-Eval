@@ -94,11 +94,13 @@ class TDIUC_Dataset(Dataset):
             question_path = self.config['data_config']['hf_question_path']
             anns_path = self.config['data_config']['hf_anns_path']
             questions = sorted(
-                load_dataset("Aweminus/ReForm-Eval",data_files={'test':question_path}, split='test')[0],
+                # load_dataset("Aweminus/ReForm-Eval",data_files={'test':question_path}, split='test')[0],
+                load_dataset("Aweminus/ReForm-Eval",data_files={'test':question_path}, split='test'),
                 key=lambda x : x['question_id']
             )
             annotations = sorted(
-                load_dataset("Aweminus/ReForm-Eval",data_files={'test':anns_path}, split='test')[0],
+                # load_dataset("Aweminus/ReForm-Eval",data_files={'test':anns_path}, split='test')[0],
+                load_dataset("Aweminus/ReForm-Eval",data_files={'test':anns_path}, split='test'),
                 key=lambda x : x['question_id']
             )
         elif self.args.offline_hf:
