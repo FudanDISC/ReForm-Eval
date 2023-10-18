@@ -12,10 +12,13 @@ saved_dir=("CIFAR10" "Flowers102" "ImageNet-1K" "MSCOCO" "Pets37" "TDIUC_color" 
 length=${#dms[@]}
 for ((i=0; i<$length; i++)); do
     # echo "${dms[$i]} , ${dcs[$i]}"
-    CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
-        --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
-        --dataset_name "${dms[$i]}" --output_dir "output/test_20231017/${saved_dir[$i]}" \
+    saved_path="output/test_20231017/${saved_dir[$i]}"
+    dataset_name="${dms[$i]}"
+    dataset_config="${dcs[$i]}"
+    CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 run_eval.py \
+        --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
+        --dataset_name ${dataset_name} --output_dir ${saved_path} \
         --per_gpu_eval_batch_size 4 --formulation SingleChoice --dataset_duplication 5 \
-        --infer_method likelihood --do_eval --option_mark upper --shuffle_options --offline_hf \
-        --dataset_config "${dcs[$i]}" \ 
+        --infer_method likelihood --do_eval --option_mark upper \
+        --dataset_config ${dataset_config} --offline_hf --a
 done

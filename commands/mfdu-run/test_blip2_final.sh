@@ -15,14 +15,14 @@ function blip2_likelihood(){
         ##### mci
         dataset_name=MSCOCO
         dataset_config=build/configs/MulticlassIdentification_val.yaml
-        output_dir=output/test_20231017/mci_output/${store_model_name}_${infer_method}_${formulation}
-        #output_dir=output/test_20231017/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
+        output_dir=output/test_20231017/test/mci_output/${store_model_name}_${infer_method}_${formulation}
+        #output_dir=output/test_20231017/test/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
-        flag=" --core_eval
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -41,12 +41,12 @@ function blip2_likelihood(){
         ##### goi
         dataset_name=MSCOCO
         dataset_config=build/configs/GroundedObjIdentification_val.yaml
-        output_dir=output/test_20231017/goi_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/goi_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -64,12 +64,12 @@ function blip2_likelihood(){
     function MOS(){
         dataset_name=MSCOCO
         dataset_config=build/configs/MissingObjectSelection_val.yaml
-        output_dir=output/test_20231017/mos_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/mos_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -87,12 +87,12 @@ function blip2_likelihood(){
     function TL(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextLegibility_val.yaml
-        output_dir=output/test_20231017/tl_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/tl_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -110,12 +110,12 @@ function blip2_likelihood(){
     function TTC(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextTypeClassification_val.yaml
-        output_dir=output/test_20231017/ttc_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ttc_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -134,12 +134,12 @@ function blip2_likelihood(){
     function CLEVR(){
         dataset_name=CLEVR
         dataset_config=build/configs/Spatial_clevr_val.yaml
-        output_dir=output/test_20231017/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -157,12 +157,12 @@ function blip2_likelihood(){
     function VSR(){
         dataset_name=VSR
         dataset_config=build/configs/Spatial_vsr_val.yaml
-        output_dir=output/test_20231017/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -180,12 +180,12 @@ function blip2_likelihood(){
     function MP3D(){
         dataset_name=MP3D
         dataset_config=build/configs/Spatial_mp3d_val.yaml
-        output_dir=output/test_20231017/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -207,12 +207,12 @@ function blip2_likelihood(){
         ### cocotext
         dataset_name=COCO_text
         dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -228,12 +228,12 @@ function blip2_likelihood(){
         ### cute80
         dataset_name=CUTE80
         dataset_config=build/configs/OCR_cute80_val.yaml
-        output_dir=output/test_20231017/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -249,12 +249,12 @@ function blip2_likelihood(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/OCR_ic15_val.yaml
-        output_dir=output/test_20231017/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -270,12 +270,12 @@ function blip2_likelihood(){
         ### iiit5k
         dataset_name=IIIT5K
         dataset_config=build/configs/OCR_iiit5k_val.yaml
-        output_dir=output/test_20231017/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -291,12 +291,12 @@ function blip2_likelihood(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/OCR_textocr_val.yaml
-        output_dir=output/test_20231017/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -312,12 +312,12 @@ function blip2_likelihood(){
         ### wordart
         dataset_name=WordArt
         dataset_config=build/configs/OCR_wordart_val.yaml
-        output_dir=output/test_20231017/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -334,12 +334,12 @@ function blip2_likelihood(){
         ### coco text
         dataset_name=COCO_text
         dataset_config=build/configs/GroundOCR_cocotext_val.yaml
-        output_dir=output/test_20231017/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -355,12 +355,12 @@ function blip2_likelihood(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/GroundOCR_ic15_val.yaml
-        output_dir=output/test_20231017/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -376,12 +376,12 @@ function blip2_likelihood(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/GroundOCR_textocr_val.yaml
-        output_dir=output/test_20231017/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -399,12 +399,12 @@ function blip2_likelihood(){
         ### funsd
         dataset_name=FUNSD
         dataset_config=build/configs/KIE_funsd_val.yaml
-        output_dir=output/test_20231017/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -420,12 +420,12 @@ function blip2_likelihood(){
         ### funsd
         dataset_name=POIE
         dataset_config=build/configs/KIE_poie_val.yaml
-        output_dir=output/test_20231017/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -441,12 +441,12 @@ function blip2_likelihood(){
         ### funsd
         dataset_name=SROIE
         dataset_config=build/configs/KIE_sroie_val.yaml
-        output_dir=output/test_20231017/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -487,14 +487,14 @@ function blip2_generation(){
         ##### mci
         dataset_name=MSCOCO
         dataset_config=build/configs/MulticlassIdentification_val.yaml
-        output_dir=output/test_20231017/mci_output/${store_model_name}_${infer_method}_${formulation}
-        #output_dir=output/test_20231017/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
+        output_dir=output/test_20231017/test/mci_output/${store_model_name}_${infer_method}_${formulation}
+        #output_dir=output/test_20231017/test/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
-        flag=" --core_eval
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -513,12 +513,12 @@ function blip2_generation(){
         ##### goi
         dataset_name=MSCOCO
         dataset_config=build/configs/GroundedObjIdentification_val.yaml
-        output_dir=output/test_20231017/goi_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/goi_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -536,12 +536,12 @@ function blip2_generation(){
     function MOS(){
         dataset_name=MSCOCO
         dataset_config=build/configs/MissingObjectSelection_val.yaml
-        output_dir=output/test_20231017/mos_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/mos_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -559,12 +559,12 @@ function blip2_generation(){
     function TL(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextLegibility_val.yaml
-        output_dir=output/test_20231017/tl_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/tl_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -582,12 +582,12 @@ function blip2_generation(){
     function TTC(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextTypeClassification_val.yaml
-        output_dir=output/test_20231017/ttc_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ttc_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -606,12 +606,12 @@ function blip2_generation(){
     function CLEVR(){
         dataset_name=CLEVR
         dataset_config=build/configs/Spatial_clevr_val.yaml
-        output_dir=output/test_20231017/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -629,12 +629,12 @@ function blip2_generation(){
     function VSR(){
         dataset_name=VSR
         dataset_config=build/configs/Spatial_vsr_val.yaml
-        output_dir=output/test_20231017/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -652,12 +652,12 @@ function blip2_generation(){
     function MP3D(){
         dataset_name=MP3D
         dataset_config=build/configs/Spatial_mp3d_val.yaml
-        output_dir=output/test_20231017/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -679,12 +679,12 @@ function blip2_generation(){
         ### cocotext
         dataset_name=COCO_text
         dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -700,12 +700,12 @@ function blip2_generation(){
         ### cute80
         dataset_name=CUTE80
         dataset_config=build/configs/OCR_cute80_val.yaml
-        output_dir=output/test_20231017/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -721,12 +721,12 @@ function blip2_generation(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/OCR_ic15_val.yaml
-        output_dir=output/test_20231017/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -742,12 +742,12 @@ function blip2_generation(){
         ### iiit5k
         dataset_name=IIIT5K
         dataset_config=build/configs/OCR_iiit5k_val.yaml
-        output_dir=output/test_20231017/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -763,12 +763,12 @@ function blip2_generation(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/OCR_textocr_val.yaml
-        output_dir=output/test_20231017/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -784,12 +784,12 @@ function blip2_generation(){
         ### wordart
         dataset_name=WordArt
         dataset_config=build/configs/OCR_wordart_val.yaml
-        output_dir=output/test_20231017/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -806,12 +806,12 @@ function blip2_generation(){
         ### coco text
         dataset_name=COCO_text
         dataset_config=build/configs/GroundOCR_cocotext_val.yaml
-        output_dir=output/test_20231017/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -827,12 +827,12 @@ function blip2_generation(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/GroundOCR_ic15_val.yaml
-        output_dir=output/test_20231017/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -848,12 +848,12 @@ function blip2_generation(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/GroundOCR_textocr_val.yaml
-        output_dir=output/test_20231017/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -871,12 +871,12 @@ function blip2_generation(){
         ### funsd
         dataset_name=FUNSD
         dataset_config=build/configs/KIE_funsd_val.yaml
-        output_dir=output/test_20231017/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -892,12 +892,12 @@ function blip2_generation(){
         ### funsd
         dataset_name=POIE
         dataset_config=build/configs/KIE_poie_val.yaml
-        output_dir=output/test_20231017/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -913,12 +913,12 @@ function blip2_generation(){
         ### funsd
         dataset_name=SROIE
         dataset_config=build/configs/KIE_sroie_val.yaml
-        output_dir=output/test_20231017/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -958,14 +958,14 @@ function instructblip2_flant5_likelihood(){
         ##### mci
         dataset_name=MSCOCO
         dataset_config=build/configs/MulticlassIdentification_val.yaml
-        output_dir=output/test_20231017/mci_output/${store_model_name}_${infer_method}_${formulation}
-        #output_dir=output/test_20231017/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
+        output_dir=output/test_20231017/test/mci_output/${store_model_name}_${infer_method}_${formulation}
+        #output_dir=output/test_20231017/test/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
-        flag=" --core_eval
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -984,12 +984,12 @@ function instructblip2_flant5_likelihood(){
         ##### goi
         dataset_name=MSCOCO
         dataset_config=build/configs/GroundedObjIdentification_val.yaml
-        output_dir=output/test_20231017/goi_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/goi_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1007,12 +1007,12 @@ function instructblip2_flant5_likelihood(){
     function MOS(){
         dataset_name=MSCOCO
         dataset_config=build/configs/MissingObjectSelection_val.yaml
-        output_dir=output/test_20231017/mos_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/mos_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1030,12 +1030,12 @@ function instructblip2_flant5_likelihood(){
     function TL(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextLegibility_val.yaml
-        output_dir=output/test_20231017/tl_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/tl_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1053,12 +1053,12 @@ function instructblip2_flant5_likelihood(){
     function TTC(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextTypeClassification_val.yaml
-        output_dir=output/test_20231017/ttc_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ttc_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1077,12 +1077,12 @@ function instructblip2_flant5_likelihood(){
     function CLEVR(){
         dataset_name=CLEVR
         dataset_config=build/configs/Spatial_clevr_val.yaml
-        output_dir=output/test_20231017/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1100,12 +1100,12 @@ function instructblip2_flant5_likelihood(){
     function VSR(){
         dataset_name=VSR
         dataset_config=build/configs/Spatial_vsr_val.yaml
-        output_dir=output/test_20231017/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1123,12 +1123,12 @@ function instructblip2_flant5_likelihood(){
     function MP3D(){
         dataset_name=MP3D
         dataset_config=build/configs/Spatial_mp3d_val.yaml
-        output_dir=output/test_20231017/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1150,12 +1150,12 @@ function instructblip2_flant5_likelihood(){
         ### cocotext
         dataset_name=COCO_text
         dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1171,12 +1171,12 @@ function instructblip2_flant5_likelihood(){
         ### cute80
         dataset_name=CUTE80
         dataset_config=build/configs/OCR_cute80_val.yaml
-        output_dir=output/test_20231017/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1192,12 +1192,12 @@ function instructblip2_flant5_likelihood(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/OCR_ic15_val.yaml
-        output_dir=output/test_20231017/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1213,12 +1213,12 @@ function instructblip2_flant5_likelihood(){
         ### iiit5k
         dataset_name=IIIT5K
         dataset_config=build/configs/OCR_iiit5k_val.yaml
-        output_dir=output/test_20231017/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1234,12 +1234,12 @@ function instructblip2_flant5_likelihood(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/OCR_textocr_val.yaml
-        output_dir=output/test_20231017/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1255,12 +1255,12 @@ function instructblip2_flant5_likelihood(){
         ### wordart
         dataset_name=WordArt
         dataset_config=build/configs/OCR_wordart_val.yaml
-        output_dir=output/test_20231017/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1277,12 +1277,12 @@ function instructblip2_flant5_likelihood(){
         ### coco text
         dataset_name=COCO_text
         dataset_config=build/configs/GroundOCR_cocotext_val.yaml
-        output_dir=output/test_20231017/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1298,12 +1298,12 @@ function instructblip2_flant5_likelihood(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/GroundOCR_ic15_val.yaml
-        output_dir=output/test_20231017/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1319,12 +1319,12 @@ function instructblip2_flant5_likelihood(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/GroundOCR_textocr_val.yaml
-        output_dir=output/test_20231017/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1342,12 +1342,12 @@ function instructblip2_flant5_likelihood(){
         ### funsd
         dataset_name=FUNSD
         dataset_config=build/configs/KIE_funsd_val.yaml
-        output_dir=output/test_20231017/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1363,12 +1363,12 @@ function instructblip2_flant5_likelihood(){
         ### funsd
         dataset_name=POIE
         dataset_config=build/configs/KIE_poie_val.yaml
-        output_dir=output/test_20231017/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1384,12 +1384,12 @@ function instructblip2_flant5_likelihood(){
         ### funsd
         dataset_name=SROIE
         dataset_config=build/configs/KIE_sroie_val.yaml
-        output_dir=output/test_20231017/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1430,14 +1430,14 @@ function instructblip2_flant5_generation(){
         ##### mci
         dataset_name=MSCOCO
         dataset_config=build/configs/MulticlassIdentification_val.yaml
-        output_dir=output/test_20231017/mci_output/${store_model_name}_${infer_method}_${formulation}
-        #output_dir=output/test_20231017/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
+        output_dir=output/test_20231017/test/mci_output/${store_model_name}_${infer_method}_${formulation}
+        #output_dir=output/test_20231017/test/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
-        flag=" --core_eval
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1456,12 +1456,12 @@ function instructblip2_flant5_generation(){
         ##### goi
         dataset_name=MSCOCO
         dataset_config=build/configs/GroundedObjIdentification_val.yaml
-        output_dir=output/test_20231017/goi_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/goi_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1479,12 +1479,12 @@ function instructblip2_flant5_generation(){
     function MOS(){
         dataset_name=MSCOCO
         dataset_config=build/configs/MissingObjectSelection_val.yaml
-        output_dir=output/test_20231017/mos_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/mos_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1502,12 +1502,12 @@ function instructblip2_flant5_generation(){
     function TL(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextLegibility_val.yaml
-        output_dir=output/test_20231017/tl_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/tl_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1525,12 +1525,12 @@ function instructblip2_flant5_generation(){
     function TTC(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextTypeClassification_val.yaml
-        output_dir=output/test_20231017/ttc_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ttc_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1549,12 +1549,12 @@ function instructblip2_flant5_generation(){
     function CLEVR(){
         dataset_name=CLEVR
         dataset_config=build/configs/Spatial_clevr_val.yaml
-        output_dir=output/test_20231017/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1572,12 +1572,12 @@ function instructblip2_flant5_generation(){
     function VSR(){
         dataset_name=VSR
         dataset_config=build/configs/Spatial_vsr_val.yaml
-        output_dir=output/test_20231017/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1595,12 +1595,12 @@ function instructblip2_flant5_generation(){
     function MP3D(){
         dataset_name=MP3D
         dataset_config=build/configs/Spatial_mp3d_val.yaml
-        output_dir=output/test_20231017/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1622,12 +1622,12 @@ function instructblip2_flant5_generation(){
         ### cocotext
         dataset_name=COCO_text
         dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1643,12 +1643,12 @@ function instructblip2_flant5_generation(){
         ### cute80
         dataset_name=CUTE80
         dataset_config=build/configs/OCR_cute80_val.yaml
-        output_dir=output/test_20231017/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1664,12 +1664,12 @@ function instructblip2_flant5_generation(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/OCR_ic15_val.yaml
-        output_dir=output/test_20231017/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1685,12 +1685,12 @@ function instructblip2_flant5_generation(){
         ### iiit5k
         dataset_name=IIIT5K
         dataset_config=build/configs/OCR_iiit5k_val.yaml
-        output_dir=output/test_20231017/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1706,12 +1706,12 @@ function instructblip2_flant5_generation(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/OCR_textocr_val.yaml
-        output_dir=output/test_20231017/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1727,12 +1727,12 @@ function instructblip2_flant5_generation(){
         ### wordart
         dataset_name=WordArt
         dataset_config=build/configs/OCR_wordart_val.yaml
-        output_dir=output/test_20231017/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1749,12 +1749,12 @@ function instructblip2_flant5_generation(){
         ### coco text
         dataset_name=COCO_text
         dataset_config=build/configs/GroundOCR_cocotext_val.yaml
-        output_dir=output/test_20231017/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1770,12 +1770,12 @@ function instructblip2_flant5_generation(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/GroundOCR_ic15_val.yaml
-        output_dir=output/test_20231017/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1791,12 +1791,12 @@ function instructblip2_flant5_generation(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/GroundOCR_textocr_val.yaml
-        output_dir=output/test_20231017/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1814,12 +1814,12 @@ function instructblip2_flant5_generation(){
         ### funsd
         dataset_name=FUNSD
         dataset_config=build/configs/KIE_funsd_val.yaml
-        output_dir=output/test_20231017/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1835,12 +1835,12 @@ function instructblip2_flant5_generation(){
         ### funsd
         dataset_name=POIE
         dataset_config=build/configs/KIE_poie_val.yaml
-        output_dir=output/test_20231017/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1856,12 +1856,12 @@ function instructblip2_flant5_generation(){
         ### funsd
         dataset_name=SROIE
         dataset_config=build/configs/KIE_sroie_val.yaml
-        output_dir=output/test_20231017/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1900,14 +1900,14 @@ function instructblip2_vicuna_likelihood(){
         ##### mci
         dataset_name=MSCOCO
         dataset_config=build/configs/MulticlassIdentification_val.yaml
-        output_dir=output/test_20231017/mci_output/${store_model_name}_${infer_method}_${formulation}
-        #output_dir=output/test_20231017/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
+        output_dir=output/test_20231017/test/mci_output/${store_model_name}_${infer_method}_${formulation}
+        #output_dir=output/test_20231017/test/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
-        flag=" --core_eval
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1926,12 +1926,12 @@ function instructblip2_vicuna_likelihood(){
         ##### goi
         dataset_name=MSCOCO
         dataset_config=build/configs/GroundedObjIdentification_val.yaml
-        output_dir=output/test_20231017/goi_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/goi_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1949,12 +1949,12 @@ function instructblip2_vicuna_likelihood(){
     function MOS(){
         dataset_name=MSCOCO
         dataset_config=build/configs/MissingObjectSelection_val.yaml
-        output_dir=output/test_20231017/mos_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/mos_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1972,12 +1972,12 @@ function instructblip2_vicuna_likelihood(){
     function TL(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextLegibility_val.yaml
-        output_dir=output/test_20231017/tl_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/tl_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -1995,12 +1995,12 @@ function instructblip2_vicuna_likelihood(){
     function TTC(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextTypeClassification_val.yaml
-        output_dir=output/test_20231017/ttc_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ttc_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2019,12 +2019,12 @@ function instructblip2_vicuna_likelihood(){
     function CLEVR(){
         dataset_name=CLEVR
         dataset_config=build/configs/Spatial_clevr_val.yaml
-        output_dir=output/test_20231017/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2042,12 +2042,12 @@ function instructblip2_vicuna_likelihood(){
     function VSR(){
         dataset_name=VSR
         dataset_config=build/configs/Spatial_vsr_val.yaml
-        output_dir=output/test_20231017/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2065,12 +2065,12 @@ function instructblip2_vicuna_likelihood(){
     function MP3D(){
         dataset_name=MP3D
         dataset_config=build/configs/Spatial_mp3d_val.yaml
-        output_dir=output/test_20231017/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2092,12 +2092,12 @@ function instructblip2_vicuna_likelihood(){
         ### cocotext
         dataset_name=COCO_text
         dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2113,12 +2113,12 @@ function instructblip2_vicuna_likelihood(){
         ### cute80
         dataset_name=CUTE80
         dataset_config=build/configs/OCR_cute80_val.yaml
-        output_dir=output/test_20231017/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2134,12 +2134,12 @@ function instructblip2_vicuna_likelihood(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/OCR_ic15_val.yaml
-        output_dir=output/test_20231017/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2155,12 +2155,12 @@ function instructblip2_vicuna_likelihood(){
         ### iiit5k
         dataset_name=IIIT5K
         dataset_config=build/configs/OCR_iiit5k_val.yaml
-        output_dir=output/test_20231017/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2176,12 +2176,12 @@ function instructblip2_vicuna_likelihood(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/OCR_textocr_val.yaml
-        output_dir=output/test_20231017/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2197,12 +2197,12 @@ function instructblip2_vicuna_likelihood(){
         ### wordart
         dataset_name=WordArt
         dataset_config=build/configs/OCR_wordart_val.yaml
-        output_dir=output/test_20231017/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2219,12 +2219,12 @@ function instructblip2_vicuna_likelihood(){
         ### coco text
         dataset_name=COCO_text
         dataset_config=build/configs/GroundOCR_cocotext_val.yaml
-        output_dir=output/test_20231017/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2240,12 +2240,12 @@ function instructblip2_vicuna_likelihood(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/GroundOCR_ic15_val.yaml
-        output_dir=output/test_20231017/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2261,12 +2261,12 @@ function instructblip2_vicuna_likelihood(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/GroundOCR_textocr_val.yaml
-        output_dir=output/test_20231017/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2284,12 +2284,12 @@ function instructblip2_vicuna_likelihood(){
         ### funsd
         dataset_name=FUNSD
         dataset_config=build/configs/KIE_funsd_val.yaml
-        output_dir=output/test_20231017/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2305,12 +2305,12 @@ function instructblip2_vicuna_likelihood(){
         ### funsd
         dataset_name=POIE
         dataset_config=build/configs/KIE_poie_val.yaml
-        output_dir=output/test_20231017/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2326,12 +2326,12 @@ function instructblip2_vicuna_likelihood(){
         ### funsd
         dataset_name=SROIE
         dataset_config=build/configs/KIE_sroie_val.yaml
-        output_dir=output/test_20231017/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2372,14 +2372,14 @@ function instructblip2_vicuna_generation(){
         ##### mci
         dataset_name=MSCOCO
         dataset_config=build/configs/MulticlassIdentification_val.yaml
-        output_dir=output/test_20231017/mci_output/${store_model_name}_${infer_method}_${formulation}
-        #output_dir=output/test_20231017/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
+        output_dir=output/test_20231017/test/mci_output/${store_model_name}_${infer_method}_${formulation}
+        #output_dir=output/test_20231017/test/mci_output/${store_model_name}_${model_name}_${infer_method}_${formulation}
         # --model_type ${model_type1}
-        flag=" --core_eval
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2398,12 +2398,12 @@ function instructblip2_vicuna_generation(){
         ##### goi
         dataset_name=MSCOCO
         dataset_config=build/configs/GroundedObjIdentification_val.yaml
-        output_dir=output/test_20231017/goi_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/goi_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2421,12 +2421,12 @@ function instructblip2_vicuna_generation(){
     function MOS(){
         dataset_name=MSCOCO
         dataset_config=build/configs/MissingObjectSelection_val.yaml
-        output_dir=output/test_20231017/mos_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/mos_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2444,12 +2444,12 @@ function instructblip2_vicuna_generation(){
     function TL(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextLegibility_val.yaml
-        output_dir=output/test_20231017/tl_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/tl_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2467,12 +2467,12 @@ function instructblip2_vicuna_generation(){
     function TTC(){
         dataset_name=COCO_text
         dataset_config=build/configs/TextTypeClassification_val.yaml
-        output_dir=output/test_20231017/ttc_output/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ttc_output/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2491,12 +2491,12 @@ function instructblip2_vicuna_generation(){
     function CLEVR(){
         dataset_name=CLEVR
         dataset_config=build/configs/Spatial_clevr_val.yaml
-        output_dir=output/test_20231017/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/clevr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2514,12 +2514,12 @@ function instructblip2_vicuna_generation(){
     function VSR(){
         dataset_name=VSR
         dataset_config=build/configs/Spatial_vsr_val.yaml
-        output_dir=output/test_20231017/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/vsr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2537,12 +2537,12 @@ function instructblip2_vicuna_generation(){
     function MP3D(){
         dataset_name=MP3D
         dataset_config=build/configs/Spatial_mp3d_val.yaml
-        output_dir=output/test_20231017/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/spatial_output/mp3d/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2564,12 +2564,12 @@ function instructblip2_vicuna_generation(){
         ### cocotext
         dataset_name=COCO_text
         dataset_config=build/configs/OCR_cocotext_val.yaml
-        output_dir=output/test_20231017/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2585,12 +2585,12 @@ function instructblip2_vicuna_generation(){
         ### cute80
         dataset_name=CUTE80
         dataset_config=build/configs/OCR_cute80_val.yaml
-        output_dir=output/test_20231017/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/cute80/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2606,12 +2606,12 @@ function instructblip2_vicuna_generation(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/OCR_ic15_val.yaml
-        output_dir=output/test_20231017/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2627,12 +2627,12 @@ function instructblip2_vicuna_generation(){
         ### iiit5k
         dataset_name=IIIT5K
         dataset_config=build/configs/OCR_iiit5k_val.yaml
-        output_dir=output/test_20231017/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/iiit5k/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2648,12 +2648,12 @@ function instructblip2_vicuna_generation(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/OCR_textocr_val.yaml
-        output_dir=output/test_20231017/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2669,12 +2669,12 @@ function instructblip2_vicuna_generation(){
         ### wordart
         dataset_name=WordArt
         dataset_config=build/configs/OCR_wordart_val.yaml
-        output_dir=output/test_20231017/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/ocr_output/wordart/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2691,12 +2691,12 @@ function instructblip2_vicuna_generation(){
         ### coco text
         dataset_name=COCO_text
         dataset_config=build/configs/GroundOCR_cocotext_val.yaml
-        output_dir=output/test_20231017/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2712,12 +2712,12 @@ function instructblip2_vicuna_generation(){
         ### ic15
         dataset_name=IC15
         dataset_config=build/configs/GroundOCR_ic15_val.yaml
-        output_dir=output/test_20231017/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/ic15/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2733,12 +2733,12 @@ function instructblip2_vicuna_generation(){
         ### textocr
         dataset_name=TextOCR
         dataset_config=build/configs/GroundOCR_textocr_val.yaml
-        output_dir=output/test_20231017/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/gocr_output/textocr/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2756,12 +2756,12 @@ function instructblip2_vicuna_generation(){
         ### funsd
         dataset_name=FUNSD
         dataset_config=build/configs/KIE_funsd_val.yaml
-        output_dir=output/test_20231017/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/funsd/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2777,12 +2777,12 @@ function instructblip2_vicuna_generation(){
         ### funsd
         dataset_name=POIE
         dataset_config=build/configs/KIE_poie_val.yaml
-        output_dir=output/test_20231017/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/poie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 
@@ -2798,12 +2798,12 @@ function instructblip2_vicuna_generation(){
         ### funsd
         dataset_name=SROIE
         dataset_config=build/configs/KIE_sroie_val.yaml
-        output_dir=output/test_20231017/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
-        flag=" --core_eval
+        output_dir=output/test_20231017/test/kie_output/sroie/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
             --model ${model}
             --model_name ${model_name}
             --model_type ${model_type}
-            --in_context_sample
+                   
             --option_mark upper 
             --dataset_name ${dataset_name} 
             --dataset_config ${dataset_config} 

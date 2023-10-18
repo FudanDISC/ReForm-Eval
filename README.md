@@ -7,17 +7,18 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Version-v1.0-green" />
+    <img src="https://img.shields.io/badge/Version-v1.0-Green" />
     <img src="https://img.shields.io/badge/Licence-Apashe_2.0-Green" />
-    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?style=social" />
+    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval-blue" />
     <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" />
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FFudanDISC%2FReForm-Eval&count_bg=%23D8659B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Paper-PDF-orange" />
-    <img src="https://img.shields.io/badge/Paper-Arxiv-orange" />
-    <img src="https://img.shields.io/badge/HF Dataset-ReForm-Eval-Data-orange" />
+    <a href="https://arxiv.org/pdf/2310.02569.pdf"><img src="https://img.shields.io/badge/Paper-PDF-Orange" />
+    <a href="https://arxiv.org/abs/2310.02569"><img src="https://img.shields.io/badge/Paper-Arxiv-Orange" />
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗-Dataset-orange" />
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" />
 </p>
 
 
