@@ -1405,4 +1405,4 @@ We thank [MME](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Mode
 - [MME: A Comprehensive Evaluation Benchmark for Multimodal Large Language Models](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/tree/Evaluation)
 - [MMBench: Is Your Multi-modal Model an All-around Player?](https://github.com/open-compass/MMBench)
 - [LVLM-eHub: A Comprehensive Evaluation Benchmark for Large Vision-Language Models](http://lvlm-ehub.opengvlab.com/index.html)
-- [M3IT](https://huggingface.co/datasets/MMInstruction/M3IT)
+- [M3IT: A Large-Scale Dataset towards Multi-Modal Multilingual Instruction Tuning](https://huggingface.co/datasets/MMInstruction/M3IT)
