@@ -280,9 +280,9 @@ There are two ways to load data, using our framework directly or using Data Load
 
 **Note:** The most recommendation is using Hugging Face Data. We introduce how to load Hugging Face data from Hugging Face Hub or the local path. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset).
 
-Here is the Google Drive URL of Hugging Face data and you can directly download it!
+Here is the Google Drive URL of our Hugging Face data and you can directly download it!
 
-**download URL:** [https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
+**download URL:**[https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
 
 **wget**
 ```
@@ -863,7 +863,7 @@ def main():
 ### Model Usage
 When running the evaluation, these model-related parameters must be applied for specific models.
 
-**Note: Some models require additional forward_likelihood function, please refer to `Likelihood-based White-Box Evaluation` in [Create Your Own Model Interface](#create-your-own-model-interface).**
+**Some models require additional forward_likelihood function, please refer to `Likelihood-based White-Box Evaluation` in [Create Your Own Model Interface](#create-your-own-model-interface).**
 
 We only list a few examples of BLIP-2 and InstructBLIP here. For the remaining models, please refer to the [Complete Model Usage](models/complete_model_usage.md#complete-model-usage).
 
