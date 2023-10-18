@@ -69,32 +69,32 @@ CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --ma
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --dataset_name MSCOCO --dataset_config build/configs/Caption_MSCOCO_val.yaml \
-    --output_dir output/bhwu_output/caption/mscoco/blip2_t5/eval \
-    --infer_method generation \
+    --output_dir output/test_20231017/bhwu-test/caption/mscoco/blip2_t5/eval \
+    --infer_method generation --do_eval \
     --per_gpu_eval_batch_size 1 --formulation Generation \
     --dataset_duplication 1 --max_new_tokens 12 --offline_hf
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --dataset_name TextCaps --dataset_config build/configs/Caption_TextCaps_val.yaml \
-    --output_dir output/bhwu_output/caption/textcaps/blip2_t5/eval \
-    --infer_method generation \
+    --output_dir output/test_20231017/bhwu-test/caption/textcaps/blip2_t5/eval \
+    --infer_method generation --do_eval \
     --per_gpu_eval_batch_size 1 --formulation Generation \
     --dataset_duplication 1 --max_new_tokens 15 --offline_hf
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --dataset_name NoCaps --dataset_config build/configs/Caption_NoCaps_val.yaml \
-    --output_dir output/bhwu_output/caption/nocaps/blip2_t5/eval \
-    --infer_method generation \
+    --output_dir output/test_20231017/bhwu-test/caption/nocaps/blip2_t5/eval \
+    --infer_method generation --do_eval \
     --per_gpu_eval_batch_size 1 --formulation Generation \
     --dataset_duplication 1 --max_new_tokens 14 --offline_hf
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE torchrun --nproc_per_node=$NPROC_PER_NODE --master_port=$MASTER_PORT run_eval.py \
     --model blip2 --model_name blip2_t5 --model_type pretrain_flant5xl \
     --dataset_name Flickr30K --dataset_config build/configs/Caption_Flickr30K_val.yaml \
-    --output_dir output/bhwu_output/caption/flickr30k/blip2_t5/eval \
-    --infer_method generation \
+    --output_dir output/test_20231017/bhwu-test/caption/flickr30k/blip2_t5/eval \
+    --infer_method generation --do_eval \
     --per_gpu_eval_batch_size 1 --formulation Generation \
     --dataset_duplication 1 --max_new_tokens 16 --offline_hf
 
