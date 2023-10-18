@@ -83,3 +83,11 @@ code_tree.txt
 ReForm-Eval-Data/
 
 test.py
+
+commands/test_kosmos2.sh
+
+commands/test_lavin.sh
+
+commands/test_otter.sh
+
+commands/test_visualglm.sh
