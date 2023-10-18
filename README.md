@@ -190,6 +190,8 @@ Add the following line at the end of the file:
 export PYTHONPATH=/path/to/ReForm-Eval:$PYTHONPATH
 ```
 
+**Note:** Once you use `run_eval` or `run_loader_eval` on other paths, the parameters related to the file dir should be set to absolute paths.
+
 ### Pipeline
 Our benchmark provides accuracy and instability as metrics for each task, to quantify the model performance. We provide two methods: 
 
@@ -228,7 +230,7 @@ dataset = load_reform_dataset(
     # dataset config, please check Data Usage for available arguments
     dataset_name='VQA',
     formulation='SingleChoice',
-    dataset_config='PATH_TO_REFORM-EVAL/build/configs/VQA_vqa_v2_val.yaml',
+    dataset_config='/path/to/ReForm-Eval/build/configs/VQA_vqa_v2_val.yaml',
     inference_method='generation', # inference method, generation / likeligood
     in_context_sample=True, # whether to include in-context-sample
     random_instruct=True, # whether to use different instructions for the same sample
@@ -278,15 +280,18 @@ Notice that each sample in the output json are supposed to be specific format:
 ### Load Data
 There are two ways to load data, using our framework directly or using Data Loader.
 
-**Note: The most recommendation for loading data is using Hugging Face Data. We introduce how to load Hugging Face data in each method. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)**
+**Note: The most recommendation is using Hugging Face Data. We introduce how to load Hugging Face data from Hugging Face Hub or the local path. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)**
 
-**We also provide the download url of Hugging Face data: , you can directly download it!**
+Here is the download URL of Hugging Face data and you can directly download it!
 
-**Download URL**
+**download URL**
 
+[https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
 
-**Wget**
-
+**wget**
+```bash
+wget https://drive.google.com/uc?export=download&id=13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx
+```
 
 #### Using ReForm-Eval Framework
 If you load data from ReForm-Eval Framework, when running `run_eval.py` and `run_loader_eval.py`, you should set the data-related parameters, including `--dataset_name`, `--formulation`, `--dataset_config`, `--dataset_duplication`, `--in_context_sample` and `--capitalize`.
@@ -303,7 +308,7 @@ dataset = load_reform_dataset(
     # dataset config, please check Data Usage for available arguments
     dataset_name='VQA',
     formulation='SingleChoice',
-    dataset_config='PATH_TO_REFORM-EVAL/build/configs/VQA_vqa_v2_val.yaml',
+    dataset_config='/path/to/ReForm-Eval/build/configs/VQA_vqa_v2_val.yaml',
     inference_method='generation', # inference method, generation / likeligood
     in_context_sample=True, # whether to include in-context-sample
     random_instruct=True, # whether to use different instructions for the same sample
@@ -332,10 +337,10 @@ You may need to process them into a string with the desired format. You may be i
 
 
 ### Create Your Own Model Interface
-To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `PATH_TO_REFORM-EVAL/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
+To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `/path/to/ReForm-Eval/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
 
 #### Step 1: Configure the Code Path
-Add the Lynx project as a submodule to `PATH_TO_REFORM-EVAL/models/interfaces/`:
+Add the Lynx project as a submodule to `/path/to/ReForm-Eval/models/interfaces/`:
 ```bash
 cd models/interfaces
 git submodule add https://github.com/bytedance/lynx-llm.git
@@ -575,7 +580,7 @@ Here is an example:
 1
 ```
 
-To support the likelihood evaluation, we add the following function in our model file `PATH_TO_REFORM-EVAL/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
+To support the likelihood evaluation, we add the following function in our model file `/path/to/ReForm-Eval/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
 ```python
     def forward_likelihood(self, vision_input, input_ids, input_atts, labels, likelihood_reduction='sum'):
         text_embeds = self.embed_tokens(input_ids)
@@ -670,7 +675,7 @@ Hence, in `lynx_interface.py`, we can use `self.model.forward_likelihood` at the
 ```
 
 #### Step 4: Implement the Preprocessor
-Preprocessors are used to formulate the structural information in order to get the correct form of dialogue. Our preprocessor is in `PATH_TO_REFORM-EVAL/utils/preprocessors.py`.
+Preprocessors are used to formulate the structural information in order to get the correct form of dialogue. Our preprocessor is in `/path/to/ReForm-Eval/utils/preprocessors.py`.
 ```python
 class ConvSingleChoiceProcessor(object):
     def __init__(self, sep, sep2=None, roles=['Question', 'Answer'], system_msg=None, first_query_fn=None, \
@@ -739,7 +744,7 @@ User: Is there a cat in the image? Options: (A) yes; (B) no; (C) maybe.\n
 Bot:The answer is
 ```
 
-For other supported sep_style, please refer to `PATH_TO_REFORM-EVAL/utils/preprocessors.py`.
+For other supported sep_style, please refer to `/path/to/ReForm-Eval/utils/preprocessors.py`.
 `init_conv` can also be used to add `<image>` marks, if it is `init_conv=[['User', "<image>"]]`, this means that a new conversation will be started.
 
 ```
@@ -749,7 +754,7 @@ Bot: ......
 ```
 
 #### Step 5: Add Model Loader
-Implement the model loading function in `PATH_TO_REFORM-EVAL/models/interfaces/lynx_interface.py`.
+Implement the model loading function in `/path/to/ReForm-Eval/models/interfaces/lynx_interface.py`.
 ```python
 def get_lynx(model_config=None):
     model_args = {}
@@ -766,7 +771,7 @@ def get_lynx(model_config=None):
     return Lynx_Interface(**model_args), proc
 ```
 
-Additionally, you should add the following codes in  `PATH_TO_REFORM-EVAL/models/__init__.py`.
+Additionally, you should add the following codes in  `/path/to/ReForm-Eval/models/__init__.py`.
 ```python
     elif model_name == 'lynx':
         from .interfaces.lynx_interface import get_lynx
@@ -1412,7 +1417,7 @@ dataset = load_reform_dataset(
     # dataset config, please check Data Usage for available arguments
     dataset_name='VQA',
     formulation='SingleChoice',
-    dataset_config='PATH_TO_REFORM-EVAL/build/configs/VQA_vqa_v2_val.yaml',
+    dataset_config='/path/to/ReForm-Eval/build/configs/VQA_vqa_v2_val.yaml',
     inference_method='generation', # inference method, generation / likeligood
     in_context_sample=True, # whether to include in-context-sample
     random_instruct=True, # whether to use different instructions for the same sample

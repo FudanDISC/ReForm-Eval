@@ -192,12 +192,12 @@ pip install e .
 --model minigpt4  --model_name models/MiniGPT-4/eval_configs/minigpt4_eval.yaml
 ```
 
-In `PATH_TO_REFORM-EVAL/models/MiniGPT-4/eval_configs/minigpt4_eval.yaml`, you have to set:
+In `/path/to/ReForm-Eval/models/MiniGPT-4/eval_configs/minigpt4_eval.yaml`, you have to set:
 ```YAML
 ckpt: '/path/to/prerained_minigpt4_7b.pth'
 ```
 
-In `PATH_TO_REFORM-EVAL/models/interfaces/minigpt4/configs/models/minigpt4.yaml`, you need to set:
+In `/path/to/ReForm-Eval/models/interfaces/minigpt4/configs/models/minigpt4.yaml`, you need to set:
 ```YAML
 # Vicuna
 llama_model: "/path/to/vicuna-7B-v0/"
@@ -255,7 +255,7 @@ You need to modify the config file:
 checkpoint: "/path/to/finetune_lynx.pt"
 ```
 
-In `PATH_TO_REFORM-EVAL/models/interfaces/lynx/configs/LYNX.yaml`, you need to set:
+In `/path/to/ReForm-Eval/models/interfaces/lynx/configs/LYNX.yaml`, you need to set:
 ```YAML
 LLM_base: '/path/to/vicuna-7B-v1.1/'
 ```
@@ -277,7 +277,7 @@ ckpt: '/path/to/cheetah_vicuna_7b.pth'
 ckpt: '/path/to/cheetah_llama2_7b.pth'
 ```
 
-In `PATH_TO_REFORM-EVAL/models/interfaces/Cheetah/cheetah/configs/models/cheetah_vicuna(llama2).yaml`, you need to set:
+In `/path/to/ReForm-Eval/models/interfaces/Cheetah/cheetah/configs/models/cheetah_vicuna(llama2).yaml`, you need to set:
 ```YAML
 # Vicuna
 llama_model: "/path/to/vicuna-7B-v0/"
@@ -295,7 +295,7 @@ llama_model: "/path/to/Llama-2-7b-chat-hf/"
 --model bliva  --model_name bliva_vicuna
 ```
 
-You need to modify the config file in `PATH_TO_REFORM-EVAL/models/BLIVA/bliva/configs/models/bliva_vicuna7b.yaml`:
+You need to modify the config file in `/path/to/ReForm-Eval/models/BLIVA/bliva/configs/models/bliva_vicuna7b.yaml`:
 ```YAML
 finetuned: '/path/to/bliva_vicuna7b.pth'
 ```

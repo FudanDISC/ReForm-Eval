@@ -937,7 +937,29 @@ function blip2_generation(){
     # CLEVR
     # VSR
     # MP3D
-    OCR
+    # OCR
+        formulation=OCROpenEnded
+        infer_method=generation
+        dataset_name=COCO_text
+        dataset_config=build/configs/OCR_cocotext_val.yaml
+        output_dir=output/test_20231017/test/ocr_output/cocotext/${store_model_name}_${infer_method}_${formulation}
+        flag=" 
+            --model ${model}
+            --model_name ${model_name}
+            --model_type ${model_type}
+                   
+            --option_mark upper 
+            --dataset_name ${dataset_name} 
+            --dataset_config ${dataset_config} 
+            --output_dir ${output_dir} 
+            --infer_method ${infer_method} 
+
+            --per_gpu_eval_batch_size ${batch_size}
+            --formulation ${formulation}
+            --do_eval 
+            --dataset_duplication ${duplication}
+            --offline_hf"
+        CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 run_eval.py $flag
 }
 
 function instructblip2_flant5_likelihood(){

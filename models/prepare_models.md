@@ -1,7 +1,7 @@
 ## 🤖 Prepare Models
 
 ### Set Up Existing Models
-We conduct a comprehensive evaluation of 16 open-source LVLMs across various capability dimensions. All LVLMs are provided with checkpoints. To build the environment for each model, you can create conda envs for corresponding models and directly copy the installation command of Bash Shell in `PATH_TO_REFORM-EVAL/models/build_scripts/` and paste it in the terminal to install required packages.
+We conduct a comprehensive evaluation of 16 open-source LVLMs across various capability dimensions. All LVLMs are provided with checkpoints. To build the environment for each model, you can create conda envs for corresponding models and directly copy the installation command of Bash Shell in `/path/to/ReForm-Eval/models/build_scripts/` and paste it in the terminal to install required packages.
 
 | Model            | URL                                                           |
 |------------------|---------------------------------------------------------------|
@@ -24,10 +24,10 @@ We conduct a comprehensive evaluation of 16 open-source LVLMs across various cap
 Only when multiple models exist at the same time, both of the GitHub URL and the model URL are provided.
 
 ### Create Your Own Model Interface 
-To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `PATH_TO_REFORM-EVAL/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
+To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `/path/to/ReForm-Eval/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
 
 #### Step 1: Configure the Code Path
-Add the Lynx project as a submodule to `PATH_TO_REFORM-EVAL/models/interfaces/`:
+Add the Lynx project as a submodule to `/path/to/ReForm-Eval/models/interfaces/`:
 ```bash
 cd models/interfaces
 git submodule add https://github.com/bytedance/lynx-llm.git
@@ -267,7 +267,7 @@ Here is an example:
 1
 ```
 
-To support the likelihood evaluation, we add the following function in our model file `PATH_TO_REFORM-EVAL/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
+To support the likelihood evaluation, we add the following function in our model file `/path/to/ReForm-Eval/models/interfaces/lynx/models/lynx.py` to calculate the loss (neg-log likelihood) for each sequence.
 ```python
     def forward_likelihood(self, vision_input, input_ids, input_atts, labels, likelihood_reduction='sum'):
         text_embeds = self.embed_tokens(input_ids)
@@ -362,7 +362,7 @@ Hence, in `lynx_interface.py`, we can use `self.model.forward_likelihood` at the
 ```
 
 #### Step 4: Implement the Preprocessor
-Preprocessors are used to formulate the structural information in order to get the correct form of dialogue. Our preprocessor is in `PATH_TO_REFORM-EVAL/utils/preprocessors.py`.
+Preprocessors are used to formulate the structural information in order to get the correct form of dialogue. Our preprocessor is in `/path/to/ReForm-Eval/utils/preprocessors.py`.
 ```python
 class ConvSingleChoiceProcessor(object):
     def __init__(self, sep, sep2=None, roles=['Question', 'Answer'], system_msg=None, first_query_fn=None, \
@@ -431,7 +431,7 @@ User: Is there a cat in the image? Options: (A) yes; (B) no; (C) maybe.\n
 Bot:The answer is
 ```
 
-For other supported sep_style, please refer to `PATH_TO_REFORM-EVAL/utils/preprocessors.py`.
+For other supported sep_style, please refer to `/path/to/ReForm-Eval/utils/preprocessors.py`.
 `init_conv` can also be used to add `<image>` marks, if it is `init_conv=[['User', "<image>"]]`, this means that a new conversation will be started.
 
 ```
@@ -441,7 +441,7 @@ Bot: ......
 ```
 
 #### Step 5: Add Model Loader
-Implement the model loading function in `PATH_TO_REFORM-EVAL/models/interfaces/lynx_interface.py`.
+Implement the model loading function in `/path/to/ReForm-Eval/models/interfaces/lynx_interface.py`.
 ```python
 def get_lynx(model_config=None):
     model_args = {}
@@ -458,7 +458,7 @@ def get_lynx(model_config=None):
     return Lynx_Interface(**model_args), proc
 ```
 
-Additionally, you should add the following codes in  `PATH_TO_REFORM-EVAL/models/__init__.py`.
+Additionally, you should add the following codes in  `/path/to/ReForm-Eval/models/__init__.py`.
 ```python
     elif model_name == 'lynx':
         from .interfaces.lynx_interface import get_lynx
@@ -474,7 +474,7 @@ Finally, you can use the following model arguments in the main entrance to evalu
 If you have trouble incorporating new models into our framework, please let us know through GitHub issues or emails.
 
 ### Preprocessors
-We give a brief introduction to preprocessors in order to get the correct form of dialogue. Our preprocessor is in `PATH_TO_REFORM-EVAL/utils/preprocessors.py`.
+We give a brief introduction to preprocessors in order to get the correct form of dialogue. Our preprocessor is in `/path/to/ReForm-Eval/utils/preprocessors.py`.
 ```python
 class SingleChoiceProcessor(object):
     def __init__(self, sep, sep2=None, roles=['Question', 'Answer'], alphabet_choice=None, infer_method='generation'):
