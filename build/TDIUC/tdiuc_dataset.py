@@ -108,11 +108,13 @@ class TDIUC_Dataset(Dataset):
             question_path = self.config['data_config']['offline_huggingface_question']
             anns_path = self.config['data_config']['offline_huggingface_anns']
             questions = sorted(
-                load_dataset("json",data_files={'test':question_path}, split='test')[0],
+                # load_dataset("json",data_files={'test':question_path}, split='test')[0],
+                load_dataset("json",data_files={'test':question_path}, split='test'),
                 key=lambda x : x['question_id']
             )
             annotations = sorted(
-                load_dataset("json",data_files={'test':anns_path}, split='test')[0],
+                # load_dataset("json",data_files={'test':anns_path}, split='test')[0],
+                load_dataset("json",data_files={'test':anns_path}, split='test'),
                 key=lambda x : x['question_id']
             )  
         else:
