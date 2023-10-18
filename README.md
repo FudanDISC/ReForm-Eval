@@ -9,8 +9,8 @@
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-Green" />
     <img src="https://img.shields.io/badge/Licence-Apashe_2.0-Green" />
-    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval" />
-    <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total" />
+    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?label=Stars" />
+    <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?label=Downloads" />
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FFudanDISC%2FReForm-Eval&count_bg=%23D8659B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
 </p>
 <!-- <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" /> -->
@@ -44,7 +44,7 @@
 ---
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗 ReForm-Eval Dataset</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗 ReForm-Eval Dataset</a>
+  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗 ReForm-Eval-Data</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">ReForm-Eval-Data Google Drive</a>
 </p>
 
 <!-- <div style="border-left: 2px solid #999; padding-left: 10px; margin-left: 10px; color: #666; font-size: 90%;">

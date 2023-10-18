@@ -1,13 +1,13 @@
 source /remote-home/bhwu/anaconda3/etc/profile.d/conda.sh
 
 nvidia-smi
-machine=224
+# machine=224
 # machine=226
-# machine=235
+machine=235
 
 MASTER_PORT='29500'
-CUDA_DEVICE='0,1,2,3'
-NPROC_PER_NODE='4'
+CUDA_DEVICE='5,7'
+NPROC_PER_NODE='2'
 INFER_METHOD='likelihood'
 
 # only test under BLIP2-T5
