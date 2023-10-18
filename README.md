@@ -774,7 +774,7 @@ Finally, you can use the following model arguments in the main entrance to evalu
 --model lynx  --model_name models/interfaces/lynx/configs/LYNX.yaml
 ```
 
-If you have trouble incorporating new models into our framework, please let us know through GitHub issues or emails. For more details about models, please refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
+If you have trouble incorporating new models into our framework, please let us know through GitHub issues or emails. For more details about models and preprocessors, please refer to [Prepare Models](models/prepare_models.md#🤖-prepare-models).
 
 ## 🚀 Evaluation
 Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions.
