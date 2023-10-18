@@ -271,18 +271,20 @@ Notice that each sample in the output json are supposed to be specific format:
 }
 ```
 
-**Note:** During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong. The requirement for likelihood prediction is `int`, and for generation prediction is `str`.**
+**Note:** During generation-based evaluation for multiple-choice questions, we only consider the format like (A), (a), (1), if a prediction does not hit the format, it will be considered wrong. The requirement for likelihood prediction is `int`, and for generation prediction is `str`.
 
 **Step 4:** The accuracy, (the format hit rate or instability) can be viewed in `output_dir/log.txt`.
 
 ### Load Data
 There are two ways to load data, using our framework directly or using Data Loader.
 
-**Note:** The most recommendation is using Hugging Face Data. We introduce how to load Hugging Face data from Hugging Face Hub or the local path. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset).
+**The most recommendation is using Hugging Face Data, which we call it ReForm-Eval-Data. We introduce how to load ReForm-Eval-Data from Hugging Face Hub or the local path. If this still does not work, we also provide other loading methods. Please refer to [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset) for more details.**
 
-Here is the Google Drive URL of our Hugging Face data and you can directly download it!
+Here is the Google Drive link of ReForm-Eval-Data and you can directly download it to load from the local path!
 
-**download URL:**[https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
+**download URL**
+
+[https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
 
 **wget**
 ```
@@ -292,7 +294,7 @@ wget https://drive.google.com/uc?export=download&id=13s4oZWtvSAyTiZing1Pzpi2sFqe
 #### Using ReForm-Eval Framework
 If you load data from ReForm-Eval Framework, when running `run_eval.py` and `run_loader_eval.py`, you should set the data-related parameters, including `--dataset_name`, `--formulation`, `--dataset_config`, `--dataset_duplication`, `--in_context_sample` and `--capitalize`.
 
-**Please set `--hf` or `--offline_hf` if you would like to load data from Hugging Face. `--hf` is loading from Hugging Face Hub, and `--offline_hf` is loading Hugging Face data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
+**Please set `--hf` or `--offline_hf` if you would like to load ReForm-Eval-Data. `--hf` is loading from Hugging Face Hub, and `--offline_hf` is loading ReForm-Eval-Data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
 
 #### Using Data Loader
 ReForm-Eval provides the direct data loader if you would like to perform evaluation without our framework. Here is an example:
@@ -329,7 +331,7 @@ Notice that each sample of the loaded dataset will be a dict containing all info
 ```
 You may need to process them into a string with the desired format. You may be intersted in the [Preprocessors](models/prepare_models.md#preprocessors) we used in ReForm-Eval to gather the information into a dialogue-like string as the input for you model. All valid datasets and corresponding arguments are in the [Data Usage](#data-usage).
 
-**Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load Hugging Face data. `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading Hugging Face data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
+**Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load ReForm-Eval-Data. `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading ReForm-Eval-Data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
 
 
 ### Create Your Own Model Interface

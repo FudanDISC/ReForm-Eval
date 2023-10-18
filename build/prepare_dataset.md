@@ -5,12 +5,12 @@ To address the wide range of questions posed by users, LVLMs need to possess div
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
 
-### Load Dataset from Hugging Face (Recommended)
-You can load our dataset directly from our Hugging Face repository, avoiding the hassle of manual downloading, so this is also the most recommended method. 
+### Load ReForm-Eval-Data (Recommended)
+In order to make it easier for users to use our benchmark, we further convert the formulated dataset and store image in the form of `base64`. We called this converted dataset **ReForm-Eval-Data**, which is uploaded to Hugging Face Hub and Google Drive. You can load our dataset directly from our Hugging Face repository or from the local path, avoiding the hassle of manual downloading, so this is also the most recommended method. 
 
-**Please set `--hf` or `--offline_hf` if you would like to load data from Hugging Face when using our framework (`run_eval.py` and `run_loader_eval.py`). `--hf` is loading from Hugging Face Hub, and `--offline_hf` is loading Hugging Face data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
+**Please set `--hf` or `--offline_hf` if you would like to load ReForm-Eval-Data when using our framework (`run_eval.py` and `run_loader_eval.py`). `--hf` is loading from Hugging Face Hub, and `--offline_hf` is loading ReForm-Eval-Data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
 
-**Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load Hugging Face data when using Data Loader (`from build import load_reform_dataset`). `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading Hugging Face data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
+**Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load ReForm-Eval-Data when using Data Loader (`from build import load_reform_dataset`). `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading ReForm-Eval-Data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
 
 #### Load from Hugging Face Hub
 In our repository, `huggingface_data` is the relative path in Hugging Face Hub and is configured in `/path/to/ReForm-Eval/build/configs/DisasterType_val.yaml` as shown below:
@@ -49,7 +49,7 @@ git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 wget https://drive.google.com/uc?export=download&id=13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx
 ```
 
-When you git clone the dataset or place the unzipped data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
+When you git clone the dataset or place the `ReForm-Eval-Data` folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
 
 ```
 |-- ReForm-Eval
@@ -93,9 +93,9 @@ If you intend to check out one sample of our formulated data, mostly, you should
 dataset = dataset[0]['data'][n] #n: The `n` th sample you want to check out
 ```
 
-However, a few json files for some dataset such as TDIUC, you do not need to specify a `['data']` field to get a sample.
+However, a few json files for some dataset such as TDIUC, you do not need to specify a `['data']` field or add `[0]` between `dataset` and `[0]` to get a sample.
 ```python
-dataset = dataset[0]
+dataset = dataset[n] #n: The `n` th sample you want to check out
 ```
 
 We saved the image in the form of `base64` in all json files. These processed texts are restored to complete images by PIL when the dataset is built.
@@ -178,7 +178,7 @@ data_config:
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the relative local path of Hugging Face data)
 ``` -->
 
-### Manual Download (Not recommended)
+### Manual Download (Not Recommended)
 Alternatively, all datasets are also provided with URLs and you can manually download them.
 
 | Dataset          | URL                                                                          |
