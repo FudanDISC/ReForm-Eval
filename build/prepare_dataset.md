@@ -5,7 +5,7 @@ To address the wide range of questions posed by users, LVLMs need to possess div
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
 ### Contents
-- [Load ReForm-Eval-Data](#load-reform-eval-data-recommended)
+- [Load ReForm-Eval-Data (Recommended)](#load-reform-eval-data-recommended)
   - [Load from Hugging Face Hub](#load-from-hugging-face-hub)
   - [Load from the Local Path](#load-from-the-local-path)
   - [Check Out the ReForm-Eval-Data Sample](#check-out-the-reform-eval-data-sample)
