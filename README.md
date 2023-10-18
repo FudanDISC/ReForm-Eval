@@ -255,7 +255,7 @@ Here is the Google Drive link of ReForm-Eval-Data and you can directly download 
 
 **download URL**
 
-[https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing](https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing)
+[https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view](https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view)
 
 **wget**
 ```

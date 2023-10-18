@@ -49,7 +49,7 @@ git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 
 **download URL**
 
-[https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing](https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing)
+[https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view](https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view)
 
 **wget**
 ```
