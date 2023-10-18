@@ -42,11 +42,11 @@ git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 
 **download URL**
 
-[https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link](https://drive.google.com/file/d/13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx/view?usp=share_link)
+[https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing](https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing)
 
 **wget**
 ```
-wget https://drive.google.com/uc?export=download&id=13s4oZWtvSAyTiZing1Pzpi2sFqeYphYx
+wget https://drive.google.com/uc?export=download&id=1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b
 ```
 
 When you git clone the dataset or place the `ReForm-Eval-Data` folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
