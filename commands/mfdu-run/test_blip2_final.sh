@@ -464,12 +464,10 @@ function blip2_likelihood(){
     MCI
     GOI
     MOS
-    TL
-    TTC
     CLEVR
     VSR
     MP3D
-    OCR
+
 }
 function blip2_generation(){
     infer_method=generation
@@ -2829,8 +2827,8 @@ function instructblip2_vicuna_generation(){
 }
 
 
-# blip2_likelihood
-blip2_generation
+blip2_likelihood
+# blip2_generation
 # instructblip2_flant5_likelihood
 # instructblip2_flant5_generation
 # instructblip2_vicuna_likelihood

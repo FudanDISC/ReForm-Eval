@@ -44,7 +44,7 @@
 ---
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗 ReForm-Eval-Data</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">ReForm-Eval-Data Google Drive</a>
+  <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗 ReForm-Eval-Data</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">☁️ Google Drive</a>
 </p>
 
 <!-- <div style="border-left: 2px solid #999; padding-left: 10px; margin-left: 10px; color: #666; font-size: 90%;">
@@ -1078,23 +1078,6 @@ cd models/LAVIS
 pip install e .
 ```
 
-#### LLaVA
-```bash
-# LLaVA v0
---model llava  --model_name /path/to/LLaVA-7B-v0/
-# LLaVA llama-2
---model llava  --model_name /path/to/llava-llama-2-7b-chat-lightning-lora-preview/ \
---model_type /path/to/Llama-2-7b-chat-hf/
-```
-
-#### mPLUG-Owl
-```bash
---model mplugowl  --model_name mplugowl --model_type /path/to/mplug-owl-llama-7b/
-```
-#### LLaMA-Adapter V2
-```bash
---model llama_adapterv2  --model_name llama_adapterv2  --model_type /path/to/pyllama_data
-```
 
 ### Data Usage
 For data-related parameters, we list required parameters of different tasks for comprehensive evaluation.
