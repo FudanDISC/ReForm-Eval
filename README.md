@@ -9,32 +9,24 @@
 <p align="center">
     <img src="https://img.shields.io/badge/Version-v1.0-Green" />
     <img src="https://img.shields.io/badge/Licence-Apashe_2.0-Green" />
-    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?label=Stars" />
+    <a href="https://github.com/FudanDISC"><img src="https://img.shields.io/badge/DISC-Repository-blue" /></a>
+    <img src="https://img.shields.io/github/stars/FudanDISC/ReForm-Eval?label=⭐_Stars" />
     <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?label=Downloads" />
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FFudanDISC%2FReForm-Eval&count_bg=%23D8659B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
 </p>
-<!-- <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" /> -->
 
 <p align="center">
     <a href="https://arxiv.org/pdf/2310.02569.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" /></a>
     <a href="https://arxiv.org/abs/2310.02569"><img src="https://img.shields.io/badge/Paper-Arxiv-red" /></a>
     <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗_Hugging_Face-Dataset-orange" /></a>
     <a href="https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing"><img src="https://img.shields.io/badge/Google_Drive-Dataset-orange?logo=googledrive" /></a>
-    <!-- <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗-Dataset-orange" />
-    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" /> -->
 </p>
-
-<!-- <p align="center">
-    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗_Hugging_Face-Dataset-orange" /></a>
-    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Google_Drive-Dataset-orange?logo=google" /></a>
-</p> -->
 
 
 <div align="center">
   <h2 >ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</h2>
 </div>
 
-<!-- <span style='font-size: 24px; font-weight: bold;'><p align='center'>ReForm-Eval: EVALUATING LARGE VISION LANGUAGE MODELS VIA UNIFIED RE-FORMULATION OF TASK-ORIENTED BENCHMARKS</p></span> -->
 
 <p align="center"><strong>Zejun Li<sup>1</sup><sup>†</sup> , Ye Wang<sup>1</sup><sup>†</sup> , Mengfei Du<sup>1</sup><sup>†</sup> , Qingwen Liu<sup>1</sup><sup>†</sup> , Binhao Wu<sup>1</sup><sup>†</sup> , Jiwen Zhang<sup>1</sup><sup>†</sup> , Chengxing Zhou<sup>2</sup> , Zhihao Fan<sup>3</sup> , Jie Fu<sup>4</sup> , Jingjing Chen<sup>1</sup> , Xuanjing Huang<sup>1</sup> , Zhongyu Wei<sup>1</sup><sup>*</sup>.
  </strong></p>
@@ -47,18 +39,12 @@
   <a href="https://arxiv.org/abs/2310.02569v1">ReForm-Eval Paper</a> | <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval/tree/main">🤗ReForm-Eval-Data</a> | <a href="https://drive.google.com/file/d/1YUq6pacbusNUPviQeilMQhZdP-o7Dd_b/view?usp=sharing">☁️Google Drive</a>
 </p>
 
-<!-- <div style="border-left: 2px solid #999; padding-left: 10px; margin-left: 10px; color: #666; font-size: 90%;">
-Recent years have witnessed remarkable progress in the development of large vision-language models (LVLMs). Benefiting from the strong language backbones and efficient cross-modal alignment strategies, LVLMs exhibit surprising capabilities to perceive visual signals and perform visually grounded reasoning. However, the capabilities of LVLMs have not been comprehensively and quantitatively evaluated. Most existing multi-modal benchmarks require task-oriented input-output formats, posing great challenges to automatically assess the freeform text output of LVLMs. To effectively leverage the annotations available in existing benchmarks and reduce the manual effort required for constructing new benchmarks, we propose to re-formulate existing benchmarks into unified LVLM compatible formats. Through systematic data collection and reformulation, we present the ReForm-Eval benchmark, offering substantial data for evaluating various capabilities of LVLMs. Based on ReForm-Eval, we conduct extensive experiments, thoroughly analyze the strengths and weaknesses of existing LVLMs, and identify the underlying factors. Our benchmark and evaluation framework will be open-sourced as a cornerstone for advancing the development of LVLMs.
-</div> -->
 
 >Recent years have witnessed remarkable progress in the development of large vision-language models (LVLMs). Benefiting from the strong language backbones and efficient cross-modal alignment strategies, LVLMs exhibit surprising capabilities to perceive visual signals and perform visually grounded reasoning. However, the capabilities of LVLMs have not been comprehensively and quantitatively evaluated. Most existing multi-modal benchmarks require task-oriented input-output formats, posing great challenges to automatically assess the freeform text output of LVLMs. To effectively leverage the annotations available in existing benchmarks and reduce the manual effort required for constructing new benchmarks, we propose to re-formulate existing benchmarks into unified LVLM compatible formats. Through systematic data collection and reformulation, we present the ReForm-Eval benchmark, offering substantial data for evaluating various capabilities of LVLMs. Based on ReForm-Eval, we conduct extensive experiments, thoroughly analyze the strengths and weaknesses of existing LVLMs, and identify the underlying factors. Our benchmark and evaluation framework will be open-sourced as a cornerstone for advancing the development of LVLMs.
 
 We explore ways of re-formulating existing benchmarks into unified formats that are compatible with LVLMs. 
-<!-- Referring to the following figure, we adapt the evaluation process to the unified form shown in the lower part.  -->
 
 <p align="center"><img src="./short.png" /></p>
-<!-- Illustration of the unified re-formulation of existing benchmarks into multiple-choice problems. The text within square brackets indicates the evaluation methods, with red and green denoting incorrect and correct judgment, respectively. “EM” is short for exact match. -->
-<!-- <h3 align="center"><img src="./intro-flat.pdf" /></h3> -->
 
 <span style="font-size:larger;">**Existing LVLMs Evaluation:**</span>
 
@@ -93,17 +79,10 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 **If you have any questions, please send us an email or leave a github issue!**
 **`Email: yewang22@m.fudan.edu.cn`**
 
-- **[2023-10]** We released a version of the original paper containing 16 models and 61 reformulated datasets!
+- **[2023-10]** We released a version of the original paper containing 16 model interfaces and 61 reformulated datasets!
 
 ## 📖 Contents
 - [Model Performance](#🦾-model-performance)
-<!-- - [Prepare Dataset](build/prepare_dataset.md#📥-prepare-dataset)
-  - [Load Dataset from Hugging Face (Recommended)](build/prepare_dataset.md#load-dataset-from-hugging-face-recommended)
-  - [Manually Download](build/prepare_dataset.md#manually-download)
-- [Prepare Models](models/prepare_models.md#🤖-prepare-models)
-  - [Set Up Existing Models](models/prepare_models.md#set-up-existing-models)
-  - [Add Your Own Models](models/prepare_models.md#add-your-own-models)
-  - [Preprocessors](models/prepare_models.md#preprocessors) -->
 - [Getting Start](#🔥-getting-start)
   - [Install](#install)
   - [Pipeline](#pipeline)
@@ -113,7 +92,6 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
   - [Demo](#demo)
   - [Parameters](#parameters)
   - [Model Usage](#model-usage)
-  <!-- - [Complete Model Usage](models/complete_model_usage.md#complete-model-usage) -->
   - [Data Usage](#data-usage)
   - [Output Result](#output-result)
 - [Citation](#🖋-citation)
