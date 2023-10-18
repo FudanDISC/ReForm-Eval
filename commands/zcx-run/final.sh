@@ -20,5 +20,5 @@ for ((i=0; i<$length; i++)); do
         --dataset_name ${dataset_name} --output_dir ${saved_path} \
         --per_gpu_eval_batch_size 4 --formulation SingleChoice --dataset_duplication 5 \
         --infer_method likelihood --do_eval --option_mark upper \
-        --dataset_config ${dataset_config} --offline_hf --a
+        --dataset_config ${dataset_config} --offline_hf
 done
