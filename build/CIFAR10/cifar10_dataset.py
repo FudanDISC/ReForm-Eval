@@ -62,7 +62,7 @@ class CIFAR10_Dataset(Dataset):
         elif self.args.offline_hf:
             self.anns_path = self.config['data_config']['offline_huggingface_anns']
             anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
-            anns = anns[0]
+            # anns = anns[0]
         else:
             self.anns_path = self.config['data_config']['anns_path']
             anns = json.load(open(self.anns_path , 'r'))

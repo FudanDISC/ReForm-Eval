@@ -16,15 +16,15 @@
 <!-- <img src="https://img.shields.io/github/downloads/FudanDISC/ReForm-Eval/total?style=social" /> -->
 
 <p align="center">
-    <a href="https://arxiv.org/pdf/2310.02569.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" />
-    <a href="https://arxiv.org/abs/2310.02569"><img src="https://img.shields.io/badge/Paper-Arxiv-red" />
+    <a href="https://arxiv.org/pdf/2310.02569.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" /></a>
+    <a href="https://arxiv.org/abs/2310.02569"><img src="https://img.shields.io/badge/Paper-Arxiv-red" /></a>
     <!-- <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗-Dataset-orange" />
     <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" /> -->
 </p>
 
 <p align="center">
-    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗-Dataset-orange" />
-    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" />
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/🤗_Hugging_Face-Dataset-orange" /></a>
+    <a href="https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main"><img src="https://img.shields.io/badge/Drive-Dataset-orange?logo=google" /></a>
 </p>
 
 
