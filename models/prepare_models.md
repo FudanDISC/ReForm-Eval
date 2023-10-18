@@ -1,5 +1,16 @@
 ## 🤖 Prepare Models
 
+### Contents
+- [Set Up Existing Models](#set-up-existing-models)
+- [Create Your Own Model Interface](#create-your-own-model-interface)
+  - [Step 1: Configure the Code Path](#step-1-configure-the-code-path)
+  - [Step 2: Model Loading](#step-2-model-loading)
+  - [Step 3: Implement the Inference Function](#step-3-implement-the-inference-function)
+  - [Step 4: Implement the Preprocessor](#step-4-implement-the-preprocessor)
+  - [Step 5: Add Model Loader](#step-5-add-model-loader)
+- [Preprocessors](#preprocessors)
+
+
 ### Set Up Existing Models
 We conduct a comprehensive evaluation of 16 open-source LVLMs across various capability dimensions. All LVLMs are provided with checkpoints. To build the environment for each model, you can create conda envs for corresponding models and directly copy the installation command of Bash Shell in `/path/to/ReForm-Eval/models/build_scripts/` and paste it in the terminal to install required packages.
 

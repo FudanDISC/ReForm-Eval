@@ -4,6 +4,13 @@ To address the wide range of questions posed by users, LVLMs need to possess div
 <p align="center"><img src="../base_dimensions.png" width="600" height="600"/></p>
 Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Classif.” are respectively short for description and classification.
 
+### Contents
+- [Load ReForm-Eval-Data](#load-reform-eval-data-recommended)
+  - [Load from Hugging Face Hub](#load-from-hugging-face-hub)
+  - [Load from the Local Path](#load-from-the-local-path)
+  - [Check Out the ReForm-Eval-Data Sample](#check-out-the-reform-eval-data-sample)
+- [Manual Download (Not Recommended)](#manual-download-not-recommended)
+- [Online Multi-Round Dialogue](#online-multi-round-dialogue)
 
 ### Load ReForm-Eval-Data (Recommended)
 In order to make it easier for users to use our benchmark, we further convert the formulated dataset and store image in the form of `base64`. We called this converted dataset **ReForm-Eval-Data**, which is uploaded to Hugging Face Hub and Google Drive. You can load our dataset directly from our Hugging Face repository or from the local path, avoiding the hassle of manual downloading, so this is also the most recommended method. 
@@ -77,8 +84,8 @@ data_config:
   offline_huggingface_data: "ReForm-Eval-Data/huggingface_data/MEDIC/disaster-type-selection-sampled.json" # The place you may need to modify (the relative local path of Hugging Face data)
 ```
 
-#### Load the Raw Hugging Face Json Data
-If you are really interested in exactly how we formulate the data and desire to check out the raw Hugging Face json data, use the following code:
+#### Check Out the ReForm-Eval-Data Sample
+If you are really interested in exactly how we formulate the data and desire to check out the ReForm-Eval-Data json file, use the following code:
 ```python
 from datasets import load_dataset
 # You can add (field="data") in parameters for extracting "data" keys.
@@ -93,7 +100,7 @@ If you intend to check out one sample of our formulated data, mostly, you should
 dataset = dataset[0]['data'][n] #n: The `n` th sample you want to check out
 ```
 
-However, a few json files for some dataset such as TDIUC, you do not need to specify a `['data']` field or add `[0]` between `dataset` and `[0]` to get a sample.
+However, a few json files for some dataset such as TDIUC, you do not need to specify a `['data']` field, or add `[0]` between `dataset` and `[0]` to get a sample.
 ```python
 dataset = dataset[n] #n: The `n` th sample you want to check out
 ```
@@ -243,7 +250,7 @@ We also provide the raw json file, like the one pointing to "medic_path".
 wget https://drive.google.com/uc?export=download&id=1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc
 ```
 
-### Online Multi-round dialogue
+### Online Multi-Round Dialogue
 For multi-round VQA tasks, different from VisDial to perform offline multi-round dialogue (use GT in the dialogue history), we consider online multi-round dialogue (use previous output in the dialogue history).
 
 In our framework, we use the "--online_multi_round" parameter to indicate the setting.

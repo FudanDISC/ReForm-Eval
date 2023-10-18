@@ -63,7 +63,7 @@ We explore ways of re-formulating existing benchmarks into unified formats that 
 <span style="font-size:larger;">**Existing LVLMs Evaluation:**</span>
 
 - **No Quantification**: The capabilities of existing LVLMs are mainly demonstrated only by qualitative examples.
-- **Task-Oriented**: Most existing multi-modal benchmarks can not be directly utilized to evaluate LVLMs since they are designed for specific tasks and rely on structured input-output formats for evaluation, even need to be fine-tuned or learn task-specific parameters.
+- **Task-Oriented**: Most existing multi-modal benchmarks cannot be directly utilized to evaluate LVLMs since they are designed for specific tasks and rely on structured input-output formats for evaluation, even need to be fine-tuned or learn task-specific parameters.
 - **Limited Samples**: Limited manual annotation such as around 100 samples per dimension in **MME** and **MMBench** could potentially introduce evaluation bias into the results.
 
 <span style="font-size:larger;">**Based on the re-formulation framework, we present our unified multi-modal benchmark, ReForm-Eval:**</span>
@@ -1527,10 +1527,11 @@ If ReForm-Eval has been beneficial to your research and work, please cite our wo
 }
 ```
 ## 🤝 Acknowledgements
-We thank [MME](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/tree/Evaluation), [MMBench](https://github.com/open-compass/MMBench), [LVLM-eHub](http://lvlm-ehub.opengvlab.com/index.html) and other repositories that have made great contributions to multi-modal large model evaluation. In addition, we are also very grateful that many LVLMs can be open sourced and participate in our evaluation, enriching results of our benchmarks.
+We thank [MME](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/tree/Evaluation), [MMBench](https://github.com/open-compass/MMBench), [LVLM-eHub](http://lvlm-ehub.opengvlab.com/index.html), [M3IT](https://huggingface.co/datasets/MMInstruction/M3IT) and other repositories that have made great contributions to multi-modal large model evaluation. In addition, we are also very grateful that many LVLMs can be open sourced and participate in our evaluation, enriching results of our benchmarks.
 
 
 ## 🔏 Related Projects
 - [MME: A Comprehensive Evaluation Benchmark for Multimodal Large Language Models](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/tree/Evaluation)
 - [MMBench: Is Your Multi-modal Model an All-around Player?](https://github.com/open-compass/MMBench)
 - [LVLM-eHub: A Comprehensive Evaluation Benchmark for Large Vision-Language Models](http://lvlm-ehub.opengvlab.com/index.html)
+- [M3IT](https://huggingface.co/datasets/MMInstruction/M3IT)
