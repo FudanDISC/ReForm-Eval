@@ -57,7 +57,7 @@ def metric_eval(args, full_res):
     
     if args.formulation == 'Generation':
         cider_metric, cider_metrics = metric(full_res)
-        logger.info('the evalueted {} result: {}'.format(args.formulation, cider_metric))
+        logger.info('the evalueted {} CIDEr result: {}'.format(args.formulation, cider_metric))
     else:
         ### for format hit rate
         hit_num  = 0

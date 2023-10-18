@@ -41,17 +41,20 @@ And in `./build/MEDIC/disaster_type_dataset.py`, the specific path of Hugging Fa
 
 **If you cannot access Hugging Face, you can use the following command to download the dataset, and then load the dataset locally.**
 
-**Git Clone**
+**git clone**
 ```bash
 git lfs install
 git clone https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data
 ```
 
-**Download URL**
+**download URL**
+
 [https://drive.google.com/drive/folders/1RMi-Mbl6VqJ4oFZL5eb8K6iHGmJCdEGl?usp=drive_link](https://drive.google.com/drive/folders/1RMi-Mbl6VqJ4oFZL5eb8K6iHGmJCdEGl?usp=drive_link)
 
-**Wget**
-[]
+**wget**
+```
+
+```
 
 When you git clone the dataset or place the unzipped data folder on the root directory of this repository , `offline_huggingface_data` does not need to be modified. 
 
@@ -137,10 +140,11 @@ data_config:
 
 We also provide the raw json file, like the one pointing to "medic_path". 
 
-**Download URL**
+**download URL**
+
 [https://drive.google.com/file/d/1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc/view](https://drive.google.com/file/d/1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc/view)
 
-**Wget**
+**wget**
 ```
 wget https://drive.google.com/uc?export=download&id=1D4CH9_RJKoCGFqDy5eIhG7h-ZRllgSfc
 ```

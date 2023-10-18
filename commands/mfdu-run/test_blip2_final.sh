@@ -934,10 +934,10 @@ function blip2_generation(){
     # MCI
     # GOI
     # MOS
-    CLEVR
-    VSR
-    MP3D
-    # OCR
+    # CLEVR
+    # VSR
+    # MP3D
+    OCR
 }
 
 function instructblip2_flant5_likelihood(){

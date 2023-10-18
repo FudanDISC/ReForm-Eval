@@ -63,9 +63,9 @@ class VizWiz_Dataset(Dataset):
             # anns = anns[0]
         elif self.args.offline_hf:
             if self.config['task_kind'] == 'SingleChoice':
-                self.anns_path = self.config['data_config']['offline_huggingface_yesNo_anns']
-            elif self.config['task_kind'] == 'YesOrNo':
                 self.anns_path = self.config['data_config']['offline_huggingface_singleChoice_anns']
+            elif self.config['task_kind'] == 'YesOrNo':
+                self.anns_path = self.config['data_config']['offline_huggingface_yesNo_anns']
             anns = load_dataset("json",data_files={'test':self.anns_path}, split='test')
             # anns = anns[0]
         else:
