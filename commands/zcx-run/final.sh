@@ -14,8 +14,8 @@ for ((i=0; i<$length; i++)); do
     # echo "${dms[$i]} , ${dcs[$i]}"
     CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 run_eval.py \
         --model blip2  --model_name blip2_t5  --model_type pretrain_flant5xl \
-        --dataset_name ${dms[$i]} --output_dir output/test_20231017/${saved_dir[$i]} \
+        --dataset_name "${dms[$i]}" --output_dir "output/test_20231017/${saved_dir[$i]}" \
         --per_gpu_eval_batch_size 4 --formulation SingleChoice --dataset_duplication 5 \
         --infer_method likelihood --do_eval --option_mark upper --shuffle_options --offline_hf \
-        --dataset_config ${dcs[$i]} \ 
+        --dataset_config "${dcs[$i]}" \ 
 done
