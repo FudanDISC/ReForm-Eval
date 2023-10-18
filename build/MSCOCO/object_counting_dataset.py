@@ -94,7 +94,7 @@ class ObjectCounting_SingleChoice(Dataset):
         for idx , ann in enumerate(anns):
             item = {
                 'sample_id' : str(idx+1),
-                'image_name' : ann['Image_ID'],
+                'image' : ann['Image_ID'],
                 'question' : ann['Question'],
                 'answer' : ann['Answer'],
                 'COCO_category' : ann['Resolved_COCO_category']
@@ -110,7 +110,7 @@ class ObjectCounting_SingleChoice(Dataset):
         if self.args.hf or self.args.offline_hf:
             image = base64_to_image(data_item['image'])
         else:
-            image = os.path.join(self.image_dir , data_item['image_name'])
+            image = os.path.join(self.image_dir , data_item['image'])
         answer = str(data_item['answer'])
         choice_list = make_choices(answer , self.choice_path , self.args.hf , self.args.offline_hf)
 

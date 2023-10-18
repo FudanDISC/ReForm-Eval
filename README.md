@@ -120,7 +120,9 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 - [Related Projects](#🔏-related-projects)
 
 ## 🦾 Model Performance
-We list the average ranking and the score of the model under Generation Evaluation and Likelihood Evaluation in the table below. If you get results using the new LVLM interface on our benchmark, please contact us to add your model to [Model Performance](#🦾-model-performance).
+We list the average ranking and the score of the model under Generation Evaluation and Likelihood Evaluation in the table below. 
+
+**If you get results using the new LVLM interface on our benchmark, please contact us to add your model to [Model Performance](#🦾-model-performance).**
 
 | Model          | Gen-Avg-Rank | Gen-Avg-Score | Like-Avg-Rank | Like-Avg     |
 |----------------|--------------|---------------|---------------|--------------|
@@ -153,28 +155,28 @@ We list the average ranking and the score of the model under Generation Evaluati
 <!-- **Before performing the evaluation, please refer to [Prepare Dataset](build/prepare_dataset.md#prepare-dataset) and [Prepare Models](models/prepare_models.md#prepare-models).** Our benchmark supports multi-GPU evaluation. If the half evaluation is set, the evaluation can be run on a single machine within CUDA memory of 24G on a single card for 7B models under limited equipment conditions. -->
 
 ### Install
-1. Git clone our repository, via the following command
+**1. Git clone our repository, via the following command**
 ```bash
 git clone https://github.com/FudanDISC/ReForm-Eval.git
 cd ReForm-Eval
 pip install -r requirements.txt
 ```
 
-**If you want to test all existing 16 models, you need to run the following command**
+If you want to test all existing 16 models, you need to run the following command
 ```bash
 git clone https://github.com/FudanDISC/ReForm-Eval.git --recursive
 cd ReForm-Eval
 pip install -r requirements.txt
 ```
 
-2. Build from source
+**2. Build from source**
 ```bash
 git clone https://github.com/FudanDISC/ReForm-Eval.git
 cd ReForm-Eval
 pip install .
 ```
 
-**Note: If you run this command in a virtual env, it will be installed in that virtual env. If you run it in the base env, it will be installed in all envs.**
+**Note:** If you run this command in a virtual env, it will be installed in that virtual env. If you run it in the base env, it will be installed in all envs.
 
 The advantage of building from source is that you can directly replace the command of `python run_eval.py` and `python run_loader_eval.py` with the `run_eval` or `run_loader_eval` by modifying the config file, and can be executed in any path, including the dataloader function `load_reform_dataset`.
 

@@ -6,7 +6,13 @@ Assessed capability dimensions and tasks in ReForm-Eval. “Desc” and “Class
 
 
 ### Load Dataset from Hugging Face (Recommended)
-You can load our dataset directly from our Hugging Face repository, avoiding the hassle of manual downloading, so this is also the most recommended method. If you want to read the raw json data directly, use the following code:
+You can load our dataset directly from our Hugging Face repository, avoiding the hassle of manual downloading, so this is also the most recommended method. 
+
+**Please set `--hf` or `--offline_hf` if you would like to load data from Hugging Face when using our framework (`run_eval.py` and `run_loader_eval.py`). `--hf` is loading from Hugging Face Hub, and `--offline_hf` is loading Hugging Face data from the local path. If set at the same time, data will be loaded from Hugging Face Hub.**
+
+**Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load Hugging Face data when using Data Loader (`from build import load_reform_dataset`). `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading Hugging Face data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
+
+If you want to read the raw json data directly, use the following code:
 ```python
 from datasets import load_dataset
 # You can add (field="data") in parameters for extracting "data" keys.
@@ -33,7 +39,7 @@ And in `./build/MEDIC/disaster_type_dataset.py`, the specific path of Hugging Fa
         data = load_dataset("Aweminus/ReForm-Eval-Data",data_files={'test':self.config['data_config']['huggingface_data']}, split='test')
 ```
 
-If you cannot access Hugging Face, you can use the following command to download the dataset, and then load the dataset locally.
+**If you cannot access Hugging Face, you can use the following command to download the dataset, and then load the dataset locally.**
 
 **Git Clone**
 ```bash
