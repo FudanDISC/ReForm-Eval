@@ -58,3 +58,35 @@
 2023-10-18 11:02:38,872 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
 2023-10-18 11:02:38,873 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
 2023-10-18 11:02:38,875 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-19 04:30:58,786 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-19 04:30:58,796 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:32:39,555 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-19 04:32:39,557 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:32:39,562 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-19 04:32:39,563 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-19 04:32:39,565 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-19 04:36:21,981 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-19 04:36:21,983 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:36:21,987 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-19 04:36:21,988 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-19 04:36:21,989 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-19 04:36:28,256 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-19 04:36:28,256 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+2023-10-19 04:36:28,259 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:36:28,259 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:36:28,263 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-19 04:36:28,263 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.5818181818181818
+2023-10-19 04:36:28,265 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-19 04:36:28,265 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-19 04:36:28,267 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-19 04:36:28,267 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.7122099355998233
+2023-10-19 04:37:33,931 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/output/test_20231017/Flowers102/Flowers102_SingleChoice_likelihood_blip2_blip2_t5.json
+2023-10-19 04:37:33,931 ReForm-Eval Evaluation INFO: found the existing prediction in /remote-home/share/zjli_share/LLM-V-Bench/output/test_20231017/Flowers102/Flowers102_SingleChoice_likelihood_blip2_blip2_t5.json
+2023-10-19 04:37:34,006 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:37:34,006 ReForm-Eval Evaluation INFO: evaluating the predictions with the SingleChoice metric
+2023-10-19 04:37:34,032 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.60880195599022
+2023-10-19 04:37:34,032 ReForm-Eval Evaluation INFO: the evalueted SingleChoice result: 0.60880195599022
+2023-10-19 04:37:34,036 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-19 04:37:34,036 ReForm-Eval Evaluation INFO: the format hit rate is 1.0
+2023-10-19 04:37:34,044 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.0
+2023-10-19 04:37:34,044 ReForm-Eval Evaluation INFO: the measured stability (entropy on predictions) across prompts: 0.0

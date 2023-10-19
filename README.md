@@ -214,20 +214,21 @@ dataset = load_reform_dataset(
 **Step 2:** The model outputs a json file, such as `/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'`, based on the dataset built by **step 1**.
 
 **Step 3:** Run our new script `run_loader_eval.py`, taking the problem formulation and the output json file as main parameters of input.
+```bash
+python run_loader_eval.py --formulation SingleChoice --infer_method Likelihood --eval_stability \
+    --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
+```
+
+Or
 ```python
 from run_loader_eval import loader_eval
 
 dataset = loader_eval(formulation='SingleChoice',
+            infer_method='likelihood',
             multi_round_eval=False,
             eval_stability=True,
             prediction_file='/path/to/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json'
 )
-```
-
-Or
-```bash
-python run_loader_eval.py --formulation SingleChoice --eval_stability \
-    --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
 ```
 
 **Note:** There are four types of `Formulation: SingleChoice, Generation, OCROpenEnded and KIEOpenEnded`, respectively. It can only be set `eval_stability` and `multi_round_eval` when `--formulation SingleChoice`, which means that only SingleChoice can measure the instability and be used for the multi-round evaluation.
