@@ -64,8 +64,6 @@ build/COCO_text/text_legibility_dataset.py
 
 build/COCO_text/text_type_classification_dataset.py
 
-build/MSCOCO/object_counting_dataset.py
-
 build/MSCOCO/object_grounding_dataset.py
 
 build/MSCOCO/object_matching_dataset.py

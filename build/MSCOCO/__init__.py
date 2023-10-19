@@ -19,20 +19,6 @@ def get_mscoco(args, config, formulation, preprocessor):
                 return GroundedObjIden_SingleChoice(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication)
             else:
                 raise ValueError('current formulation {} is not supported yet'.format(formulation))
-        elif config['task'] == 'og':
-            from .object_grounding_dataset import ObjectGrounding_SingleChoice, ObjectGrounding_TrueOrFlase
-            if formulation == 'SingleChoice':
-                return ObjectGrounding_SingleChoice(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication)
-            elif formulation == 'TrueOrFalse':
-                return ObjectGrounding_TrueOrFlase(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication) 
-            else:
-                raise ValueError('current formulation {} is not supported yet'.format(formulation))
-        elif config['task'] == 'om':
-            from .object_matching_dataset import ObjectMatching_TrueOrFlase
-            if formulation == 'SingleChoice':
-                return ObjectMatching_TrueOrFlase(args=args, config=config, proc=preprocessor, duplication=args.dataset_duplication) 
-            else:
-                raise ValueError('current formulation {} is not supported yet'.format(formulation))
         elif config['task'] == 'mos':
             from .missing_object_selection_dataset import MissingObjectSelection_SingleChoice
             if formulation == 'SingleChoice':
