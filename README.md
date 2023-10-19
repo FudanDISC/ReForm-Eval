@@ -305,7 +305,6 @@ You may need to process them into a string with the desired format. You may be i
 
 **Please set `load_from_hf=True` or `offline_from_hf=True` if you would like to load ReForm-Eval-Data. `load_from_hf=True` is loading from Hugging Face Hub, and `offline_from_hf=True` is loading ReForm-Eval-Data from the local path. If `True` is set at the same time, data will be loaded from Hugging Face Hub.**
 
-
 ### Create Your Own Model Interface
 To add new models, you need to create the corresponding model interface for the unified evaluation. For a general new model interface, please refer to the interface template in `/path/to/ReForm-Eval/models/interfaces/base_interface.py`. Here we provide a step-by-step guide for the convenience of your implementation (taking Lynx as an example).
 
