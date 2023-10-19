@@ -834,7 +834,6 @@ def main():
     args = parser.parse_args()
 ```
 
-
 ### Model Usage
 When running the evaluation, these model-related parameters must be applied for specific models.
 
@@ -1058,7 +1057,6 @@ Then, you should run the following command to implement the modification.
 cd models/LAVIS
 pip install e .
 ```
-
 
 ### Data Usage
 For data-related parameters, we list required parameters of different tasks for comprehensive evaluation.
@@ -1386,7 +1384,6 @@ res = json.load(open('/path/to/YOUR_PREDICTION_FILE.json')) #load the output jso
 res[0] #res[n], n can be any number within the generated results
 ```
 
-
 ## 🖋 Citation
 If ReForm-Eval has been beneficial to your research and work, please cite our work using the following format:
 ```latex
@@ -1399,6 +1396,7 @@ If ReForm-Eval has been beneficial to your research and work, please cite our wo
       primaryClass={cs.CV}
 }
 ```
+
 ## 🤝 Acknowledgements
 We thank [MME](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/tree/Evaluation), [MMBench](https://github.com/open-compass/MMBench), [LVLM-eHub](http://lvlm-ehub.opengvlab.com/index.html), [M3IT](https://huggingface.co/datasets/MMInstruction/M3IT) and other repositories that have made great contributions to multi-modal large model evaluation. In addition, we are also very grateful that many LVLMs can be open sourced and participate in our evaluation, enriching results of our benchmarks.
 
