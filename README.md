@@ -215,7 +215,7 @@ dataset = load_reform_dataset(
 
 **Step 3:** Run our new script `run_loader_eval.py`, taking the problem formulation and the output json file as main parameters of input.
 ```bash
-python run_loader_eval.py --formulation SingleChoice --infer_method Likelihood --eval_stability \
+python run_loader_eval.py --formulation SingleChoice --infer_method likelihood --eval_stability \
     --prediction_file test_output/SingleChoice/TDIUC_SingleChoice_likelihood_imagebindLLM_imagebindLLM.json
 ```
 
