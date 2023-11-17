@@ -56,8 +56,9 @@ def metric_eval(args, full_res):
         round2metric = defaultdict(list)
     
     if args.formulation == 'Generation':
-        cider_metric, cider_metrics = metric(full_res)
-        logger.info('the evalueted {} CIDEr result: {}'.format(args.formulation, cider_metric))
+        generation_metrics = metric(full_res)
+        for method, value in generation_metrics.items():
+            logger.info('the evalueted {} {} result: {}'.format(args.formulation, method, value))
     else:
         ### for format hit rate
         hit_num  = 0
