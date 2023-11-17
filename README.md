@@ -78,6 +78,7 @@ Considering the sensitivity of LVLMs to the input prompts ([Zeng et al., 2023](h
 **If you have any questions, please send us an email or leave a github issue!**
 **`Email: yewang22@m.fudan.edu.cn`**
 
+- **[2023-11]** We added BLEU, Meteor, and Rouge-L metrics for the Generation task, and update `Ground IC15`, `FUNSD` dataset.
 - **[2023-10]** We released the initial version of the [ReForm-Eval](https://arxiv.org/abs/2310.02569), containing interfaces of 16 models and 61 converted reformulated datasets [🤗ReForm-Eval-Data](https://huggingface.co/datasets/Aweminus/ReForm-Eval-Data/tree/main)!
 
 ## 📖 Contents
