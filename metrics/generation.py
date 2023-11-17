@@ -1,9 +1,17 @@
 from typing import Any
+from pycocoevalcap.bleu.bleu import Bleu
+from pycocoevalcap.meteor.meteor import Meteor
+from pycocoevalcap.rouge.rouge import Rouge
 from pycocoevalcap.cider.cider import Cider
 
 class GenerationMetric(object):
     def __init__(self):
-        self.scorer = Cider()
+        self.scorers = [
+            (Bleu(4), ["bleu_1", "bleu_2", "bleu_3", "bleu_4"]),
+            (Meteor(), "meteor"),
+            (Rouge(), "rouge_l"),
+            (Cider(), "cider")
+        ]
     
     def __call__(self, results):
         """
@@ -14,6 +22,17 @@ class GenerationMetric(object):
         for i, result in enumerate(results):
             pred_dict[f'{i}']=[result['prediction']]
             gt_ans_dict[f'{i}']=result['references']
-        score, scores = self.scorer.compute_score(gt_ans_dict, pred_dict)
         
-        return score, scores
+        scores = {}
+        for scorer, method in self.scorers:
+            if isinstance(method, list):
+                # BLEU scores
+                score, _ = scorer.compute_score(gt_ans_dict, pred_dict)
+                for m, s in zip(method, score):
+                    scores[m] = s
+            else:
+                # Meteor, Rouge-L, CIDEr
+                score, _ = scorer.compute_score(gt_ans_dict, pred_dict)
+                scores[method] = score
+        
+        return scores
